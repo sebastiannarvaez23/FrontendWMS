@@ -1,0 +1,20 @@
+
+
+.dashBoard-picking {
+    margin: 20px;
+    padding: 10px;
+    background: linear-gradient(to bottom right, var(--component), #e0e0ec63);
+    border-radius: 25px;
+    overflow: scroll;
+    box-shadow: 0px 1.5px 1.5px rgba(0, 0, 0, 0.2);
+}
+
+.dashBoard-picking::-webkit-scrollbar {
+    width: 7px;
+    display: none;
+}
+
+.dashBoard-picking::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+}
