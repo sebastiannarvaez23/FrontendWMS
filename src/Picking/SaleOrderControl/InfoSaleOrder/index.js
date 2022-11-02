@@ -4,6 +4,7 @@ import './InfoSaleOrder.css';
 function InfoSaleOrder() {
     return (
         <div className="info-sale-order">
+            <h4>Información del pedido de venta</h4>
             <div>
                 <p>Fecha publicación</p>
                 <p>Fecha entrega</p>

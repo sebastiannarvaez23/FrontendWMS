@@ -7,9 +7,15 @@ function DashBoardPicking(props) {
             <div className="header-list-pikings">
                 <span>id</span>
                 <span>Estado</span>
-                <span>Usuario creador</span>
-                <span>Fecha creación</span>
+                <span>Responsable</span>
+                <span>Última modificación</span>
             </div>
+
+            <button
+                className="btn-create-picking"
+                onClick={""}
+                >+</button>
+
             {props.children}
         </div>
     );

@@ -1,6 +1,6 @@
 .sale-order-control{
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 30% 70%;
 
     margin: 10px;
     height: 35%;

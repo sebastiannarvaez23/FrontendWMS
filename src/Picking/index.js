@@ -20,7 +20,7 @@ function Picking(props) {
         <section className="home-section">
             <div className="home-content">
                 <i onClick={openSlidebar} className='bx bx-menu'></i>
-                <span className="text">Picking</span>
+                <span className="text">Despachos</span>
             </div>
 
             {props.children}

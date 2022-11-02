@@ -12,7 +12,7 @@ import { PickingControl } from './Picking/PickingControl';
 import { DashBoardPicking } from './Picking/PickingControl/DashBoardPicking';
 import { IndicatorsPicking } from './Picking/PickingControl/IndicatorsPicking';
 import { PickingItem } from './Picking/PickingControl/DashBoardPicking/PickingItem';
-import { StautusPickingIndicator } from './Picking/PickingControl/IndicatorsPicking/StautusPickingIndicator';
+import { StatusPickingIndicator } from './Picking/PickingControl/IndicatorsPicking/StatusPickingIndicator';
 
 function App() {
 
@@ -43,6 +43,7 @@ function App() {
         </SaleOrderControl>
 
         <PickingControl>
+          
           <DashBoardPicking>
 
             {pickingList.map(picking => (
@@ -57,12 +58,11 @@ function App() {
                 numberBox={picking.numberBox}
               />
             ))}
-            
+
           </DashBoardPicking>
-          
           <IndicatorsPicking>
-            <StautusPickingIndicator />
-            <StautusPickingIndicator />
+            <StatusPickingIndicator />
+            <StatusPickingIndicator />
           </IndicatorsPicking>
 
         </PickingControl>

@@ -1,4 +1,11 @@
-.picking-control{
+:root {
+    --primary-color: #5856e9;
+    --very-white: #f3eef5;
+    --component: #e6e4f5;
+    --very-like-pink: #fcdae1;
+}
+
+.picking-control {
     display: grid;
     grid-template-columns: 60% 40%;
 

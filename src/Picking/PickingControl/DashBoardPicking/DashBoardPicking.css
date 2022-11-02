@@ -1,4 +1,9 @@
-
+:root {
+    --primary-color: #5856e9;
+    --very-white: #f3eef5;
+    --component: #e6e4f5;
+    --very-like-pink: #fcdae1;
+}
 
 .dashBoard-picking {
     margin: 20px;
@@ -14,7 +19,7 @@
     margin-left: auto;
     margin-right: auto;
     padding-left: 8%;
-    padding-right: 8%;
+    padding-right: 4%;
     display: flex;
     justify-content: space-between;
 }
@@ -29,3 +34,34 @@
     background: var(--primary-color);
     border-radius: 10px;
 }
+
+.btn-create-picking{
+    background-color: var(--very-like-pink);
+    box-shadow: 0px 5px 25px #5856e956;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 50px;
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    font-weight: bold;
+    color: #FAFAFA;
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+
+    height: 64px;
+    width: 64px;
+    transform: rotate(0);
+    transition: .3s ease;
+    z-index: 1;
+
+    margin-right: 38%;
+}
+
+  
+.btn-create-picking:hover{
+    transform: rotate(224deg);
+  }
