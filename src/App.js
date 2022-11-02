@@ -1,18 +1,18 @@
-import logo from './logo.svg';
+
 import './App.css';
 import React from 'react';
 import { SlideBar } from './SlideBar';
-import { LogoSlideBar } from './LogoSlideBar';
-import { SlideLinks } from './SlideLinks';
+import { LogoSlideBar } from './SlideBar/LogoSlideBar';
+import { SlideLinks } from './SlideBar/SlideLinks';
 import { Picking } from './Picking';
-import { SaleOrderControl } from './SaleOrderControl';
-import { DashBoardSaleOrder } from './DashBoardSaleOrder';
-import { InfoSaleOrder } from './InfoSaleOrder';
-import { PickingControl } from './PickingControl';
-import { DashBoardPicking } from './DashBoardPicking';
-import { IndicatorsPicking } from './IndicatorsPicking';
-import { PickingItem } from './PickingItem';
-import { StautusPickingIndicator } from './StautusPickingIndicator';
+import { SaleOrderControl } from './Picking/SaleOrderControl';
+import { DashBoardSaleOrder } from './Picking/SaleOrderControl/DashBoardSaleOrder';
+import { InfoSaleOrder } from './Picking/SaleOrderControl/InfoSaleOrder';
+import { PickingControl } from './Picking/PickingControl';
+import { DashBoardPicking } from './Picking/PickingControl/DashBoardPicking';
+import { IndicatorsPicking } from './Picking/PickingControl/IndicatorsPicking';
+import { PickingItem } from './Picking/PickingControl/DashBoardPicking/PickingItem';
+import { StautusPickingIndicator } from './Picking/PickingControl/IndicatorsPicking/StautusPickingIndicator';
 
 function App() {
 
@@ -57,7 +57,7 @@ function App() {
                 numberBox={picking.numberBox}
               />
             ))}
-
+            
           </DashBoardPicking>
           
           <IndicatorsPicking>
