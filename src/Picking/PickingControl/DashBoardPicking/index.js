@@ -14,7 +14,6 @@ function DashBoardPicking(props) {
 
             <button
                 className="btn-create-picking"
-                onClick={""}
                 >+</button>
 
             {props.children}

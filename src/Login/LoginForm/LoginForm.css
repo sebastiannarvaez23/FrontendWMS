@@ -1,0 +1,79 @@
+:root{
+    --primary-color: #5856e9;
+    --very-white: #f3eef5;
+    --component: #e6e4f5;
+    --very-like-pink: #f5bec8;
+  }
+
+input{
+    width: 70%;
+    height: 3vh;
+    margin-top: 4px;
+    border-radius: 8px;
+    border: solid 1px white;
+
+}
+
+h1{
+    font-size: 35px;
+}
+
+button{
+    margin-top: 8px;
+    width: 30%;
+    height: 35px;
+}
+
+.contain-contact-manager{
+    margin-top: 24px;
+    font-size: 15px;
+}
+
+.inp-login{
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.inp-login input{
+    height: 30px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.btn-login{
+    background-color: var(--primary-color);
+    color: var(--very-white);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.forgot-pass:hover{
+    cursor: pointer;
+}
+
+@media (max-width: 450px) {
+    h1{
+        font-size: 32px;
+    }
+
+    h3{
+        font-size: 20px;
+        margin-top: 24px;
+    }
+
+    .inp-login{
+        width: 100%;
+    }
+
+    .inp-login input{
+        height: 5vh;
+    }
+
+    button{
+        margin-top: 8px;
+        width: 60%;
+        height: 35px;
+    }
+}

@@ -1,0 +1,16 @@
+.content-logo-jo img{
+    width: 300px;
+}
+
+@media (max-width: 650px) {
+    .content-logo-jo img{
+        margin-top: 5vh;
+        width:250px;
+    }
+}
+@media (max-width: 450px) {
+    .content-logo-jo img{
+        margin-top: 5vh;
+        width: 100%;
+    }
+}

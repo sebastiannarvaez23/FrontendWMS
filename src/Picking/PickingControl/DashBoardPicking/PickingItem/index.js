@@ -1,13 +1,13 @@
 import React from "react";
 import './PickingItem.css';
 
-function PickingItem() {
+function PickingItem({id, status, responsible, dateModified}) {
     return(
         <div className="picking-item">
-            <span>5</span>
-            <span>PP</span>
-            <span>Santiago Sanchez</span>
-            <span>02/11/2022</span>
+            <span>{id}</span>
+            <span>{status}</span>
+            <span>{responsible}</span>
+            <span>{dateModified}</span>
         </div>
     );
 }
