@@ -2,7 +2,6 @@
 
 ## Preparación del entorno
 1. Se debe tener instalado:
-    - (PostgreSQL) 15.0
     - Python 3.10.5
     - node v16.16.0
 
