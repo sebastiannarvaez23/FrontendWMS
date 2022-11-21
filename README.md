@@ -1,11 +1,13 @@
-# Levantando aplicación WMS
+# WMS (Warehouse Management System)
 
-## Preparación del entorno
+## Levantando la Aplicación
+
+### Preparación del entorno
 1. Se debe tener instalado:
     - Python 3.10.5
     - node v16.16.0
 
-## Levantando el servidor web api
+### Levantando el servidor web api
 1. Instale el entorno virtual de python 3 con `$ python3 -m venv venv`
 2. Active el entorno con el siguiente comando:
     - Linux: `$ source venv/bin/activate`
@@ -15,10 +17,10 @@
 5. Prepare las migraciones de los modelos. Debe ubicarse sobre la ruta raiz del proyecto ConformacionHogarServices/ y ejecutar `$ python manage.py makemigrations`
 6. Envie las migraciones a la base de datos. Debe ubicarse sobre la ruta raiz del proyecto ConformacionHogarServices/ y ejecutar `$ python manage.py migrate`
 
-## Levantando el frontend
+### Levantando el frontend
 1. Ejecute el comando `$ npm install`
 2. Ejecute el comando `$ npm start`
 
 Levante cada entorno en una terminal diferente y rectifique que le backend salga por el puerto 8000
 
-### End
+## End
