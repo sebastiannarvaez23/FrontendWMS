@@ -1,17 +1,23 @@
 import React, { useState } from "react";
 import { loadInfoSaleOrder } from "../../../api/saleorder";
+import { usePicking } from "../../../Context/picking-context";
 import './DashBoardSaleOrder.css';
 
 function DashBoardSaleOrder(props) {
+
+    const {setIndicatorsPicking, setPickings} = usePicking()
+
     const [loaded, setLoaded] = useState(false);
 
     function clearInputsSaleOrders() {
-        props.setIndicatorsPicking({
+        setIndicatorsPicking({
             picking_quantity_by_customer: "",
             request_quantity_by_customer: "",
             picking_quantity_by_saleorder: "",
             request_quantity_by_saleorder: ""
         })
+
+        props.setReferencesPack([])
 
         props.setSaleOrder({
             publication_date:"",
@@ -24,7 +30,7 @@ function DashBoardSaleOrder(props) {
             collection:""
         });
         props.setNoSaleOrder("");
-        props.setPickings([])
+        setPickings([])
     }
 
     return (

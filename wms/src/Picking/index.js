@@ -21,8 +21,7 @@ import { IndicatorsPicking } from '../Picking/PickingControl/IndicatorsPicking';
 import { PickingItem } from '../Picking/PickingControl/DashBoardPicking/PickingItem';
 import { StatusPickingIndicator } from '../Picking/PickingControl/IndicatorsPicking/StatusPickingIndicator';
 import { PickingMonitor } from "../PickingMonitor";
-
-import { Transition } from "react-transition-group";
+import { usePicking } from "../Context/picking-context";
 
 
 function openSlidebar() {
@@ -38,19 +37,8 @@ function openSlidebar() {
 }
 
 function Picking() {
-    // -- Logic Front
-    let indicators = [
-        { id: 1, name: "Verano" },
-        { id: 2, name: "Otoño" }
-    ]
 
-    // Information Indicators
-    const [indicatorsPicking, setIndicatorsPicking] = useState({
-        picking_quantity_by_customer: "",
-        request_quantity_by_customer: "",
-        picking_quantity_by_saleorder: "",
-        request_quantity_by_saleorder: ""
-    })
+    const {setPickings, setLoadedPicking, loadedPicking, pickings, indicatorsPicking, setIndicatorsPicking } = usePicking();
 
     // Information Sale Order
     const [saleOrder, setSaleOrder] = useState({
@@ -64,31 +52,26 @@ function Picking() {
         collection: ""
     });
     // --
-    const [pickings, setPickings] = useState([]);
+
     const [noSaleOrder, setNoSaleOrder] = useState("");
-    const [loadedPicking, setLoadedPicking] = useState(false);
-    const [loadedIndicator, setloadedIndicator] = useState(true);
-    const [pickingSelected, setPickingSelected] = useState("")
     const [openPickingMonitor, setOpenPickingMonitor] = useState(false);
     const [saleOrderItems, setSaleOrderItems] = useState([])
+    const [referencesPack, setReferencesPack] = useState([]);
 
     useEffect(() => {
         getInfoIndicators(saleOrder.customer_name, noSaleOrder, setIndicatorsPicking);
-    }, [saleOrder])
+    }, [saleOrder, referencesPack])
 
     useEffect(() => {
         getPickings(setPickings, setLoadedPicking, noSaleOrder);
     }, [saleOrder])
-
-
-
 
     const dataIndicatorCustomer = {
         labels: [],
         datasets: [
             {
                 label: '# of Votes',
-                data: [indicatorsPicking.picking_quantity_by_customer, indicatorsPicking.request_quantity_by_customer],
+                data: [indicatorsPicking.picking_quantity_by_customer, parseInt(indicatorsPicking.request_quantity_by_customer, 10) - parseInt(indicatorsPicking.picking_quantity_by_customer, 10)],
                 backgroundColor: [
                     '#5856e9',
                     '#fcdae1',
@@ -107,7 +90,7 @@ function Picking() {
         datasets: [
             {
                 label: '# of Votes',
-                data: [indicatorsPicking.picking_quantity_by_saleorder, indicatorsPicking.request_quantity_by_saleorder],
+                data: [indicatorsPicking.picking_quantity_by_saleorder, parseInt(indicatorsPicking.request_quantity_by_saleorder, 10) - parseInt(indicatorsPicking.picking_quantity_by_saleorder, 10)],
                 backgroundColor: [
                     '#5856e9',
                     '#fcdae1',
@@ -127,11 +110,12 @@ function Picking() {
 
             {!!openPickingMonitor && (
                 <PickingMonitor
-                    pickingSelected={pickingSelected}
                     setOpenPickingMonitor={setOpenPickingMonitor}
                     openPickingMonitor={openPickingMonitor}
                     setSaleOrderItems={setSaleOrderItems}
                     noSaleOrder={noSaleOrder}
+                    referencesPack={referencesPack}
+                    setReferencesPack={setReferencesPack}
                 />
             )}
 
@@ -147,11 +131,10 @@ function Picking() {
                 </div>
                 <SaleOrderControl>
                     <DashBoardSaleOrder
-                        setIndicatorsPicking={setIndicatorsPicking}
                         setSaleOrder={setSaleOrder}
                         setNoSaleOrder={setNoSaleOrder}
-                        setPickings={setPickings}
                         noSaleOrder={noSaleOrder}
+                        setReferencesPack={setReferencesPack}
                     />
                     <InfoSaleOrder
                         saleOrder={saleOrder}
@@ -161,8 +144,6 @@ function Picking() {
                     <DashBoardPicking
                         createPicking={createPicking}
                         noSaleOrder={noSaleOrder}
-                        setPickings={setPickings}
-                        setLoadedPicking={setLoadedPicking}
                     >
                         {loadedPicking && pickings.map(picking => (
                             <PickingItem
@@ -171,7 +152,6 @@ function Picking() {
                                 status={picking.status}
                                 responsible={picking.responsible}
                                 dateModified={picking.last_modification}
-                                setPickingSelected={setPickingSelected}
                                 setOpenPickingMonitor={setOpenPickingMonitor}
                             />
                         ))}

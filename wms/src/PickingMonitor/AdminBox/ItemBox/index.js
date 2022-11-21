@@ -2,11 +2,13 @@ import React from "react";
 import "./ItemBox.css"
 
 function ItemBox(props) {
-
+    let className = "box-item";
+    if (props.boxSelected == props.id) {
+        className += "-selected";
+    }
     return (
-        <div className="box-item" onClick={()=>{
+        <div className={className} onClick={()=>{
             props.setBoxSelected(props.id);
-
         }}>
             <span>{props.id}</span>
             <span>{props.gross_weight}</span>

@@ -10,17 +10,22 @@ import {
 
 import { Picking } from './Picking';
 import { Login } from './Login';
-import { PickingMonitor } from './PickingMonitor';
+
+import { PickingProvider } from './Context/picking-context';
+
+export default () => (
+  <PickingProvider>
+    <App></App>
+  </PickingProvider>
+);
 
 function App() {
-    return (
-      <Router>
-        <Routes>
-          <Route path="/picking" element={<Picking />} />
-          <Route path="" element={<Login />} />
-        </Routes>
-      </Router>
-    );
-  }
-
-export default App;
+  return (
+    <Router>
+      <Routes>
+        <Route path="/picking" element={<Picking />} />
+        <Route path="" element={<Login />} />
+      </Routes>
+    </Router>
+  );
+}
