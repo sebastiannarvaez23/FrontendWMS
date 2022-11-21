@@ -1,0 +1,61 @@
+:root {
+    --primary-color: #5856e9;
+    --very-white: #f3eef5;
+    --component: #e6e4f5;
+    --very-like-pink: #fcdae1;
+}
+
+
+
+.picking-monitor-container {
+    background-color: var(--very-white);
+    position: fixed;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+}
+
+
+.picking-monitor {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.btn-back {
+    background-color: var(--very-like-pink);
+    box-shadow: 0px 5px 15px #5856e956;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 50px;
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    font-weight: bold;
+    color: #FAFAFA;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    height: 64px;
+    width: 64px;
+    transform: rotate(0);
+    transition: .3s ease;
+    z-index: 1;
+
+    margin-right: 92%;
+    margin-bottom: 84vh;
+}
+
+
+.btn-back:hover {
+    transform: rotate(180deg);
+}
