@@ -16,7 +16,7 @@
 4. Prepare las migraciones de los modelos. Debe ubicarse sobre la ruta raiz del proyecto WMSServices/ y ejecutar el comando `$ python manage.py makemigrations`
 5. Envie las migraciones a la base de datos. Debe ubicarse sobre la ruta raiz del proyecto WMSServices/ y ejecutar el comando `$ python manage.py migrate`
 
-## Levantando el frontend
+### Levantando el frontend
 1. Ejecute el comando `$ npm install` en la raiz del proyecto wms/
 2. Ejecute el comando `$ npm start` en la raiz del proyecto wms/
 
