@@ -1,11 +1,9 @@
-import React, { createContext, useContext, useMemo, useState, useEffect } from "react";
-import { getPickings } from "../api/picking";
+import React, { createContext, useContext, useMemo, useState } from "react";
 
 export const PickingContext = createContext();
 
-export function PickingProvider(props) {
-    
-    // Information Indicators
+export const PickingProvider = (props) => {
+
     const [indicatorsPicking, setIndicatorsPicking] = useState({
         picking_quantity_by_customer: "",
         request_quantity_by_customer: "",
@@ -17,6 +15,9 @@ export function PickingProvider(props) {
     const [loadedIndicator, setloadedIndicator] = useState(true);
     const [pickingSelected, setPickingSelected] = useState("");
 
+    // Picking Monitor
+    const [openPickingMonitor, setOpenPickingMonitor] = useState(false);
+
     const value = useMemo(() => {
         return ({
             indicatorsPicking,
@@ -24,6 +25,8 @@ export function PickingProvider(props) {
             loadedPicking,
             loadedIndicator,
             pickingSelected,
+            openPickingMonitor,
+            setOpenPickingMonitor,
             setIndicatorsPicking,
             setPickings,
             setLoadedPicking,
@@ -35,20 +38,21 @@ export function PickingProvider(props) {
         loadedPicking,
         loadedIndicator,
         pickingSelected,
+        openPickingMonitor,
+        setOpenPickingMonitor,
         setIndicatorsPicking,
         setPickings,
         setLoadedPicking,
         setloadedIndicator,
         setPickingSelected
     ])
-
     return <PickingContext.Provider value={value} {...props} />
 }
 
-export function usePicking() {
+export const usePicking = () => {
     const context = useContext(PickingContext);
     if (!context) {
-        throw new Error('usePicking debe estar dentro del Proveedor PickingContext')
+        throw new Error('usePicking debe estar dentro del Proveedor PickingContext');
     }
     return context;
 }

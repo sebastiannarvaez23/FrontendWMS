@@ -13,11 +13,18 @@ import { ItemReferenceRequest } from "./AdminReferences/PanelItemReferenceReques
 import { PanelItemReferencePack } from "./AdminReferences/PanelItemReferencePack";
 import { ItemReferencePack } from "./AdminReferences/PanelItemReferencePack/ItemReferencePack";
 import { getInfoReferencesRequest } from "../api/saleorder";
+
+// Context
 import { usePicking } from "../Context/picking-context";
+import { useSaleOrder } from "../Context/saleorder-context";
+import { useBox } from "../Context/box-context";
 
-function PickingMonitor(props) {
+function PickingMonitor() {
 
-    const {pickingSelected} = usePicking()
+    const { noSaleOrder } = useSaleOrder();
+    const { pickingSelected, setOpenPickingMonitor } = usePicking();
+    const { referencesPack, setReferencesPack} = useBox();
+
 
     const [boxes, setBoxes] = useState([]);
     const [loaded, setLoadedBox] = useState(false);
@@ -29,17 +36,17 @@ function PickingMonitor(props) {
 
     useEffect(() => {
         getBoxes(setBoxes, setLoadedBox, pickingSelected);
-        getInfoReferencesRequest(setLoadedSaleOrderItems, setReferencesRequest, props.noSaleOrder)
+        getInfoReferencesRequest(setLoadedSaleOrderItems, setReferencesRequest, noSaleOrder)
     }, [])
 
     useEffect(() => {
-        getBoxesItem(props.setReferencesPack, setLoadedBoxItem, boxSelected)
+        getBoxesItem(setReferencesPack, setLoadedBoxItem, boxSelected)
     }, [boxSelected])
 
 
     return ReactDOM.createPortal(
         <section className="picking-monitor-container">
-            <button onClick={() => { props.setOpenPickingMonitor(false); props.setReferencesPack([]); }} className="btn-back">&#62;</button>
+            <button onClick={() => { setOpenPickingMonitor(false); setReferencesPack([]); }} className="btn-back">&#62;</button>
             <div className="picking-monitor">
                 <AdminBox
                     setBoxes={setBoxes}
@@ -77,11 +84,11 @@ function PickingMonitor(props) {
                         {!loadedSaleOrderItems && (<ItemReferenceRequest id={"Cargando ..."} />)}
                     </PanelItemReferenceRequest>
                     <PanelItemReferencePack
-                        setReferencesPack={props.setReferencesPack}
+                        setReferencesPack={setReferencesPack}
                         setLoadedBoxItem={setLoadedBoxItem}
                         boxSelected={boxSelected}
                     >
-                        {loadedBoxItem && props.referencesPack.map(reference => (
+                        {loadedBoxItem && referencesPack.map(reference => (
                             <ItemReferencePack
                                 key={reference.id}
                                 id={reference.id}

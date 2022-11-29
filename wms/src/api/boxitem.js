@@ -5,7 +5,6 @@ export const getBoxesItem = async (setReferencesPack, setLoadedBoxItem, idBox) =
         axios.get("http://localhost:8000/box/getboxitems/" + idBox)
             .then(response => {
                 setReferencesPack(response.data);
-                console.log(response.data)
             })
             .catch(err => console.log(err))
             .finally(() => setLoadedBoxItem(true))

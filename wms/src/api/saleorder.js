@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-export const loadInfoSaleOrder = async (noSaleOrder, setLoaded, props) => {
+export const loadInfoSaleOrder = async (noSaleOrder, setLoaded, setSaleOrder) => {
     axios.get("http://localhost:8000/saleorder/get/" + noSaleOrder)
         .then(response => {
-            props.setSaleOrder(response.data);
+            setSaleOrder(response.data);
         })
         .catch(err => console.log(err))
         .finally(() => {
@@ -15,7 +15,6 @@ export const getInfoReferencesRequest = async (setLoadedSaleOrderItems, setSaleO
     axios.get("http://localhost:8000/saleorder/getitems/" + noSaleOrder)
         .then(response => {
             setSaleOrderItems(response.data);
-            console.log(response.data);
         })
         .catch(err => console.log(err))
         .finally(() => {
@@ -24,11 +23,10 @@ export const getInfoReferencesRequest = async (setLoadedSaleOrderItems, setSaleO
 }
 
 export const getInfoIndicators = async (customerName, noSaleOrder, setIndicatorsPicking) => {
-    if (customerName != "" && noSaleOrder != ""){
+    if (customerName !== "" && noSaleOrder !== ""){
         axios.get("http://localhost:8000/saleorder/getinfoindicators/" + customerName + "/" + noSaleOrder + "/")
             .then(response => {
                 setIndicatorsPicking(response.data);
-                console.log(response.data);
             })
             .catch(err => console.log(err))
             .finally(() => {})

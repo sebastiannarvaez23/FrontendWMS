@@ -1,7 +1,10 @@
 import React from "react";
+import { useSaleOrder } from "../../../Context/saleorder-context";
 import './InfoSaleOrder.css';
 
-function InfoSaleOrder(props) {
+function InfoSaleOrder() {
+
+    const { saleOrder } = useSaleOrder();
 
     return (
         <div className="info-sale-order">
@@ -13,10 +16,10 @@ function InfoSaleOrder(props) {
                 <p>PO - Comentarios</p>
             </div>
             <div className="col-inp">
-                <input readOnly value={props.saleOrder.publication_date} />
-                <input readOnly value={props.saleOrder.delivery_date} />
-                <input readOnly value={props.saleOrder.doc_date} />
-                <input readOnly value={props.saleOrder.po_comments} />
+                <input readOnly value={saleOrder.publication_date} />
+                <input readOnly value={saleOrder.delivery_date} />
+                <input readOnly value={saleOrder.doc_date} />
+                <input readOnly value={saleOrder.po_comments} />
             </div>
             <div>
                 <p>Nombre cliente</p>
@@ -25,10 +28,10 @@ function InfoSaleOrder(props) {
                 <p>Colección</p>
             </div>
             <div className="col-inp">
-                <input readOnly value={props.saleOrder.customer_name} />
-                <input readOnly value={props.saleOrder.delivery_address} />
-                <input readOnly value={props.saleOrder.pay_term} />
-                <input readOnly value={props.saleOrder.collection} />
+                <input readOnly value={saleOrder.customer_name} />
+                <input readOnly value={saleOrder.delivery_address} />
+                <input readOnly value={saleOrder.pay_term} />
+                <input readOnly value={saleOrder.collection} />
             </div>
         </div>
     );

@@ -5,7 +5,6 @@ export const getPickings = async (setPickings, setLoadedPicking, noSaleOrder) =>
         axios.get("http://localhost:8000/picking/get/" + noSaleOrder)
             .then(response => {
                 setPickings(response.data);
-                console.log(response.data);
             })
             .catch(err => console.log(err))
             .finally(() => setLoadedPicking(true))

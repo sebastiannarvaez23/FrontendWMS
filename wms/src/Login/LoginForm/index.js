@@ -37,7 +37,7 @@ function FormLogin(props) {
 
   function validateCredential(loginUser, loginPass, onShowCredentialError) {
     credentials.forEach(credential => {
-      if (credential['user'] === loginUser && credential['pass'] == loginPass) {
+      if (credential['user'] === loginUser && credential['pass'] === loginPass) {
         sesionSuccess(props.showCredentialError);
         window.location.href = "/picking/"
       } else {

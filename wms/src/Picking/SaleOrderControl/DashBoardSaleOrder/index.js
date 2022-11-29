@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import { loadInfoSaleOrder } from "../../../api/saleorder";
+import { useBox } from "../../../Context/box-context";
 import { usePicking } from "../../../Context/picking-context";
+import { useSaleOrder } from "../../../Context/saleorder-context";
 import './DashBoardSaleOrder.css';
 
 function DashBoardSaleOrder(props) {
 
-    const {setIndicatorsPicking, setPickings} = usePicking()
+    const { noSaleOrder, setSaleOrder, setNoSaleOrder } = useSaleOrder();
+    const {setIndicatorsPicking, setPickings} = usePicking();
+    const { setReferencesPack} = useBox();
 
+    // Implementar animacion de carga
     const [loaded, setLoaded] = useState(false);
 
     function clearInputsSaleOrders() {
@@ -17,9 +22,9 @@ function DashBoardSaleOrder(props) {
             request_quantity_by_saleorder: ""
         })
 
-        props.setReferencesPack([])
+        setReferencesPack([])
 
-        props.setSaleOrder({
+        setSaleOrder({
             publication_date:"",
             delivery_date:"",
             doc_date:"",
@@ -29,15 +34,15 @@ function DashBoardSaleOrder(props) {
             pay_term:"",
             collection:""
         });
-        props.setNoSaleOrder("");
+        setNoSaleOrder("");
         setPickings([])
     }
 
     return (
         <div className="dashboard-sale-order">
             <h3>Pedido de Venta</h3>
-            <input value={props.noSaleOrder} onChange={(event) => { props.setNoSaleOrder(event.target.value) }} className="inp-search-so" />
-            <button className="btn btn-export-status-order" onClick={() => { loadInfoSaleOrder(props.noSaleOrder, setLoaded, props) }}>Cargar</button>
+            <input value={noSaleOrder} onChange={(event) => { setNoSaleOrder(event.target.value) }} className="inp-search-so" />
+            <button className="btn btn-export-status-order" onClick={() => { loadInfoSaleOrder(noSaleOrder, setLoaded, setSaleOrder) }}>Cargar</button>
             <button className="btn btn-clean-dashboard-so" onClick={() => { clearInputsSaleOrders() }}>Limpiar</button>
         </div>
     );

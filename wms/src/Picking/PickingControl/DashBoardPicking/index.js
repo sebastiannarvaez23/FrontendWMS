@@ -1,16 +1,17 @@
 import React from "react";
 import { createPicking } from "../../../api/picking";
-import { getPickings } from "../../../api/picking";
 import { usePicking } from "../../../Context/picking-context";
+import { useSaleOrder } from "../../../Context/saleorder-context";
 import './DashBoardPicking.css';
 
 function DashBoardPicking(props) {
 
-    const {setPickings, setIndicatorsPicking, setLoadedPicking} = usePicking()
+    const { noSaleOrder } = useSaleOrder();
+    const {setPickings, setLoadedPicking} = usePicking()
 
     let pickingDefaultData = {
         status: 1,
-        sale_order: props.noSaleOrder
+        sale_order: noSaleOrder
     }
 
     return (
@@ -24,7 +25,7 @@ function DashBoardPicking(props) {
             </div>
 
             <button onClick={() => {
-                createPicking(pickingDefaultData, setPickings, setLoadedPicking, props.noSaleOrder);
+                createPicking(pickingDefaultData, setPickings, setLoadedPicking, noSaleOrder);
             }}
                 className="btn-create-picking"
             >+</button>

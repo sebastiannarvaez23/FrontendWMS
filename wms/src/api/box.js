@@ -14,7 +14,7 @@ export const getDimensions = async (setDimensions) => {
 // Box
 
 export const getBoxes = async (setBoxes, setLoadedBox, pickingSelected) => {
-    if (pickingSelected != "") {
+    if (pickingSelected !== "") {
         axios.get("http://localhost:8000/box/getboxes/" + pickingSelected)
             .then(response => {
                 setBoxes(response.data);
