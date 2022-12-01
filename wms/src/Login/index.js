@@ -5,7 +5,7 @@ import { FormLogin } from './LoginForm';
 import { CredentialError } from './LoginAlerts/CredentialError';
 import './Login.css';
 
-function Login() {
+export const Login = () => {
     const [showCredentialError, setShowCredentialError] = React.useState(false);
     
     return (
@@ -23,5 +23,3 @@ function Login() {
       </div>
     );
 }
-
-export { Login };

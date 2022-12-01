@@ -1,7 +1,7 @@
 import React from "react";
 import './CredentialError.css';
 
-function CredentialError({showCredentialError}, {setShowCredentialError}) {
+export const CredentialError = ({showCredentialError}, {setShowCredentialError}) => {
     
     return (
         <div className="content-alert-credential-error">
@@ -14,5 +14,3 @@ function CredentialError({showCredentialError}, {setShowCredentialError}) {
         </div>
     );
 }
-
-export { CredentialError };

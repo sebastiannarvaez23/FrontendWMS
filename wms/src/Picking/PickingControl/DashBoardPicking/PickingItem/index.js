@@ -4,7 +4,7 @@ import './PickingItem.css';
 // Context
 import { usePicking } from "../../../../Context/picking-context";
 
-function PickingItem(props) {
+export const PickingItem = (props) => {
     const { setPickingSelected, setOpenPickingMonitor } = usePicking();
 
     return (
@@ -19,5 +19,3 @@ function PickingItem(props) {
         </div>
     );
 }
-
-export { PickingItem };

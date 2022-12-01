@@ -1,7 +1,7 @@
 import React from "react";
 import './LogoSlideBar.css';
 
-function LogoSlideBar() {
+export const LogoSlideBar = () => {
     return (
         <div className="logo-details">
             <i className=''></i>
@@ -9,5 +9,3 @@ function LogoSlideBar() {
         </div>
     );
 }
-
-export { LogoSlideBar };

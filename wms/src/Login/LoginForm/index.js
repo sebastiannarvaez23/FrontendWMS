@@ -2,7 +2,7 @@ import React from "react";
 import './LoginForm.css';
 import Swal from 'sweetalert2';
 
-function FormLogin(props) {
+export const FormLogin = (props) => {
 
   const credentials = [{ user: 'manager', pass: 'admin123' }]
 
@@ -85,5 +85,3 @@ function FormLogin(props) {
     </div>
   );
 }
-
-export { FormLogin };

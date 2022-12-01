@@ -1,12 +1,10 @@
 import React from "react";
 import './PickingControl.css';
 
-function PickingControl(props) {
+export const PickingControl = (props) => {
     return (
         <div className="picking-control">
             {props.children}
         </div>
     );
 }
-
-export { PickingControl };

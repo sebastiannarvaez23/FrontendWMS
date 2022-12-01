@@ -1,25 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { getDimensions, updateBox } from "../../api/box";
 import { createBox } from "../../api/box";
+import { useBox } from "../../Context/box-context";
+import { usePicking } from "../../Context/picking-context";
 import './AdminBox.css';
 
 
 let now = new Date();
-let date = now.getFullYear() + '-' + ( now.getMonth() + 1 ) + '-' + now.getDate() + " " + now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
+let date = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate() + " " + now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
 
-function AdminBox(props) {
+export const AdminBox = (props) => {
 
-    const [dimensions, setDimensions] = useState([]);
-    const [dimensionSelected, setDimensionSelected] = useState(1);
-    const [grossWeight, setGrossWeight] = useState(0.00);
+    const { setGrossWeight, setDimensionSelected, setDimensions, setBoxes, setLoadedBox, boxSelected, dimensions, dimensionSelected, grossWeight } = useBox();
+    const { pickingSelected } = usePicking();
 
     let boxDefaultData = {
-        id: props.boxSelected,
+        id: boxSelected,
         last_modification: date,
         gross_weight: parseInt(grossWeight, 10),
         responsible: "Sebastian Narvaez",
         dimension: dimensionSelected,
-        picking: props.pickingSelected
+        picking: pickingSelected
     }
 
     useEffect(() => {
@@ -39,9 +40,9 @@ function AdminBox(props) {
                             <option key={dimension.id} value={dimension.id}> {dimension.name} {dimension.dimension} </option>
                         ))}
                     </select>
-                    <button onClick={() => { updateBox(boxDefaultData, props.setBoxes, props.setLoadedBox, props.boxSelected, props.pickingSelected) }} className="btn-update">Modificar</button>
+                    <button onClick={() => { updateBox(boxDefaultData, setBoxes, setLoadedBox, boxSelected, pickingSelected) }} className="btn-update">Modificar</button>
                 </div>
-                <button onClick={() => { createBox(boxDefaultData, props.setBoxes, props.setLoadedBox, props.pickingSelected) }} className="btn-create-box">+</button>
+                <button onClick={() => { createBox(boxDefaultData, setBoxes, setLoadedBox, pickingSelected) }} className="btn-create-box">+</button>
 
                 <div className="box-list">
                     <div className="headers-list-box">
@@ -57,5 +58,3 @@ function AdminBox(props) {
         </div>
     );
 }
-
-export { AdminBox };

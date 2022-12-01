@@ -5,7 +5,7 @@ import './StatusPickingIndicator.css';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-function StatusPickingIndicator(props) {
+export const StatusPickingIndicator = (props) => {
 
   return (
     <div className="contain-indicator">
@@ -14,5 +14,3 @@ function StatusPickingIndicator(props) {
     </div>
   );
 }
-
-export { StatusPickingIndicator };

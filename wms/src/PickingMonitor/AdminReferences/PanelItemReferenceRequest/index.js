@@ -1,6 +1,6 @@
 import React from "react";
 
-export function PanelItemReferenceRequest(props){
+export const PanelItemReferenceRequest = (props) => {
     return (
         <div className="ref-request">
                 <h3>Referencias solicitadas</h3>

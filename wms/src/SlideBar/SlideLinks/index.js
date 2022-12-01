@@ -3,7 +3,7 @@ import './SlideLinks.css';
 import Swal from 'sweetalert2';
 import imgProfile from "../image/profile.jpg";
 
-function logout() {
+const logout = () => {
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
             confirmButton: 'btn btn-success',
@@ -36,7 +36,7 @@ function logout() {
     })
 }
 
-function SlideLinks() {
+export const SlideLinks = () => {
     return (
         <ul className="nav-links">
             <li>
@@ -90,4 +90,3 @@ function SlideLinks() {
         </ul>
     );
 }
-export { SlideLinks };

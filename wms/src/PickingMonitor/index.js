@@ -19,20 +19,26 @@ import { usePicking } from "../Context/picking-context";
 import { useSaleOrder } from "../Context/saleorder-context";
 import { useBox } from "../Context/box-context";
 
-function PickingMonitor() {
+export const PickingMonitor = () => {
 
     const { noSaleOrder } = useSaleOrder();
     const { pickingSelected, setOpenPickingMonitor } = usePicking();
-    const { referencesPack, setReferencesPack} = useBox();
+    const { 
+        loadedBoxItem,
+        referencesRequest,
+        loadedSaleOrderItems,
+        boxes,
+        loaded,
+        boxSelected,
+        setReferencesRequest,
+        setLoadedSaleOrderItems,
+        setLoadedBox,
+        setLoadedBoxItem,
+        setBoxes,
+        referencesPack,
+        setReferencesPack
+    } = useBox();
 
-
-    const [boxes, setBoxes] = useState([]);
-    const [loaded, setLoadedBox] = useState(false);
-    const [boxSelected, setBoxSelected] = useState("");
-    const [referencesRequest, setReferencesRequest] = useState([]);
-
-    const [loadedSaleOrderItems, setLoadedSaleOrderItems] = useState(false);
-    const [loadedBoxItem, setLoadedBoxItem] = useState(false);
 
     useEffect(() => {
         getBoxes(setBoxes, setLoadedBox, pickingSelected);
@@ -48,12 +54,7 @@ function PickingMonitor() {
         <section className="picking-monitor-container">
             <button onClick={() => { setOpenPickingMonitor(false); setReferencesPack([]); }} className="btn-back">&#62;</button>
             <div className="picking-monitor">
-                <AdminBox
-                    setBoxes={setBoxes}
-                    setLoadedBox={setLoadedBox}
-                    pickingSelected={pickingSelected}
-                    boxSelected={boxSelected}
-                >
+                <AdminBox>
                     {loaded && boxes.map(box => (
                         <ItemBox
                             key={box.id}
@@ -62,8 +63,6 @@ function PickingMonitor() {
                             gross_weight={box.gross_weight}
                             responsible={box.responsible}
                             dimension={box.dimension}
-                            setBoxSelected={setBoxSelected}
-                            boxSelected={boxSelected}
                         />
                     ))}
                     {!loaded && (<ItemBox id={"Cargando ..."} />)}
@@ -83,11 +82,7 @@ function PickingMonitor() {
                         ))}
                         {!loadedSaleOrderItems && (<ItemReferenceRequest id={"Cargando ..."} />)}
                     </PanelItemReferenceRequest>
-                    <PanelItemReferencePack
-                        setReferencesPack={setReferencesPack}
-                        setLoadedBoxItem={setLoadedBoxItem}
-                        boxSelected={boxSelected}
-                    >
+                    <PanelItemReferencePack>
                         {loadedBoxItem && referencesPack.map(reference => (
                             <ItemReferencePack
                                 key={reference.id}
@@ -106,5 +101,3 @@ function PickingMonitor() {
         document.getElementById('modal')
     );
 }
-
-export { PickingMonitor };

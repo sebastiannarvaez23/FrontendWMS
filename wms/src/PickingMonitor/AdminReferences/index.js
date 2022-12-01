@@ -1,12 +1,10 @@
 import React from "react";
 import './AdminReferences.css';
 
-function AdminReferences(props) {
+export const AdminReferences = (props) => {
     return (
         <div>
             {props.children}
         </div>
     );
 }
-
-export { AdminReferences };

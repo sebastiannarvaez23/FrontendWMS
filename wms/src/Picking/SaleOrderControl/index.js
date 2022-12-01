@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './SaleOrderControl.css'
 
-function SaleOrderControl(props) {
+export const SaleOrderControl = (props) => {
     return (
         <div className="sale-order-control">
             {props.children}
@@ -9,5 +9,3 @@ function SaleOrderControl(props) {
     );
 
 }
-
-export {SaleOrderControl};

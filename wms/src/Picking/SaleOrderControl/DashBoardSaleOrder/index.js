@@ -5,7 +5,7 @@ import { usePicking } from "../../../Context/picking-context";
 import { useSaleOrder } from "../../../Context/saleorder-context";
 import './DashBoardSaleOrder.css';
 
-function DashBoardSaleOrder(props) {
+export const DashBoardSaleOrder = (props) => {
 
     const { noSaleOrder, setSaleOrder, setNoSaleOrder } = useSaleOrder();
     const {setIndicatorsPicking, setPickings} = usePicking();
@@ -47,4 +47,3 @@ function DashBoardSaleOrder(props) {
         </div>
     );
 }
-export { DashBoardSaleOrder };

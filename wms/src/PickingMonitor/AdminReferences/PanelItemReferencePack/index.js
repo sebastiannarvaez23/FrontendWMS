@@ -1,16 +1,24 @@
 import React, { useState } from "react";
 import { createBoxItem } from "../../../api/boxitem";
+import { useBox } from "../../../Context/box-context";
 
-export function PanelItemReferencePack(props) {
+export const PanelItemReferencePack = (props) => {
 
-    const [inpReference, setInpReference] = useState("");
-    const [quantity, setQuantity] = useState("");
+    const { 
+        inpReference,
+        setInpReference,
+        quantity,
+        setQuantity,
+        boxSelected,
+        setLoadedBoxItem,
+        setReferencesPack
+    } = useBox();
 
     let defaultDataBoxItem = {
         id: 2,
         reference: inpReference,
         quantity: parseInt(quantity, 10),
-        box: props.boxSelected
+        box: boxSelected
     }
 
     return (
@@ -18,7 +26,7 @@ export function PanelItemReferencePack(props) {
             <h3>Administración de las referencias</h3>
             <input onChange={(e) => {setInpReference(e.target.value)}} value={inpReference} className="inp-ref inp-set-ref" placeholder="Cod. Barras o ref." />
             <input onChange={(e) => { setQuantity(e.target.value) }} value={quantity} className="inp-ref inp-set-cant" placeholder="Cantidad" />
-            <button onClick={() => { createBoxItem(props.setReferencesPack, props.setLoadedBoxItem, props.boxSelected, defaultDataBoxItem) }} className="btn-pack">Empacar</button>
+            <button onClick={() => { createBoxItem(setReferencesPack, setLoadedBoxItem, boxSelected, defaultDataBoxItem) }} className="btn-pack">Empacar</button>
             <div className="ref-list">
                 <div className="headers-list-ref">
                     <span>#</span>

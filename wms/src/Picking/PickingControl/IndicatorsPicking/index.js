@@ -1,7 +1,7 @@
 import React from "react";
 import './IndicatorsPicking.css';
 
-function IndicatorsPicking(props) {
+export const IndicatorsPicking = (props) => {
     return (
         <div className="indicators-picking">
             <h4>Indicador de despacho</h4>
@@ -9,5 +9,3 @@ function IndicatorsPicking(props) {
         </div>
     );
 }
-
-export { IndicatorsPicking };

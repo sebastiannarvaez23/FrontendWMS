@@ -1,6 +1,6 @@
 import React from "react";
 
-function TitleLogin() {
+export const TitleLogin = () => {
     return (
         <div>
             <h1>Administrador de Despachos</h1>
@@ -8,5 +8,3 @@ function TitleLogin() {
         </div>
     );
 }
-
-export { TitleLogin };

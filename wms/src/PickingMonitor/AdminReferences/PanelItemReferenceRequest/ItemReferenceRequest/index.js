@@ -1,7 +1,7 @@
 import React from "react";
 import "./ItemReferenceRequest.css"
 
-export function ItemReferenceRequest(props) {
+export const ItemReferenceRequest = (props) => {
     return (
         <div className="item-ref-request">
             <span>{props.id}</span>

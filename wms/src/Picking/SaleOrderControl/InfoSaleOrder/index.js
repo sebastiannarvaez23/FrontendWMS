@@ -2,7 +2,7 @@ import React from "react";
 import { useSaleOrder } from "../../../Context/saleorder-context";
 import './InfoSaleOrder.css';
 
-function InfoSaleOrder() {
+export const InfoSaleOrder = () => {
 
     const { saleOrder } = useSaleOrder();
 
@@ -36,5 +36,3 @@ function InfoSaleOrder() {
         </div>
     );
 }
-
-export { InfoSaleOrder };

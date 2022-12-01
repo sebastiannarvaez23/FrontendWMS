@@ -8,7 +8,6 @@ import { getInfoIndicators } from '../api/saleorder';
 
 // components and functions slidebar
 import { LogoSlideBar } from '../SlideBar/LogoSlideBar';
-import { openSlidebar } from '../SlideBar';
 import { SlideBar } from '../SlideBar';
 import { SlideLinks } from '../SlideBar/SlideLinks';
 
@@ -17,6 +16,7 @@ import { DashBoardPicking } from '../Picking/PickingControl/DashBoardPicking';
 import { DashBoardSaleOrder } from '../Picking/SaleOrderControl/DashBoardSaleOrder';
 import { InfoSaleOrder } from '../Picking/SaleOrderControl/InfoSaleOrder';
 import { IndicatorsPicking } from '../Picking/PickingControl/IndicatorsPicking';
+import { PickingContain } from "./PickingContain";
 import { PickingControl } from '../Picking/PickingControl';
 import { PickingItem } from '../Picking/PickingControl/DashBoardPicking/PickingItem';
 import { PickingMonitor } from "../PickingMonitor";
@@ -31,7 +31,7 @@ import { useBox } from "../Context/box-context";
 // Other
 import { dataIndicator } from "./PickingControl/IndicatorsPicking/StatusPickingIndicator/data-indicator";
 
-function Picking() {
+export const Picking = () => {
 
     const { saleOrder, noSaleOrder } = useSaleOrder();
     const { openPickingMonitor, setPickings, setLoadedPicking, loadedPicking, pickings, indicatorsPicking, setIndicatorsPicking } = usePicking();
@@ -57,11 +57,7 @@ function Picking() {
                 <LogoSlideBar />
                 <SlideLinks />
             </SlideBar>
-            <section className="home-section">
-                <div className="home-content">
-                    <i onClick={openSlidebar} className='bx bx-menu'></i>
-                    <span className="text">Despachos</span>
-                </div>
+            <PickingContain>
                 <SaleOrderControl>
                     <DashBoardSaleOrder />
                     <InfoSaleOrder />
@@ -84,9 +80,7 @@ function Picking() {
                         <StatusPickingIndicator dataIndicator={dataIndicatorCustomer} key={"customer"} nameIndicator={"Cliente"} />
                     </IndicatorsPicking>
                 </PickingControl>
-            </section >
+            </PickingContain>
         </React.Fragment>
     );
 }
-
-export { Picking };

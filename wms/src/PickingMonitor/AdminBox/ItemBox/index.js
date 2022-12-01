@@ -1,14 +1,21 @@
 import React from "react";
+import { useBox } from "../../../Context/box-context";
 import "./ItemBox.css"
 
-function ItemBox(props) {
+export const ItemBox = (props) => {
+
+    const {
+        setBoxSelected,
+        boxSelected,
+    } = useBox();
+
     let className = "box-item";
-    if (props.boxSelected == props.id) {
+    if (boxSelected == props.id) {
         className += "-selected";
     }
     return (
         <div className={className} onClick={()=>{
-            props.setBoxSelected(props.id);
+            setBoxSelected(props.id);
         }}>
             <span>{props.id}</span>
             <span>{props.gross_weight}</span>
@@ -18,5 +25,3 @@ function ItemBox(props) {
         </div>
     );
 }
-
-export { ItemBox }
