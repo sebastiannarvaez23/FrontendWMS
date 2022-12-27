@@ -39,4 +39,5 @@ urlpatterns = [
     path('picking/', include('picking.urls')),
     path('box/', include('box.urls')),
     path('saleorder/', include('saleorder.urls')),
+    path('registration/', include('registration.urls')),
 ]

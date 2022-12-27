@@ -45,7 +45,10 @@ INSTALLED_APPS = [
     'picking.apps.PickingAppConfig',
     'reference.apps.ReferenceAppConfig',
     'saleorder.apps.SaleOrderAppConfig',
+    'registration',
     'rest_framework',
+    'rest_framework.authtoken',
+
 ]
 
 MIDDLEWARE = [
