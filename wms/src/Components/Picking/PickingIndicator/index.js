@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
-import './StatusPickingIndicator.css';
+import './PickingIndicator.css';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export const StatusPickingIndicator = (props) => {
+export const PickingIndicator = (props) => {
 
   return (
     <div className="contain-indicator">

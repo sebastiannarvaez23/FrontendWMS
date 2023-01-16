@@ -1,7 +1,7 @@
 import React from "react";
-import './IndicatorsPicking.css';
+import './PickingIndicatorsList.css';
 
-export const IndicatorsPicking = (props) => {
+export const PickingIndicatorsList = (props) => {
     return (
         <div className="indicators-picking">
             <h4>Indicador de despacho</h4>

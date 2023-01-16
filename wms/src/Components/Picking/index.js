@@ -3,43 +3,43 @@ import React, { useEffect } from "react";
 import './Picking.css';
 
 // API
-import { getPickings } from "../api/picking";
-import { getInfoIndicators } from '../api/saleorder';
+import { getPickings } from "../../ServicesConsumers/picking";
+import { getInfoIndicators } from '../../ServicesConsumers/saleorder';
 
 // components and functions slidebar
 import { LogoSlideBar } from '../SlideBar/LogoSlideBar';
 import { SlideBar } from '../SlideBar';
 import { SlideLinks } from '../SlideBar/SlideLinks';
 
-// components picking
-import { DashBoardPicking } from '../Picking/PickingControl/DashBoardPicking';
-import { DashBoardSaleOrder } from '../Picking/SaleOrderControl/DashBoardSaleOrder';
-import { InfoSaleOrder } from '../Picking/SaleOrderControl/InfoSaleOrder';
-import { IndicatorsPicking } from '../Picking/PickingControl/IndicatorsPicking';
+// components
+import { PickingList } from '../Picking/PickingList';
+import { GetSaleOrder } from './GetSaleOrder';
+import { InfoSaleOrder } from '../Picking/InfoSaleOrder';
+import { PickingIndicatorsList } from './PickingIndicatorsList';
 import { PickingContain } from "./PickingContain";
 import { PickingControl } from '../Picking/PickingControl';
-import { PickingItem } from '../Picking/PickingControl/DashBoardPicking/PickingItem';
+import { PickingItem } from './PickingItem';
 import { PickingMonitor } from "../PickingMonitor";
 import { SaleOrderControl } from '../Picking/SaleOrderControl';
-import { StatusPickingIndicator } from '../Picking/PickingControl/IndicatorsPicking/StatusPickingIndicator';
+import { PickingIndicator } from './PickingIndicator';
 
 // Context
-import { usePicking } from "../Context/picking-context";
-import { useSaleOrder } from "../Context/saleorder-context";
-import { useBox } from "../Context/box-context";
+import { usePicking } from "../../Context/picking-context";
+import { useSaleOrder } from "../../Context/saleorder-context";
+import { useBox } from "../../Context/box-context";
 
 // Other
-import { dataIndicator } from "./PickingControl/IndicatorsPicking/StatusPickingIndicator/data-indicator";
+import { dataIndicator } from "./PickingIndicator/data-indicator";
 
 export const Picking = () => {
 
     const { saleOrder, noSaleOrder } = useSaleOrder();
     const { openPickingMonitor, setPickings, setLoadedPicking, loadedPicking, pickings, indicatorsPicking, setIndicatorsPicking } = usePicking();
-    const { referencesPack } = useBox();
+    const { itemsBox } = useBox();
 
     useEffect(() => {
         getInfoIndicators(saleOrder.customer_name, noSaleOrder, setIndicatorsPicking);
-    }, [saleOrder, referencesPack])
+    }, [saleOrder, itemsBox])
 
     useEffect(() => {
         getPickings(setPickings, setLoadedPicking, noSaleOrder);
@@ -59,11 +59,11 @@ export const Picking = () => {
             </SlideBar>
             <PickingContain>
                 <SaleOrderControl>
-                    <DashBoardSaleOrder />
+                    <GetSaleOrder />
                     <InfoSaleOrder />
                 </SaleOrderControl>
                 <PickingControl>
-                    <DashBoardPicking>
+                    <PickingList>
                         {loadedPicking && pickings.map(picking => (
                             <PickingItem
                                 key={picking.id}
@@ -74,11 +74,11 @@ export const Picking = () => {
                             />
                         ))}
                         {!loadedPicking && <PickingItem id={"Cargando ..."} />}
-                    </DashBoardPicking>
-                    <IndicatorsPicking>
-                        <StatusPickingIndicator dataIndicator={dataIndicatorSaleOrder} key={"saleorder"} nameIndicator={"Orden de Venta"} />
-                        <StatusPickingIndicator dataIndicator={dataIndicatorCustomer} key={"customer"} nameIndicator={"Cliente"} />
-                    </IndicatorsPicking>
+                    </PickingList>
+                    <PickingIndicatorsList>
+                        <PickingIndicator dataIndicator={dataIndicatorSaleOrder} key={"saleorder"} nameIndicator={"Orden de Venta"} />
+                        <PickingIndicator dataIndicator={dataIndicatorCustomer} key={"customer"} nameIndicator={"Cliente"} />
+                    </PickingIndicatorsList>
                 </PickingControl>
             </PickingContain>
         </React.Fragment>

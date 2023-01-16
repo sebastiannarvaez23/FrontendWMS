@@ -7,8 +7,8 @@ import {
   Route
 } from "react-router-dom";
 
-import { Picking } from './Picking';
-import { Login } from './Login';
+import { Picking } from './Components/Picking';
+import { Login } from './Components/Login';
 
 import { PickingProvider } from './Context/picking-context';
 import { SaleOrderProvider } from './Context/saleorder-context';

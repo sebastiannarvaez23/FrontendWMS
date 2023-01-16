@@ -4,7 +4,7 @@ export const BoxContext = createContext();
 
 export const BoxProvider = (props) => {
 
-    const [referencesPack, setReferencesPack] = useState([]);
+    const [itemsBox, setItemsbox] = useState([]);
     const [boxes, setBoxes] = useState([]);
     const [loaded, setLoadedBox] = useState(false);
     const [boxSelected, setBoxSelected] = useState("");
@@ -19,7 +19,7 @@ export const BoxProvider = (props) => {
 
     const value = useMemo(() => {
         return ({
-            referencesPack,
+            itemsBox,
             boxes,
             loaded,
             boxSelected,
@@ -36,7 +36,7 @@ export const BoxProvider = (props) => {
             setGrossWeight,
             setInpReference,
             setQuantity,
-            setReferencesPack,
+            setItemsbox,
             setBoxes,
             setLoadedBox,
             setBoxSelected,
@@ -45,7 +45,7 @@ export const BoxProvider = (props) => {
             setLoadedBoxItem
         })
     }, [
-        referencesPack,
+        itemsBox,
         boxes,
         loaded,
         boxSelected,
@@ -58,7 +58,7 @@ export const BoxProvider = (props) => {
         setDimensions,
         setDimensionSelected,
         setGrossWeight,
-        setReferencesPack,
+        setItemsbox,
         setBoxes,
         setLoadedBox,
         setBoxSelected,

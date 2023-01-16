@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { loadInfoSaleOrder } from "../../../api/saleorder";
+import { loadInfoSaleOrder } from "../../../ServicesConsumers/saleorder";
 import { useBox } from "../../../Context/box-context";
 import { usePicking } from "../../../Context/picking-context";
 import { useSaleOrder } from "../../../Context/saleorder-context";
-import './DashBoardSaleOrder.css';
+import './GetSaleOrder.css';
 
-export const DashBoardSaleOrder = (props) => {
+export const GetSaleOrder = (props) => {
 
     const { noSaleOrder, setSaleOrder, setNoSaleOrder } = useSaleOrder();
     const {setIndicatorsPicking, setPickings} = usePicking();
-    const { setReferencesPack} = useBox();
+    const { setItemsbox} = useBox();
 
     // Implementar animacion de carga
     const [loaded, setLoaded] = useState(false);
@@ -22,7 +22,7 @@ export const DashBoardSaleOrder = (props) => {
             request_quantity_by_saleorder: ""
         })
 
-        setReferencesPack([])
+        setItemsbox([])
 
         setSaleOrder({
             publication_date:"",

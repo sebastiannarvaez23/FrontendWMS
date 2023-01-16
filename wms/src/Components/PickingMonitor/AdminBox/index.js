@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { getDimensions, updateBox } from "../../api/box";
-import { createBox } from "../../api/box";
-import { useBox } from "../../Context/box-context";
-import { usePicking } from "../../Context/picking-context";
+import React, { useEffect } from "react";
+import { getDimensions, updateBox, createBox } from "../../../ServicesConsumers/box";
+import { useBox } from "../../../Context/box-context";
+import { usePicking } from "../../../Context/picking-context";
 import './AdminBox.css';
-
 
 let now = new Date();
 let date = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate() + " " + now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();

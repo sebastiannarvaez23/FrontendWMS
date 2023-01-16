@@ -1,10 +1,10 @@
 import React from "react";
-import { createPicking } from "../../../api/picking";
+import { createPicking } from "../../../ServicesConsumers/picking";
 import { usePicking } from "../../../Context/picking-context";
 import { useSaleOrder } from "../../../Context/saleorder-context";
-import './DashBoardPicking.css';
+import './PickingList.css';
 
-export const DashBoardPicking = (props) => {
+export const PickingList = (props) => {
 
     const { noSaleOrder } = useSaleOrder();
     const {setPickings, setLoadedPicking} = usePicking()

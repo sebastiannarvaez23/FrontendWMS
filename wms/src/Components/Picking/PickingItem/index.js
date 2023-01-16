@@ -2,7 +2,7 @@ import React from "react";
 import './PickingItem.css';
 
 // Context
-import { usePicking } from "../../../../Context/picking-context";
+import { usePicking } from "../../../Context/picking-context";
 
 export const PickingItem = (props) => {
     const { setPickingSelected, setOpenPickingMonitor } = usePicking();
