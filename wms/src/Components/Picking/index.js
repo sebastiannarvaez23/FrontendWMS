@@ -12,7 +12,7 @@ import { SlideBar } from '../SlideBar';
 import { SlideLinks } from '../SlideBar/SlideLinks';
 
 // components
-import { Chat } from "../SlideBar/Chat";
+import { Chat } from "../Chat";
 import { GetSaleOrder } from './GetSaleOrder';
 import { InfoSaleOrder } from '../Picking/InfoSaleOrder';
 import { SaleOrderControl } from '../Picking/SaleOrderControl';
