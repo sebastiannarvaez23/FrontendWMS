@@ -12,12 +12,12 @@ from django.contrib.auth.models import User
 # Create your views here.
 import time
 
-@api_view(['GET'])
+""" @api_view(['GET'])
 def get_pickings(request, sale_order):
     sale_order = SaleOrder.objects.get(no_sale_order=sale_order)
     pickings = Picking.objects.filter(sale_order=sale_order)
     serializer = PickingSerializer(pickings, many=True)
-    return Response(serializer.data)
+    return Response(serializer.data) """
 
 class PickingsViewSet(viewsets.ModelViewSet):
     """Picking view set."""
