@@ -1,9 +1,9 @@
 from django.http import JsonResponse
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from .models import SaleOrder, SaleOrderItem
-from .api.serializers import SaleOrderSerializer, SaleOrderItemSerializer
-from .SQLite3.conn import ConnSQLite3 as ConnDB
+from ..models import SaleOrder, SaleOrderItem
+from .serializers import SaleOrderSerializer, SaleOrderItemSerializer
+from ..SQLite3.conn import ConnSQLite3 as ConnDB
 # Create your views here.
 
 @api_view(['GET'])

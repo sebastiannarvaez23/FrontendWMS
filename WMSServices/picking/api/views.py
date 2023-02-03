@@ -5,9 +5,9 @@ from rest_framework.exceptions import ParseError
 from rest_framework import status
 from rest_framework import viewsets
 
-from .models import Picking, StatusPicking
+from ..models import Picking, StatusPicking
 from saleorder.models import SaleOrder
-from .api.serializers import PickingSerializer
+from .serializers import PickingSerializer
 from django.contrib.auth.models import User
 # Create your views here.
 import time
