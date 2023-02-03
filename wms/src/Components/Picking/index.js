@@ -12,15 +12,16 @@ import { SlideBar } from '../SlideBar';
 import { SlideLinks } from '../SlideBar/SlideLinks';
 
 // components
-import { PickingList } from '../Picking/PickingList';
+import { Chat } from "../SlideBar/Chat";
 import { GetSaleOrder } from './GetSaleOrder';
 import { InfoSaleOrder } from '../Picking/InfoSaleOrder';
+import { SaleOrderControl } from '../Picking/SaleOrderControl';
+import { PickingList } from '../Picking/PickingList';
 import { PickingIndicatorsList } from './PickingIndicatorsList';
 import { PickingContain } from "./PickingContain";
 import { PickingControl } from '../Picking/PickingControl';
 import { PickingItem } from './PickingItem';
 import { PickingMonitor } from "../PickingMonitor";
-import { SaleOrderControl } from '../Picking/SaleOrderControl';
 import { PickingIndicator } from './PickingIndicator';
 
 // Context
@@ -80,6 +81,7 @@ export const Picking = () => {
                         <PickingIndicator dataIndicator={dataIndicatorCustomer} key={"customer"} nameIndicator={"Cliente"} />
                     </PickingIndicatorsList>
                 </PickingControl>
+                <Chat />
             </PickingContain>
         </React.Fragment>
     );

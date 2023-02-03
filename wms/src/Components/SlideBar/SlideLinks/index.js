@@ -50,6 +50,33 @@ export const SlideLinks = () => {
             </li>
             <li>
                 <a href="#">
+                    <i class='bx bx-file'></i>
+                    <span className="link_name">Pedidos</span>
+                </a>
+                <ul className="sub-menu blank">
+                    <li><a className="link_name" href="#">Pedidos</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-cube'></i>
+                    <span className="link_name">Articulos</span>
+                </a>
+                <ul className="sub-menu blank">
+                    <li><a className="link_name" href="#">Articulos</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-truck'></i>
+                    <span className="link_name">Despachos</span>
+                </a>
+                <ul className="sub-menu blank">
+                    <li><a className="link_name" href="#">Despachos</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
                     <i className='bx bx-pie-chart-alt-2'></i>
                     <span className="link_name">Analiticas</span>
                 </a>
@@ -59,7 +86,7 @@ export const SlideLinks = () => {
             </li>
             <li>
                 <a href="#">
-                    <i className='bx bx-compass'></i>
+                    <i class='bx bx-search-alt'></i>
                     <span className="link_name">Explorar</span>
                 </a>
                 <ul className="sub-menu blank">

@@ -1,0 +1,36 @@
+.logo-chat {
+    background-color: var(--very-like-pink);
+
+    -webkit-box-shadow: 0px 2px 30px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 30px -10px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 30px -10px rgba(0,0,0,0.75);
+
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 50px;
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    font-weight: bold;
+    color: #FAFAFA;
+    height: 80px;
+    width: 80px;
+    transform: rotate(0);
+    transition: .3s ease;
+    z-index: 10;
+    margin-left: 90%;
+    padding: 5px;
+    text-align: center;
+}
+
+.logo-chat:hover {
+    -webkit-box-shadow: 0px 2px 41px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 41px -5px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 41px -5px rgba(0,0,0,0.75);
+}
+
+.logo-chat img {
+    width: 75%;
+    margin-top: 8px;
+}
