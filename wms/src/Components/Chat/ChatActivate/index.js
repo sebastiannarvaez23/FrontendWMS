@@ -1,8 +1,8 @@
 import React from "react";
 import logoChat from "../image/chat-logo.png";
-import './Chat.css';
+import './ChatActivate.css';
 
-export const Chat = () => {
+export const ChatActivate = () => {
     return (
         <div className="logo-chat">
             <img src={logoChat} />

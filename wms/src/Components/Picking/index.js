@@ -12,7 +12,8 @@ import { SlideBar } from '../SlideBar';
 import { SlideLinks } from '../SlideBar/SlideLinks';
 
 // components
-import { Chat } from "../Chat";
+import { ChatActivate } from "../Chat/ChatActivate";
+import { ChatContainer } from "../Chat/ChatContainer";
 import { GetSaleOrder } from './GetSaleOrder';
 import { InfoSaleOrder } from '../Picking/InfoSaleOrder';
 import { SaleOrderControl } from '../Picking/SaleOrderControl';
@@ -81,7 +82,8 @@ export const Picking = () => {
                         <PickingIndicator dataIndicator={dataIndicatorCustomer} key={"customer"} nameIndicator={"Cliente"} />
                     </PickingIndicatorsList>
                 </PickingControl>
-                <Chat />
+                <ChatActivate />
+                <ChatContainer />
             </PickingContain>
         </React.Fragment>
     );
