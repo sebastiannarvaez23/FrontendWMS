@@ -39,8 +39,8 @@ export const PickingMonitor = () => {
         setLoadedBox,
         setLoadedBoxItem,
         setBoxes,
-        itemsBox,
-        setItemsbox
+        boxItems,
+        setBoxItems
     } = useBox();
 
 
@@ -50,7 +50,7 @@ export const PickingMonitor = () => {
     }, [])
 
     useEffect(() => {
-        getBoxesItem(setItemsbox, setLoadedBoxItem, boxSelected)
+        getBoxesItem(setBoxItems, setLoadedBoxItem, boxSelected)
     }, [boxSelected])
 
 
@@ -85,7 +85,7 @@ export const PickingMonitor = () => {
                     {!loadedSaleOrderItems && (<ItemReferenceRequest id={"Cargando ..."} />)}
                 </PanelItemReferenceRequest>
                 <PanelItemReferencePack>
-                    {loadedBoxItem && itemsBox.map(reference => (
+                    {loadedBoxItem && boxItems.map(reference => (
                         <ItemReferencePack
                             key={reference.id}
                             id={reference.id}

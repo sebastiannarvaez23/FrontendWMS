@@ -31,11 +31,11 @@ export const Picking = () => {
 
     const { saleOrder, noSaleOrder } = useSaleOrder();
     const { openPickingMonitor, setPickings, setLoadedPicking, loadedPicking, pickings, indicatorsPicking, setIndicatorsPicking } = usePicking();
-    const { itemsBox } = useBox();
+    const { boxItems } = useBox();
 
     useEffect(() => {
         getInfoIndicators(saleOrder.customer_name, noSaleOrder, setIndicatorsPicking);
-    }, [saleOrder, itemsBox])
+    }, [saleOrder, boxItems])
 
     useEffect(() => {
         getPickings(setPickings, setLoadedPicking, noSaleOrder);

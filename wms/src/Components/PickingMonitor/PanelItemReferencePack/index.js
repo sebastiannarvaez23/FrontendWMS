@@ -11,7 +11,7 @@ export const PanelItemReferencePack = (props) => {
         setQuantity,
         boxSelected,
         setLoadedBoxItem,
-        setItemsbox
+        setBoxItems
     } = useBox();
 
     let defaultDataBoxItem = {
@@ -26,7 +26,7 @@ export const PanelItemReferencePack = (props) => {
             <h3>Administración de las referencias</h3>
             <input onChange={(e) => {setInpReference(e.target.value)}} value={inpReference} className="inp-ref inp-set-ref" placeholder="Cod. Barras o ref." />
             <input onChange={(e) => { setQuantity(e.target.value) }} value={quantity} className="inp-ref inp-set-cant" placeholder="Cantidad" />
-            <button onClick={() => { createBoxItem(setItemsbox, setLoadedBoxItem, boxSelected, defaultDataBoxItem) }} className="btn-pack">Empacar</button>
+            <button onClick={() => { createBoxItem(setBoxItems, setLoadedBoxItem, boxSelected, defaultDataBoxItem) }} className="btn-pack">Empacar</button>
             <div className="ref-list">
                 <div className="headers-list-ref">
                     <span>#</span>

@@ -9,7 +9,7 @@ export const GetSaleOrder = (props) => {
 
     const { noSaleOrder, setSaleOrder, setNoSaleOrder } = useSaleOrder();
     const {setIndicatorsPicking, setPickings} = usePicking();
-    const { setItemsbox} = useBox();
+    const { setBoxItems} = useBox();
 
     // Implementar animacion de carga
     const [loaded, setLoaded] = useState(false);
@@ -22,7 +22,7 @@ export const GetSaleOrder = (props) => {
             request_quantity_by_saleorder: ""
         })
 
-        setItemsbox([])
+        setBoxItems([])
 
         setSaleOrder({
             publication_date:"",
