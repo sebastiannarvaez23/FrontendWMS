@@ -1,5 +1,11 @@
 import React from 'react';
-import './SlideBar.css'
+
+// Components
+import { SlideBarContainer } from './SlideBarContainer';
+import { LogoSlideBar } from "./LogoSlideBar";
+import { SlideLinks } from "./SlideLinks";
+
+import './SlideBar.css';
 
 export const openSlidebar = () => {
     let sidebar = document.querySelector(".sidebar");
@@ -13,12 +19,13 @@ export const openSlidebar = () => {
     }
 }
 
-function SlideBar(props) {
+export const SlideBar = () => {
     return (
-        <div className="sidebar close">
-            {props.children}
-        </div>
+        <React.Fragment>
+            <SlideBarContainer>
+                <LogoSlideBar />
+                <SlideLinks />
+            </SlideBarContainer>
+        </React.Fragment>
     );
 }
-
-export { SlideBar };

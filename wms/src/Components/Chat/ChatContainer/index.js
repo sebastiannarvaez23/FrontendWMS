@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import './ChatContainer.css';
 
-export const ChatContainer = () => {
-
-    const [isVisible, setIsVisible] = useState(true);
+export const ChatContainer = (props) => {
 
     return (
         <div className="chat-container" style={{
-            width: isVisible ? '250px' : '0',
+            width: props.isVisible ? '25%' : '0',
             transition: 'width 0.5s ease-out'
         }}>
-            <div>
-                <span onClick={() => setIsVisible(!isVisible)}>Cerrar</span>
+            <div style={{
+                display: props.isVisible ? 'block' : 'none'
+            }}>
+                <span onClick={() => props.setIsVisible(!props.isVisible)}>Cerrar</span>
             </div>
         </div>
     );
