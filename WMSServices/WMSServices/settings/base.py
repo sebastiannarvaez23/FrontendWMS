@@ -36,6 +36,8 @@ LOCAL_APPS = [
     'picking.apps.PickingAppConfig',
     'reference.apps.ReferenceAppConfig',
     'saleorder.apps.SaleOrderAppConfig',
+    'box_item',
+    'saleorder_item',
 ]
 
 THIRD_APPS = [

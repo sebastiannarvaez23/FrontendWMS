@@ -10,7 +10,7 @@ from saleorder.models import SaleOrder
 from picking.models import Picking
 from picking.api.serializers import PickingSerializer
 
-class PickingsViewSet(viewsets.ModelViewSet):
+class PickingViewSet(viewsets.ModelViewSet):
     """Picking view set."""
     queryset = Picking.objects.all()
     serializer_class = PickingSerializer
