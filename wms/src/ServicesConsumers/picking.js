@@ -1,8 +1,9 @@
 import axios from 'axios';
+import { API } from './api/base.js';
 
 export const getPickings = async (setPickings, setLoadedPicking, noSaleOrder) => {
     if (noSaleOrder != "") {
-        axios.get("http://localhost:8000/picking/get/" + noSaleOrder)
+        axios.get(API + "picking/get/" + noSaleOrder)
             .then(response => {
                 setPickings(response.data);
             })
@@ -14,7 +15,7 @@ export const getPickings = async (setPickings, setLoadedPicking, noSaleOrder) =>
 }
 
 export const createPicking = async (data, setPickings, setLoadedPicking, noSaleOrder) => {
-    axios.post("http://localhost:8000/picking/create/", data)
+    axios.post(API + "picking/create/", data)
         .then((response) => {
             const { data } = response;
         })

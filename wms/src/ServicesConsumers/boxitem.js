@@ -1,8 +1,9 @@
 import axios from 'axios';
+import { API } from './api/base.js';
 
 export const getBoxesItem = async (setBoxItems, setLoadedBoxItem, idBox) => {
     if (idBox != "") {
-        axios.get("http://localhost:8000/box/getboxitems/" + idBox)
+        axios.get(API + "box/getboxitems/" + idBox)
             .then(response => {
                 setBoxItems(response.data);
             })
@@ -14,10 +15,10 @@ export const getBoxesItem = async (setBoxItems, setLoadedBoxItem, idBox) => {
 }
 
 export const createBoxItem = async (setBoxItems, setLoadedBoxItem, idBox, data) => {
-    axios.post("http://localhost:8000/box/createboxitem/", data)
-    .then((response) => {
-        const { data } = response;
-    })
-    .catch(err => console.log(err))
-    .finally(() => getBoxesItem(setBoxItems, setLoadedBoxItem, idBox))
+    axios.post(API + "box/createboxitem/", data)
+        .then((response) => {
+            const { data } = response;
+        })
+        .catch(err => console.log(err))
+        .finally(() => getBoxesItem(setBoxItems, setLoadedBoxItem, idBox))
 }

@@ -7,9 +7,8 @@ from rest_framework import routers
 # LocalApps
 from saleorder.api.api import SaleOrderViewSet
 
-router = routers.DefaultRouter()
-router.register(r'', SaleOrderViewSet)
-
 urlpatterns = [
-    path('', include(router.urls)),
+    path('<str:nosaleorder>/', SaleOrderViewSet.as_view({'get': 'list'})),
+    path('', SaleOrderViewSet.as_view({'post': 'create'})),
+    path('<int:pk>/', SaleOrderViewSet.as_view({'put': 'update', 'patch': 'partial_update', 'delete': 'destroy'})),
 ]

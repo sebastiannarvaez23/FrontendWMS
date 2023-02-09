@@ -11,8 +11,7 @@ class Collection(models.Model):
         verbose_name_plural = "Colecciones"
         ordering = ['-id']
 
-    def __str__(self):
-        return self.name
+
 
 class PayTerm(models.Model):
     id = models.AutoField(primary_key=True, verbose_name="Id")
@@ -23,8 +22,6 @@ class PayTerm(models.Model):
         verbose_name_plural = "Terminos de pago"
         ordering = ['-id']
 
-    def __str__(self):
-        return self.name
 
 class SaleOrder(models.Model):
     id = models.AutoField(primary_key=True, verbose_name="Id")
@@ -43,5 +40,3 @@ class SaleOrder(models.Model):
         verbose_name_plural = "Ordenes de venta"
         ordering = ['-id']
 
-    def __str__(self):
-        return self.no_sale_order
