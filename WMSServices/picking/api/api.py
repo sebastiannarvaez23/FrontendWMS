@@ -17,14 +17,19 @@ class PickingViewSet(viewsets.ModelViewSet):
 
     def list(self, request, *args, **kwargs):
         saleorder = kwargs.get('saleorder')
-        saleorder = SaleOrder.objects.filter(no_sale_order=saleorder)
-        
+        try:
+            saleorder = SaleOrder.objects.get(no_sale_order=saleorder)
+        except:
+            saleorder = None
+
         if saleorder is not None:
             try:
                 self.queryset = self.queryset.filter(sale_order=saleorder)
+                print(self.queryset)
             except:
                 return Response(status=status.HTTP_404_NOT_FOUND)
 
         if not saleorder:
             raise PermissionDenied('A saleorder parameter is required.')
+
         return super().list(request, *args, **kwargs)
