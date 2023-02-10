@@ -3,7 +3,7 @@ import { API } from './api/base.js';
 
 export const getPickings = async (setPickings, setLoadedPicking, noSaleOrder) => {
     if (noSaleOrder != "") {
-        axios.get(API + "picking/get/" + noSaleOrder)
+        axios.get(API + "picking/" + noSaleOrder)
             .then(response => {
                 setPickings(response.data);
             })

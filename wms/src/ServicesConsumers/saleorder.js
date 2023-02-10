@@ -30,6 +30,6 @@ export const getInfoIndicators = async (customerName, noSaleOrder, setIndicators
                 setIndicatorsPicking(response.data);
             })
             .catch(err => console.log(err))
-            .finally(() => { })
+            .finally(() => {})
     }
 }
