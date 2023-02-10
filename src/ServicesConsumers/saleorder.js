@@ -25,7 +25,7 @@ export const getInfoReferencesRequest = async (setLoadedSaleOrderItems, setSaleO
 
 export const getInfoIndicators = async (customerName, noSaleOrder, setIndicatorsPicking) => {
     if (customerName !== "" && noSaleOrder !== "") {
-        axios.get(API + "saleorder/getinfoindicators/" + customerName + "/" + noSaleOrder + "/")
+        axios.get(API + "saleorder/indicator/" + customerName + "/" + noSaleOrder + "/")
             .then(response => {
                 setIndicatorsPicking(response.data);
             })
