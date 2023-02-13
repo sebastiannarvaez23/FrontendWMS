@@ -15,7 +15,7 @@ export const getPickings = async (setPickings, setLoadedPicking, noSaleOrder) =>
 }
 
 export const createPicking = async (data, setPickings, setLoadedPicking, noSaleOrder) => {
-    axios.post(API + "picking/create/", data)
+    axios.post(API + "picking/", data)
         .then((response) => {
             const { data } = response;
         })

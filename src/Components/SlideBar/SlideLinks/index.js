@@ -50,20 +50,29 @@ export const SlideLinks = () => {
             </li>
             <li>
                 <a href="#">
-                    <i class='bx bx-file'></i>
-                    <span className="link_name">Pedidos</span>
+                <i class='bx bx-door-open'></i>
+                    <span className="link_name">Recepción</span>
                 </a>
                 <ul className="sub-menu blank">
-                    <li><a className="link_name" href="#">Pedidos</a></li>
+                    <li><a className="link_name" href="#">Recepción</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#">
-                    <i class='bx bx-cube'></i>
-                    <span className="link_name">Articulos</span>
+                <i class='bx bx-coin-stack'></i>
+                    <span className="link_name">Inventarios</span>
                 </a>
                 <ul className="sub-menu blank">
-                    <li><a className="link_name" href="#">Articulos</a></li>
+                    <li><a className="link_name" href="#">Inventarios</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                <i class='bx bx-home-alt'></i>
+                    <span className="link_name">Almacenamiento</span>
+                </a>
+                <ul className="sub-menu blank">
+                    <li><a className="link_name" href="#">Almacenamiento</a></li>
                 </ul>
             </li>
             <li>
@@ -77,20 +86,29 @@ export const SlideLinks = () => {
             </li>
             <li>
                 <a href="#">
+                <i class='bx bxs-plane-alt'></i>
+                    <span className="link_name">Envío</span>
+                </a>
+                <ul className="sub-menu blank">
+                    <li><a className="link_name" href="#">Envío</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                <i class='bx bx-undo'></i>
+                    <span className="link_name">Devoluciones</span>
+                </a>
+                <ul className="sub-menu blank">
+                    <li><a className="link_name" href="#">Devoluciones</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
                     <i className='bx bx-pie-chart-alt-2'></i>
                     <span className="link_name">Analiticas</span>
                 </a>
                 <ul className="sub-menu blank">
                     <li><a className="link_name" href="#">Analiticas</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-search-alt'></i>
-                    <span className="link_name">Explorar</span>
-                </a>
-                <ul className="sub-menu blank">
-                    <li><a className="link_name" href="#">Explorar</a></li>
                 </ul>
             </li>
             <li>

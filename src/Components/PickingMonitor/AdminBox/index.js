@@ -28,8 +28,8 @@ export const AdminBox = (props) => {
     return (
         <div>
             <div className="box-admin">
-                <h3>Administración de Cajas</h3>
-                <span>Modificar caja seleccionada</span>
+                <h3 className="head-contain-box">Administración de Cajas</h3>
+                <span className="head-contain-box">Modificar caja seleccionada</span>
                 <div className="update-box-functions">
                     <input onChange={(e) => { setGrossWeight(e.target.value) }} value={grossWeight} placeholder="Peso" />
                     <select onChange={(e) => { setDimensionSelected(e.target.value) }}>
@@ -38,7 +38,6 @@ export const AdminBox = (props) => {
                             <option key={dimension.id} value={dimension.id}> {dimension.name} {dimension.dimension} </option>
                         ))}
                     </select>
-                    <button onClick={() => { updateBox(boxDefaultData, setBoxes, setLoadedBox, boxSelected, pickingSelected) }} className="btn-update">Modificar</button>
                 </div>
                 <button onClick={() => { createBox(boxDefaultData, setBoxes, setLoadedBox, pickingSelected) }} className="btn-create-box">+</button>
 
@@ -52,7 +51,9 @@ export const AdminBox = (props) => {
                     </div>
                     {props.children}
                 </div>
+                <button onClick={() => { updateBox(boxDefaultData, setBoxes, setLoadedBox, boxSelected, pickingSelected) }} className="btn-update">Modificar</button>
             </div>
+
         </div>
     );
 }

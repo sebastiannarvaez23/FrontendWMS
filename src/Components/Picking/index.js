@@ -1,5 +1,6 @@
 //React
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import './Picking.css';
 
 // API
@@ -57,15 +58,19 @@ export const Picking = () => {
                     </SaleOrderControl>
                     <PickingControl>
                         <PickingList>
-                            {loadedPicking && pickings.map(picking => (
-                                <PickingItem
-                                    key={picking.id}
-                                    id={picking.id}
-                                    status={picking.status}
-                                    responsible={picking.responsible}
-                                    dateModified={picking.last_modification}
-                                />
-                            ))}
+                            <TransitionGroup>
+                                {loadedPicking && pickings.map((picking) => (
+                                    <CSSTransition key={picking.id} timeout={500} classNames="fade">
+                                        <PickingItem
+                                            key={picking.id}
+                                            id={picking.id}
+                                            status={picking.status}
+                                            responsible={picking.responsible}
+                                            dateModified={picking.last_modification}
+                                        />
+                                    </CSSTransition>
+                                ))}
+                            </TransitionGroup>
                             {!loadedPicking && <PickingItem id={"Cargando ..."} />}
                         </PickingList>
                         <PickingIndicatorsList>

@@ -15,7 +15,7 @@ export const BoxProvider = (props) => {
     const [quantity, setQuantity] = useState("");
     const [dimensions, setDimensions] = useState([]);
     const [dimensionSelected, setDimensionSelected] = useState(1);
-    const [grossWeight, setGrossWeight] = useState(0.00);
+    const [grossWeight, setGrossWeight] = useState("");
 
     const value = useMemo(() => {
         return ({

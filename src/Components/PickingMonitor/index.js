@@ -26,7 +26,7 @@ import { ContainPickingMonitor } from "./ContainPickingMonitor";
 export const PickingMonitor = () => {
 
     const { noSaleOrder } = useSaleOrder();
-    const { pickingSelected, setOpenPickingMonitor } = usePicking();
+    const { pickingSelected } = usePicking();
     const {
         loadedBoxItem,
         referencesRequest,

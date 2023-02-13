@@ -7,10 +7,10 @@ import './PickingList.css';
 export const PickingList = (props) => {
 
     const { noSaleOrder } = useSaleOrder();
-    const {setPickings, setLoadedPicking} = usePicking()
+    const { setPickings, setLoadedPicking } = usePicking()
 
     let pickingDefaultData = {
-        status: 1,
+        responsible: "1",
         sale_order: noSaleOrder
     }
 
