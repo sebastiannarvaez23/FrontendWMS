@@ -13,7 +13,7 @@ export const loadInfoSaleOrder = async (noSaleOrder, setLoaded, setSaleOrder) =>
 }
 
 export const getInfoReferencesRequest = async (setLoadedSaleOrderItems, setSaleOrderItems, noSaleOrder) => {
-    axios.get(API + "saleorder/getitems/" + noSaleOrder)
+    axios.get(API + "saleorderitem/" + noSaleOrder)
         .then(response => {
             setSaleOrderItems(response.data);
         })

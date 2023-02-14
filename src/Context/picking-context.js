@@ -16,7 +16,7 @@ export const PickingProvider = (props) => {
     const [pickingSelected, setPickingSelected] = useState("");
 
     // Picking Monitor
-    const [openPickingMonitor, setOpenPickingMonitor] = useState(true);
+    const [openPickingMonitor, setOpenPickingMonitor] = useState(false);
 
     const value = useMemo(() => {
         return ({

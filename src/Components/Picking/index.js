@@ -48,9 +48,16 @@ export const Picking = () => {
     return (
         <React.Fragment>
             <AppUI>
-                {!!openPickingMonitor && (
-                    <PickingMonitor />
-                )}
+                <TransitionGroup>
+                    {!!openPickingMonitor && (
+                        <CSSTransition
+                            classNames="picking-monitor"
+                            timeout={300}
+                        >
+                            <PickingMonitor />
+                        </CSSTransition>
+                    )}
+                </TransitionGroup>
                 <PickingContain>
                     <SaleOrderControl>
                         <GetSaleOrder />

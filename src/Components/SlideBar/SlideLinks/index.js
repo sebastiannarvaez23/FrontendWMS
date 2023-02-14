@@ -42,15 +42,15 @@ export const SlideLinks = () => {
             <li>
                 <a href="#">
                     <i className='bx bx-grid-alt'></i>
-                    <span className="link_name">Control</span>
+                    <span className="link_name">Inicio</span>
                 </a>
                 <ul className="sub-menu blank">
-                    <li><a className="link_name" href="#">Control</a></li>
+                    <li><a className="link_name" href="#">Inicio</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#">
-                <i class='bx bx-door-open'></i>
+                <i className='bx bx-door-open'></i>
                     <span className="link_name">Recepción</span>
                 </a>
                 <ul className="sub-menu blank">
@@ -59,7 +59,7 @@ export const SlideLinks = () => {
             </li>
             <li>
                 <a href="#">
-                <i class='bx bx-coin-stack'></i>
+                <i className='bx bx-coin-stack'></i>
                     <span className="link_name">Inventarios</span>
                 </a>
                 <ul className="sub-menu blank">
@@ -68,7 +68,7 @@ export const SlideLinks = () => {
             </li>
             <li>
                 <a href="#">
-                <i class='bx bx-home-alt'></i>
+                <i className='bx bx-home-alt'></i>
                     <span className="link_name">Almacenamiento</span>
                 </a>
                 <ul className="sub-menu blank">
@@ -77,16 +77,16 @@ export const SlideLinks = () => {
             </li>
             <li>
                 <a href="#">
-                    <i class='bx bxs-truck'></i>
-                    <span className="link_name">Despachos</span>
+                    <i className='bx bxs-truck'></i>
+                    <span className="link_name">Picking</span>
                 </a>
                 <ul className="sub-menu blank">
-                    <li><a className="link_name" href="#">Despachos</a></li>
+                    <li><a className="link_name" href="#">Picking</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#">
-                <i class='bx bxs-plane-alt'></i>
+                <i className='bx bxs-plane-alt'></i>
                     <span className="link_name">Envío</span>
                 </a>
                 <ul className="sub-menu blank">
@@ -95,7 +95,7 @@ export const SlideLinks = () => {
             </li>
             <li>
                 <a href="#">
-                <i class='bx bx-undo'></i>
+                <i className='bx bx-undo'></i>
                     <span className="link_name">Devoluciones</span>
                 </a>
                 <ul className="sub-menu blank">

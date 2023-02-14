@@ -9,7 +9,7 @@ export const PickingContain = (props) => {
         <section className="home-section">
             <div className="home-content">
                 <i onClick={openSlidebar} className='bx bx-menu'></i>
-                <span className="text">Despachos</span>
+                <span className="text">Picking</span>
             </div>
             {props.children}
         </section >
