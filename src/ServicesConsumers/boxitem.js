@@ -3,7 +3,7 @@ import { API } from './api/base.js';
 
 export const getBoxesItem = async (setBoxItems, setLoadedBoxItem, idBox) => {
     if (idBox != "") {
-        axios.get(API + "box/getboxitems/" + idBox)
+        axios.get(API + "boxitem/" + idBox)
             .then(response => {
                 setBoxItems(response.data);
             })

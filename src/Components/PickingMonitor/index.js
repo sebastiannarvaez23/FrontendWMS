@@ -1,5 +1,6 @@
 //React
 import React, { useEffect } from "react";
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import ReactDOM from "react-dom";
 import "./PickingMonitor.css"
 
@@ -57,17 +58,22 @@ export const PickingMonitor = () => {
     return ReactDOM.createPortal(
         <ContainPickingMonitor>
             <AdminBox>
-                {loaded && boxes.map(box => (
-                    <ItemBox
-                        key={box.id}
-                        id={box.id}
-                        last_modification={box.last_modification}
-                        gross_weight={box.gross_weight}
-                        responsible={box.responsible}
-                        dimension={box.dimension}
-                    />
-                ))}
+                <TransitionGroup>
+                    {loaded && boxes.map(box => (
+                        <CSSTransition key={box.id} timeout={500} classNames="fade">
+                            <ItemBox
+                                key={box.id}
+                                id={box.id}
+                                last_modification={box.last_modification}
+                                gross_weight={box.gross_weight}
+                                responsible={box.responsible}
+                                dimension={box.dimension}
+                            />
+                        </CSSTransition>
+                    ))}
+                </TransitionGroup>
                 {!loaded && (<ItemBox id={"Cargando ..."} />)}
+
             </AdminBox>
             <AdminReferences>
                 <PanelItemReferenceRequest>
@@ -85,16 +91,20 @@ export const PickingMonitor = () => {
                     {!loadedSaleOrderItems && (<ItemReferenceRequest id={"Cargando ..."} />)}
                 </PanelItemReferenceRequest>
                 <PanelItemReferencePack>
-                    {loadedBoxItem && boxItems.map(reference => (
-                        <ItemReferencePack
-                            key={reference.id}
-                            id={reference.id}
-                            reference={reference.reference}
-                            quantity={reference.quantity}
-                            modelsize={reference.modelsize}
-                            color={reference.color}
-                        />
-                    ))}
+                    <TransitionGroup>
+                        {loadedBoxItem && boxItems.map(reference => (
+                            <CSSTransition key={reference.id} timeout={500} classNames="fade">
+                                <ItemReferencePack
+                                    key={reference.id}
+                                    id={reference.id}
+                                    reference={reference.reference}
+                                    quantity={reference.quantity}
+                                    modelsize={reference.modelsize}
+                                    color={reference.color}
+                                />
+                            </CSSTransition>
+                        ))}
+                    </TransitionGroup>
                     {!loadedBoxItem && (<ItemReferencePack id={"Cargando ..."} />)}
                 </PanelItemReferencePack>
             </AdminReferences>
