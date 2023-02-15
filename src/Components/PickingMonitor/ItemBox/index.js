@@ -10,7 +10,7 @@ export const ItemBox = (props) => {
     } = useBox();
 
     let className = "box-item";
-    if (boxSelected == props.id) {
+    if (boxSelected === props.id) {
         className += "-selected";
     }
     return (

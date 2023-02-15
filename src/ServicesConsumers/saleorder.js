@@ -1,31 +1,31 @@
 import axios from 'axios';
 import { API } from './api/base.js';
 
-export const loadInfoSaleOrder = async (noSaleOrder, setLoaded, setSaleOrder) => {
-    axios.get(API + "saleorder/" + noSaleOrder)
+export const loadInfoSaleOrder = async (noSaleOrder, setSaleOrder) => {
+    await axios.get(API + "saleorder/" + noSaleOrder)
         .then(response => {
             setSaleOrder(response.data);
         })
         .catch(err => console.log(err))
-        .finally(() => {
-            setLoaded(true);
-        })
+        .finally(() => { })
 }
 
 export const getInfoReferencesRequest = async (setLoadedSaleOrderItems, setSaleOrderItems, noSaleOrder) => {
-    axios.get(API + "saleorderitem/" + noSaleOrder)
-        .then(response => {
-            setSaleOrderItems(response.data);
-        })
-        .catch(err => console.log(err))
-        .finally(() => {
-            setLoadedSaleOrderItems(true);
-        })
+    if (noSaleOrder !== "") {
+        await axios.get(API + "saleorderitem/" + noSaleOrder)
+            .then(response => {
+                setSaleOrderItems(response.data);
+            })
+            .catch(err => console.log(err))
+            .finally(() => {
+                setLoadedSaleOrderItems(true);
+            })
+    }
 }
 
 export const getInfoIndicators = async (customerName, noSaleOrder, setIndicatorsPicking) => {
     if (customerName !== "" && noSaleOrder !== "") {
-        axios.get(API + "saleorder/indicator/" + customerName + "/" + noSaleOrder + "/")
+        await axios.get(API + "saleorder/indicator/" + customerName + "/" + noSaleOrder + "/")
             .then(response => {
                 setIndicatorsPicking(response.data);
             })

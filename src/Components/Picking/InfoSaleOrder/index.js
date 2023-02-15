@@ -4,15 +4,14 @@ import './InfoSaleOrder.css';
 
 export const InfoSaleOrder = () => {
 
-    const { saleOrder, setSaleOrderModal } = useSaleOrder();
+    const { saleOrder, setSaleOrderModal, noSaleOrder } = useSaleOrder();
 
     return (
         <div className="info-sale-order">
             <div className="head-contain-info-sale-order">
                 <h4>Información del pedido de venta</h4>
-                <button onClick={() => { setSaleOrderModal(true) }} className="btn btn-view-sale-order-complete">v</button>
+                <button onClick={() => {(noSaleOrder) && setSaleOrderModal(true)}} className="btn btn-view-sale-order-complete">v</button>
             </div>
-
             <div className="grid-info-sale-order">
                 <div>
                     <p>Fecha publicación</p>

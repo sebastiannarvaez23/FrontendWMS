@@ -1,18 +1,22 @@
 import React from "react";
 import { createBoxItem } from "../../../ServicesConsumers/boxitem";
 import { useBox } from "../../../Context/box-context";
+import { useSaleOrder } from "../../../Context/saleorder-context";
 
 export const PanelItemReferencePack = (props) => {
 
-    const { 
-        inpReference,
-        setInpReference,
+    const {
         quantity,
         setQuantity,
         boxSelected,
         setLoadedBoxItem,
         setBoxItems
     } = useBox();
+
+    const {
+        inpReference,
+        setInpReference
+    } = useSaleOrder();
 
     let defaultDataBoxItem = {
         id: 2,

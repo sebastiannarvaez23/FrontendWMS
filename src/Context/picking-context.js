@@ -33,18 +33,13 @@ export const PickingProvider = (props) => {
             setloadedIndicator,
             setPickingSelected
         })
-    }, [indicatorsPicking,
+    }, [
+        indicatorsPicking,
         pickings,
         loadedPicking,
         loadedIndicator,
         pickingSelected,
         openPickingMonitor,
-        setOpenPickingMonitor,
-        setIndicatorsPicking,
-        setPickings,
-        setLoadedPicking,
-        setloadedIndicator,
-        setPickingSelected
     ])
     return <PickingContext.Provider value={value} {...props} />
 }

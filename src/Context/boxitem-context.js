@@ -16,15 +16,15 @@ export const BoxItemProvider = (props) => {
         })
     }, [
         boxItems,
-        loadedBoxItem,
+        loadedBoxItem
     ])
-    return <BoxContext.Provider value={value} {...props} />
+    return <BoxItemContext.Provider value={value} {...props} />
 }
 
 export const useBoxItem = () => {
     const context = useContext(BoxItemContext);
     if (!context) {
-        throw new Error('useBox debe estar dentro del Proveedor BoxContext');
+        throw new Error('useBoxItem debe estar dentro del Proveedor BoxContext');
     }
     return context;
 }

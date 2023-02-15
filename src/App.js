@@ -13,12 +13,15 @@ import { Login } from './Components/Login';
 import { PickingProvider } from './Context/picking-context';
 import { SaleOrderProvider } from './Context/saleorder-context';
 import { BoxProvider } from './Context/box-context';
+import { BoxItemProvider } from './Context/boxitem-context';
 
 export default () => (
   <SaleOrderProvider>
     <PickingProvider>
       <BoxProvider>
-        <App />
+        <BoxItemProvider>
+          <App />
+        </BoxItemProvider>
       </BoxProvider>
     </PickingProvider>
   </SaleOrderProvider>

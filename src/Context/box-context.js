@@ -8,10 +8,7 @@ export const BoxProvider = (props) => {
     const [boxes, setBoxes] = useState([]);
     const [loaded, setLoadedBox] = useState(false);
     const [boxSelected, setBoxSelected] = useState("");
-    const [referencesRequest, setReferencesRequest] = useState([]);
-    const [loadedSaleOrderItems, setLoadedSaleOrderItems] = useState(false);
     const [loadedBoxItem, setLoadedBoxItem] = useState(false);
-    const [inpReference, setInpReference] = useState("");
     const [quantity, setQuantity] = useState("");
     const [dimensions, setDimensions] = useState([]);
     const [dimensionSelected, setDimensionSelected] = useState(1);
@@ -23,10 +20,7 @@ export const BoxProvider = (props) => {
             boxes,
             loaded,
             boxSelected,
-            referencesRequest,
-            loadedSaleOrderItems,
             loadedBoxItem,
-            inpReference,
             quantity,
             dimensions,
             dimensionSelected,
@@ -34,14 +28,11 @@ export const BoxProvider = (props) => {
             setDimensions,
             setDimensionSelected,
             setGrossWeight,
-            setInpReference,
             setQuantity,
             setBoxItems,
             setBoxes,
             setLoadedBox,
             setBoxSelected,
-            setReferencesRequest,
-            setLoadedSaleOrderItems,
             setLoadedBoxItem
         })
     }, [
@@ -49,22 +40,10 @@ export const BoxProvider = (props) => {
         boxes,
         loaded,
         boxSelected,
-        referencesRequest,
-        loadedSaleOrderItems,
         loadedBoxItem,
         dimensions,
         dimensionSelected,
-        grossWeight,
-        setDimensions,
-        setDimensionSelected,
-        setGrossWeight,
-        setBoxItems,
-        setBoxes,
-        setLoadedBox,
-        setBoxSelected,
-        setReferencesRequest,
-        setLoadedSaleOrderItems,
-        setLoadedBoxItem
+        grossWeight
     ])
     return <BoxContext.Provider value={value} {...props} />
 }

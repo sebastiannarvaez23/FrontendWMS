@@ -16,7 +16,7 @@ export const FormLogin = (props) => {
   }
 
   const sesionSuccess = (showCredentialError) => {
-    { showCredentialError && props.setShowCredentialError(false); }
+    if (showCredentialError) { props.setShowCredentialError(false) }
     const Toast = Swal.mixin({
       toast: true,
       position: 'top',

@@ -9,38 +9,50 @@ import { getBoxes } from "../../ServicesConsumers/box";
 import { getBoxesItem } from "../../ServicesConsumers/boxitem";
 
 // components
-import { ItemBox } from "./ItemBox";
-import { AdminBox } from "./AdminBox";
 import { AdminReferences } from "./AdminReferences";
-import { PanelItemReferenceRequest } from "./PanelItemReferenceRequest";
+import { AdminBox } from "./AdminBox";
+import { ContainPickingMonitor } from "./ContainPickingMonitor";
+import { ItemBox } from "./ItemBox";
 import { ItemReferenceRequest } from "./ItemReferenceRequest"
-import { PanelItemReferencePack } from "./PanelItemReferencePack";
 import { ItemReferencePack } from "./ItemReferencePack";
+import { PanelItemReferenceRequest } from "./PanelItemReferenceRequest";
+import { PanelItemReferencePack } from "./PanelItemReferencePack";
 
 // Context
 import { usePicking } from "../../Context/picking-context";
 import { useSaleOrder } from "../../Context/saleorder-context";
 import { useBox } from "../../Context/box-context";
-import { ContainPickingMonitor } from "./ContainPickingMonitor";
+import { useBoxItem } from "../../Context/boxitem-context";
+
+import { getInfoReferencesRequest } from "../../ServicesConsumers/saleorder";
 
 export const PickingMonitor = () => {
 
-    const { saleOrderModal } = useSaleOrder();
+    const { 
+        saleOrderModal, 
+        setReferencesRequest, 
+        noSaleOrder, 
+        referencesRequest, 
+        loadedSaleOrderItems, 
+        setLoadedSaleOrderItems 
+    } = useSaleOrder();
+
     const { pickingSelected } = usePicking();
-    const {
+
+    const { 
+        boxItems,
         loadedBoxItem,
-        referencesRequest,
-        loadedSaleOrderItems,
+        setBoxItems,
+        setLoadedBoxItem
+    } = useBoxItem();
+    
+    const {
         boxes,
         loaded,
         boxSelected,
         setLoadedBox,
-        setLoadedBoxItem,
-        setBoxes,
-        boxItems,
-        setBoxItems
+        setBoxes
     } = useBox();
-
 
     useEffect(() => {
         getBoxes(setBoxes, setLoadedBox, pickingSelected);
@@ -48,10 +60,11 @@ export const PickingMonitor = () => {
 
     useEffect(() => {
         getBoxesItem(setBoxItems, setLoadedBoxItem, boxSelected)
+        getInfoReferencesRequest(setLoadedSaleOrderItems, setReferencesRequest, noSaleOrder)
     }, [boxSelected])
 
 
-    return ReactDOM.createPortal (
+    return ReactDOM.createPortal(
         <ContainPickingMonitor>
             <AdminBox>
                 <TransitionGroup>

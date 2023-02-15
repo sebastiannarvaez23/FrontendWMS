@@ -1,11 +1,13 @@
 import React from "react";
 import { useBox } from "../../../Context/box-context";
+import { useBoxItem } from "../../../Context/boxitem-context";
 import { usePicking } from "../../../Context/picking-context";
 
 export const ContainPickingMonitor = (props) => {
 
     const { setOpenPickingMonitor, setPickingSelected} = usePicking();
-    const { setBoxItems, setBoxSelected, setLoadedBox } = useBox();
+    const { setBoxSelected, setLoadedBox } = useBox();
+    const { setBoxItems } = useBoxItem();
 
     return (
         <section className="picking-monitor-container">

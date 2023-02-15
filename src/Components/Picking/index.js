@@ -33,9 +33,9 @@ import { AppUI } from "../AppUI";
 
 export const Picking = () => {
 
-    const { saleOrder, noSaleOrder, saleOrderModal } = useSaleOrder();
+    const { saleOrder, noSaleOrder, saleOrderModal, referencesRequest, setReferencesRequest, loadedSaleOrderItems, setLoadedSaleOrderItems } = useSaleOrder();
     const { openPickingMonitor, setPickings, setLoadedPicking, loadedPicking, pickings, indicatorsPicking, setIndicatorsPicking } = usePicking();
-    const { boxItems, referencesRequest, loadedSaleOrderItems, setReferencesRequest, setLoadedSaleOrderItems } = useBox();
+    const { boxItems } = useBox();
 
     useEffect(() => {
         getInfoIndicators(saleOrder.customer_name, noSaleOrder, setIndicatorsPicking);

@@ -4,7 +4,7 @@ import { API } from './api/base.js';
 // Dimension
 
 export const getDimensions = async (setDimensions) => {
-    axios.get(API + "box/dimension/")
+    await axios.get(API + "box/dimension/")
         .then(response => {
             setDimensions(response.data);
         })
@@ -16,7 +16,7 @@ export const getDimensions = async (setDimensions) => {
 
 export const getBoxes = async (setBoxes, setLoadedBox, pickingSelected) => {
     if (pickingSelected !== "") {
-        axios.get(API + "box/box/" + pickingSelected)
+        await axios.get(API + "box/box/" + pickingSelected)
             .then(response => {
                 setBoxes(response.data);
             })
@@ -28,18 +28,18 @@ export const getBoxes = async (setBoxes, setLoadedBox, pickingSelected) => {
 }
 
 export const createBox = async (data, setBoxes, setLoadedBox, idPicking) => {
-    axios.post(API + "box/", data)
+    await axios.post(API + "box/", data)
         .then((response) => {
-            const { data } = response;
+            //const { data } = response;
         })
         .catch(err => console.log(err))
         .finally(() => getBoxes(setBoxes, setLoadedBox, idPicking))
 }
 
 export const updateBox = async (data, setBoxes, setLoadedBox, boxSelected, idPicking) => {
-    axios.put(API + "box/update/" + boxSelected, data)
+    await axios.put(API + "box/update/" + boxSelected, data)
         .then((response) => {
-            const { data } = response;
+            //const { data } = response;
         })
         .catch(err => console.log(err))
         .finally(() => getBoxes(setBoxes, setLoadedBox, idPicking))

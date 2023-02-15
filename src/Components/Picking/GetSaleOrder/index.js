@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { loadInfoSaleOrder } from "../../../ServicesConsumers/saleorder";
 import { useBox } from "../../../Context/box-context";
 import { usePicking } from "../../../Context/picking-context";
@@ -10,9 +10,6 @@ export const GetSaleOrder = (props) => {
     const { noSaleOrder, setSaleOrder, setNoSaleOrder } = useSaleOrder();
     const {setIndicatorsPicking, setPickings} = usePicking();
     const { setBoxItems} = useBox();
-
-    // Implementar animacion de carga
-    const [loaded, setLoaded] = useState(false);
 
     function clearInputsSaleOrders() {
         setIndicatorsPicking({
@@ -42,7 +39,7 @@ export const GetSaleOrder = (props) => {
         <div className="dashboard-sale-order">
             <h3>Pedido de Venta</h3>
             <input value={noSaleOrder} onChange={(event) => { setNoSaleOrder(event.target.value) }} className="inp-search-so" />
-            <button className="btn btn-export-status-order" onClick={() => { loadInfoSaleOrder(noSaleOrder, setLoaded, setSaleOrder) }}>Cargar</button>
+            <button className="btn btn-export-status-order" onClick={() => { loadInfoSaleOrder(noSaleOrder, setSaleOrder) }}>Cargar</button>
             <button className="btn btn-clean-dashboard-so" onClick={() => { clearInputsSaleOrders() }}>Limpiar</button>
         </div>
     );
