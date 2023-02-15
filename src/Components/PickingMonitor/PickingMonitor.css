@@ -5,8 +5,6 @@
     --very-like-pink: #fcdae1;
 }
 
-
-
 .picking-monitor-container {
     background-color: var(--very-white);
     position: fixed;
@@ -19,7 +17,6 @@
     align-items: center;
     z-index: 20;
 }
-
 
 .picking-monitor {
     width: 100%;
@@ -55,11 +52,9 @@
     margin-bottom: 84vh;
 }
 
-
 .btn-back:hover {
     transform: rotate(180deg);
 }
-
 
 .fade-enter {
     opacity: 0;

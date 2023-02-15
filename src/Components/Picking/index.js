@@ -6,11 +6,12 @@ import './Picking.css';
 // API
 import { getPickings } from "../../ServicesConsumers/picking";
 import { getInfoIndicators } from '../../ServicesConsumers/saleorder';
+import { getInfoReferencesRequest } from "../../ServicesConsumers/saleorder";
 
 // components
-import { GetSaleOrder } from './GetSaleOrder';
 import { InfoSaleOrder } from '../Picking/InfoSaleOrder';
-import { SaleOrderControl } from '../Picking/SaleOrderControl';
+import { GetSaleOrder } from './GetSaleOrder';
+import { ModalSaleOrder } from './ModalSaleOrder';
 import { PickingList } from '../Picking/PickingList';
 import { PickingIndicatorsList } from './PickingIndicatorsList';
 import { PickingContain } from "./PickingContain";
@@ -18,6 +19,8 @@ import { PickingControl } from '../Picking/PickingControl';
 import { PickingItem } from './PickingItem';
 import { PickingMonitor } from "../PickingMonitor";
 import { PickingIndicator } from './PickingIndicator';
+import { SaleOrderControl } from '../Picking/SaleOrderControl';
+import { SaleOrderItem } from "./SaleOrderItem";
 
 // Context
 import { usePicking } from "../../Context/picking-context";
@@ -30,9 +33,9 @@ import { AppUI } from "../AppUI";
 
 export const Picking = () => {
 
-    const { saleOrder, noSaleOrder } = useSaleOrder();
+    const { saleOrder, noSaleOrder, saleOrderModal } = useSaleOrder();
     const { openPickingMonitor, setPickings, setLoadedPicking, loadedPicking, pickings, indicatorsPicking, setIndicatorsPicking } = usePicking();
-    const { boxItems } = useBox();
+    const { boxItems, referencesRequest, loadedSaleOrderItems, setReferencesRequest, setLoadedSaleOrderItems } = useBox();
 
     useEffect(() => {
         getInfoIndicators(saleOrder.customer_name, noSaleOrder, setIndicatorsPicking);
@@ -42,12 +45,44 @@ export const Picking = () => {
         getPickings(setPickings, setLoadedPicking, noSaleOrder);
     }, [saleOrder])
 
+    useEffect(() => {
+        getInfoReferencesRequest(setLoadedSaleOrderItems, setReferencesRequest, noSaleOrder)
+    }, [saleOrderModal])
+
     const dataIndicatorCustomer = dataIndicator(indicatorsPicking.picking_quantity_by_customer, indicatorsPicking.request_quantity_by_customer)
     const dataIndicatorSaleOrder = dataIndicator(indicatorsPicking.picking_quantity_by_saleorder, indicatorsPicking.request_quantity_by_saleorder)
 
     return (
         <React.Fragment>
             <AppUI>
+                <TransitionGroup>
+                    {!!saleOrderModal && (
+                        <CSSTransition
+                            classNames="saleorder"
+                            timeout={300}
+                        >
+                            <ModalSaleOrder>
+                                <TransitionGroup>
+                                    {loadedSaleOrderItems && referencesRequest.map((reference) => (
+                                        <CSSTransition key={reference.id} timeout={500} classNames="fade">
+                                            <SaleOrderItem
+                                                key={reference.id}
+                                                id={reference.id}
+                                                reference={reference.reference}
+                                                balance={"8/8"}
+                                                quantity={reference.quantity}
+                                                modelsize={reference.modelsize}
+                                                color={reference.color}
+                                            />
+                                        </CSSTransition>
+                                    ))}
+                                </TransitionGroup>
+                                {!loadedSaleOrderItems && <SaleOrderItem id={"Cargando ..."} />}
+                            </ModalSaleOrder>
+                        </CSSTransition>
+                    )}
+                </TransitionGroup>
+
                 <TransitionGroup>
                     {!!openPickingMonitor && (
                         <CSSTransition

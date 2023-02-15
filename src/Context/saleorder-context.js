@@ -5,6 +5,7 @@ export const SaleOrderContext = createContext();
 export const SaleOrderProvider = (props) => {
     const [noSaleOrder, setNoSaleOrder] = useState("");
     const [saleOrderItems, setSaleOrderItems] = useState([]);
+    const [saleOrderModal, setSaleOrderModal] = useState(false);
 
     // Information Sale Order
     const [saleOrder, setSaleOrder] = useState({
@@ -24,16 +25,16 @@ export const SaleOrderProvider = (props) => {
             saleOrder,
             noSaleOrder,
             saleOrderItems,
+            saleOrderModal,
             setSaleOrder,
             setNoSaleOrder,
-            setSaleOrderItems
+            setSaleOrderItems,
+            setSaleOrderModal
         })
     }, [saleOrder,
         noSaleOrder,
         saleOrderItems,
-        setSaleOrder,
-        setNoSaleOrder,
-        setSaleOrderItems
+        saleOrderModal
     ])
     return <SaleOrderContext.Provider value={value} {...props} />
 }

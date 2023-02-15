@@ -1,16 +1,50 @@
+:root {
+    --primary-color: #5856e9;
+    --very-white: #f3eef5;
+    --component: #e6e4f5;
+    --very-like-pink: #fcdae1;
+}
+
 .info-sale-order{
     margin: 5px 20px 5px 5px;
     padding: 8px 5px 25px 25px;
     background: linear-gradient(to bottom right, var(--component), #e0e0ec63);
     border-radius: 25px;
     box-shadow: 0px .5px .5px rgba(0, 0, 0, 0.2);
+}
 
+.btn:hover {
+    cursor: pointer;
+    transition: all .2s;
+    box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn:focus{
+    outline: 2px solid #b89199;
+}
+
+.grid-info-sale-order {
+    width: 65%;
+    position: absolute;
     display: grid;
     grid-template-columns: auto auto auto auto;
 }
 
-.info-sale-order div{
-    margin-top: 30px;
+.btn-view-sale-order-complete {
+    height: 20px;
+    width: 60px;
+    font-size: 15px;
+    padding: 3px 6px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    float: right;
+    margin-right: 20px;
+    color: var(--very-white);
+}
+
+.info-sale-order div p {
+    margin-top: 14px;
 }
 
 .info-sale-order div *{
@@ -36,6 +70,7 @@
 }
 
 .info-sale-order h4{
-    position: absolute;
+    display: inline-block;
+    position: relative;
     margin-left: 2%;
 }

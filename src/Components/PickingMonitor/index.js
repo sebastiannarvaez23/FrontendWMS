@@ -7,7 +7,6 @@ import "./PickingMonitor.css"
 // API
 import { getBoxes } from "../../ServicesConsumers/box";
 import { getBoxesItem } from "../../ServicesConsumers/boxitem";
-import { getInfoReferencesRequest } from "../../ServicesConsumers/saleorder";
 
 // components
 import { ItemBox } from "./ItemBox";
@@ -26,7 +25,7 @@ import { ContainPickingMonitor } from "./ContainPickingMonitor";
 
 export const PickingMonitor = () => {
 
-    const { noSaleOrder } = useSaleOrder();
+    const { saleOrderModal } = useSaleOrder();
     const { pickingSelected } = usePicking();
     const {
         loadedBoxItem,
@@ -35,8 +34,6 @@ export const PickingMonitor = () => {
         boxes,
         loaded,
         boxSelected,
-        setReferencesRequest,
-        setLoadedSaleOrderItems,
         setLoadedBox,
         setLoadedBoxItem,
         setBoxes,
@@ -47,15 +44,14 @@ export const PickingMonitor = () => {
 
     useEffect(() => {
         getBoxes(setBoxes, setLoadedBox, pickingSelected);
-        getInfoReferencesRequest(setLoadedSaleOrderItems, setReferencesRequest, noSaleOrder)
-    }, [])
+    }, [saleOrderModal])
 
     useEffect(() => {
         getBoxesItem(setBoxItems, setLoadedBoxItem, boxSelected)
     }, [boxSelected])
 
 
-    return ReactDOM.createPortal(
+    return ReactDOM.createPortal (
         <ContainPickingMonitor>
             <AdminBox>
                 <TransitionGroup>

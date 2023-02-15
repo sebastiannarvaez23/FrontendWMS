@@ -17,12 +17,6 @@
     transition: opacity 500ms;
 }
 
-
-
-
-
-
-
 .picking-monitor-enter {
     opacity: 0;
     transform: scale(0.9);
@@ -39,6 +33,27 @@
 }
 
 .picking-monitor-exit-active {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 300ms, transform 300ms;
+}
+
+.saleorder-enter {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.saleorder-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 300ms, transform 300ms;
+}
+
+.saleorder-exit {
+    opacity: 1;
+}
+
+.saleorder-exit-active {
     opacity: 0;
     transform: scale(0.9);
     transition: opacity 300ms, transform 300ms;
