@@ -1,6 +1,6 @@
 import React from "react";
 
-export const PanelItemReferenceRequest = (props) => {
+export const ContainSaleOrderItem = (props) => {
     return (
         <div className="ref-request">
                 <h3>Referencias solicitadas</h3>

@@ -11,12 +11,12 @@ import { getBoxesItem } from "../../ServicesConsumers/boxitem";
 // components
 import { AdminReferences } from "./AdminReferences";
 import { AdminBox } from "./AdminBox";
+import { Box } from "./Box";
+import { BoxItem } from "./BoxItem";
+import { ContainBoxItem } from "./ContainBoxItem";
 import { ContainPickingMonitor } from "./ContainPickingMonitor";
-import { ItemBox } from "./ItemBox";
-import { ItemReferenceRequest } from "./ItemReferenceRequest"
-import { ItemReferencePack } from "./ItemReferencePack";
-import { PanelItemReferenceRequest } from "./PanelItemReferenceRequest";
-import { PanelItemReferencePack } from "./PanelItemReferencePack";
+import { ContainSaleOrderItem } from "./ContainSaleOrderItem";
+import { SaleOrderItem } from "./SaleOrderItem"
 
 // Context
 import { usePicking } from "../../Context/picking-context";
@@ -71,7 +71,7 @@ export const PickingMonitor = () => {
                 <TransitionGroup>
                     {loaded && boxes.map(box => (
                         <CSSTransition key={box.id} timeout={500} classNames="fade">
-                            <ItemBox
+                            <Box
                                 key={box.id}
                                 id={box.id}
                                 last_modification={box.last_modification}
@@ -82,13 +82,13 @@ export const PickingMonitor = () => {
                         </CSSTransition>
                     ))}
                 </TransitionGroup>
-                {!loaded && (<ItemBox id={"Cargando ..."} />)}
+                {!loaded && (<Box id={"Cargando ..."} />)}
 
             </AdminBox>
             <AdminReferences>
-                <PanelItemReferenceRequest>
+                <ContainSaleOrderItem>
                     {loadedSaleOrderItems && referencesRequest.map(reference => (
-                        <ItemReferenceRequest
+                        <SaleOrderItem
                             key={reference.id}
                             id={reference.id}
                             reference={reference.reference}
@@ -98,13 +98,13 @@ export const PickingMonitor = () => {
                             color={reference.color}
                         />
                     ))}
-                    {!loadedSaleOrderItems && (<ItemReferenceRequest id={"Cargando ..."} />)}
-                </PanelItemReferenceRequest>
-                <PanelItemReferencePack>
+                    {!loadedSaleOrderItems && (<SaleOrderItem id={"Cargando ..."} />)}
+                </ContainSaleOrderItem>
+                <ContainBoxItem>
                     <TransitionGroup>
                         {loadedBoxItem && boxItems.map((reference) => (
                             <CSSTransition key={reference.id} timeout={500} classNames="fade">
-                                <ItemReferencePack
+                                <BoxItem
                                     key={reference.id}
                                     id={reference.id}
                                     reference={reference.reference}
@@ -115,8 +115,8 @@ export const PickingMonitor = () => {
                             </CSSTransition>
                         ))}
                     </TransitionGroup>
-                    {!loadedBoxItem && (<ItemReferencePack id={"Cargando ..."} />)}
-                </PanelItemReferencePack>
+                    {!loadedBoxItem && (<BoxItem id={"Cargando ..."} />)}
+                </ContainBoxItem>
             </AdminReferences>
         </ContainPickingMonitor>,
         document.getElementById('modal')

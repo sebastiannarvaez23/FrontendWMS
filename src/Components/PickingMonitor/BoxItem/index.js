@@ -1,7 +1,7 @@
 import React from "react";
-import "./ItemsReferencePack.css"
+import "./BoxItem.css"
 
-export const ItemReferencePack = (props) => {
+export const BoxItem = (props) => {
     return (
         <div className="item-ref-pack">
             <span>{props.id}</span>

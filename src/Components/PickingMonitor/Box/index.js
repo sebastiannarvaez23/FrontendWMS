@@ -1,8 +1,8 @@
 import React from "react";
 import { useBox } from "../../../Context/box-context";
-import "./ItemBox.css"
+import "./Box.css"
 
-export const ItemBox = (props) => {
+export const Box = (props) => {
 
     const {
         setBoxSelected,
