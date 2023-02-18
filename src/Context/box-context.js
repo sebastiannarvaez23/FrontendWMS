@@ -10,7 +10,7 @@ export const BoxProvider = (props) => {
     const [boxSelected, setBoxSelected] = useState("");
     const [loadedBoxItem, setLoadedBoxItem] = useState(false);
     const [dimensions, setDimensions] = useState([]);
-    const [dimensionSelected, setDimensionSelected] = useState(1);
+    const [dimensionSelected, setDimensionSelected] = useState("");
     const [grossWeight, setGrossWeight] = useState("");
 
     const value = useMemo(() => {

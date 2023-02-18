@@ -35,17 +35,17 @@ export const AdminBox = (props) => {
         <div>
             <div className="box-admin">
                 <h3 className="head-contain-box">Administración de Cajas</h3>
-                <span className="head-contain-box">Modificar caja seleccionada</span>
+                <span className="head-contain-box">Seleccione una caja o cree una</span>
                 <div className="update-box-functions">
                     <input onChange={(e) => { setGrossWeight(e.target.value) }} value={grossWeight} placeholder="Peso" />
-                    <select onChange={(e) => { setDimensionSelected(e.target.value) }}>
+                    <select  value={dimensionSelected} onChange={(e) => { setDimensionSelected(e.target.value) }}>
                         <option value=""> - Seleccione Dimensión - </option>
                         {dimensions.map(dimension => (
                             <option key={dimension.id} value={dimension.id}> {dimension.name} {dimension.dimension} </option>
                         ))}
                     </select>
                 </div>
-                <button onClick={() => { createBox(boxDefaultData, setBoxes, setLoadedBox, pickingSelected) }} className="btn-create-box">+</button>
+                <button onClick={() => { createBox(setGrossWeight, setDimensionSelected, setBoxes, setLoadedBox, pickingSelected, boxDefaultData) }} className="btn-create-box">+</button>
 
                 <div className="box-list">
                     <div className="headers-list-box">
@@ -57,7 +57,7 @@ export const AdminBox = (props) => {
                     </div>
                     {props.children}
                 </div>
-                <button onClick={() => { updateBox(boxDefaultData, setBoxes, setLoadedBox, boxSelected, pickingSelected) }} className="btn-update">Modificar</button>
+                <button onClick={() => { updateBox(setGrossWeight, setDimensionSelected, setBoxes, setLoadedBox, boxSelected, pickingSelected, boxDefaultData) }} className="btn-update">Modificar</button>
             </div>
 
         </div>
