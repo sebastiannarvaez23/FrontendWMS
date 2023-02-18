@@ -2,9 +2,9 @@ import React from "react";
 import { createBoxItem } from "../../../ServicesConsumers/boxitem";
 import { useBox } from "../../../Context/box-context";
 import { useBoxItem } from "../../../Context/boxitem-context";
-import "./PanelBoxItem.css";
+import "./ContainBoxItem.css";
 
-export const PanelBoxItem = (props) => {
+export const ContainBoxItem = (props) => {
 
     const {
         boxSelected,

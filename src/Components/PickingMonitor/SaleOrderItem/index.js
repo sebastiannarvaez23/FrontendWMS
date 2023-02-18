@@ -1,5 +1,5 @@
 import React from "react";
-import "./ItemReferenceRequest.css"
+import "./SaleOrderItem.css"
 
 export const SaleOrderItem = (props) => {
     return (
