@@ -13,10 +13,8 @@ export const AdminBox = (props) => {
     const { pickingSelected } = usePicking();
 
     let boxDefaultData = {
-        id: boxSelected,
-        last_modification: date,
-        gross_weight: parseInt(grossWeight, 10),
-        responsible: "Sebastian Narvaez",
+        responsible: 2,
+        gross_weight: grossWeight,
         dimension: dimensionSelected,
         picking: pickingSelected
     }

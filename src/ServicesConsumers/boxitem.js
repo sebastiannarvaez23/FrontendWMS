@@ -3,7 +3,7 @@ import { API } from './api/base.js';
 
 export const getBoxesItem = async (setBoxItems, setLoadedBoxItem, idBox) => {
     if (idBox !== "") {
-        await axios.get(API + "boxitem/" + idBox)
+        await axios.get(API + "boxitem/" + idBox + "/")
             .then(response => {
                 setBoxItems(response.data);
             })
@@ -15,10 +15,10 @@ export const getBoxesItem = async (setBoxItems, setLoadedBoxItem, idBox) => {
 }
 
 export const createBoxItem = async (setBoxItems, setLoadedBoxItem, idBox, data) => {
-    await axios.post(API + "box/createboxitem/", data)
-        .then((response) => {
-            //const { data } = response;
+    await axios.post(API + "boxitem/", data)
+        .then(() => {
+            getBoxesItem(setBoxItems, setLoadedBoxItem, idBox);
         })
         .catch(err => console.log(err))
-        .finally(() => getBoxesItem(setBoxItems, setLoadedBoxItem, idBox))
+        .finally(() => {})
 }

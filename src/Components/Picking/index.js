@@ -33,9 +33,33 @@ import { AppUI } from "../AppUI";
 
 export const Picking = () => {
 
-    const { saleOrder, noSaleOrder, saleOrderModal, referencesRequest, setReferencesRequest, loadedSaleOrderItems, setLoadedSaleOrderItems } = useSaleOrder();
-    const { openPickingMonitor, setPickings, setLoadedPicking, loadedPicking, pickings, indicatorsPicking, setIndicatorsPicking } = usePicking();
-    const { boxItems } = useBox();
+    // Context 
+
+    const {
+        saleOrder,
+        noSaleOrder,
+        saleOrderModal,
+        referencesRequest,
+        setReferencesRequest,
+        loadedSaleOrderItems,
+        setLoadedSaleOrderItems 
+    } = useSaleOrder();
+
+    const { 
+        openPickingMonitor,
+        setPickings,
+        setLoadedPicking,
+        loadedPicking,
+        pickings,
+        indicatorsPicking,
+        setIndicatorsPicking
+    } = usePicking();
+
+    const {
+        boxItems
+    } = useBox();
+
+    // useEffect
 
     useEffect(() => {
         getInfoIndicators(saleOrder.customer_name, noSaleOrder, setIndicatorsPicking);
@@ -48,6 +72,8 @@ export const Picking = () => {
     useEffect(() => {
         getInfoReferencesRequest(setLoadedSaleOrderItems, setReferencesRequest, noSaleOrder)
     }, [saleOrderModal])
+
+    // Render
 
     const dataIndicatorCustomer = dataIndicator(indicatorsPicking.picking_quantity_by_customer, indicatorsPicking.request_quantity_by_customer)
     const dataIndicatorSaleOrder = dataIndicator(indicatorsPicking.picking_quantity_by_saleorder, indicatorsPicking.request_quantity_by_saleorder)

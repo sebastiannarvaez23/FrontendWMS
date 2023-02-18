@@ -10,7 +10,7 @@ export const PickingList = (props) => {
     const { setPickings, setLoadedPicking } = usePicking()
 
     let pickingDefaultData = {
-        responsible: "1",
+        responsible: 2,
         sale_order: noSaleOrder
     }
 

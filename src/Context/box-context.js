@@ -9,7 +9,6 @@ export const BoxProvider = (props) => {
     const [loaded, setLoadedBox] = useState(false);
     const [boxSelected, setBoxSelected] = useState("");
     const [loadedBoxItem, setLoadedBoxItem] = useState(false);
-    const [quantity, setQuantity] = useState("");
     const [dimensions, setDimensions] = useState([]);
     const [dimensionSelected, setDimensionSelected] = useState(1);
     const [grossWeight, setGrossWeight] = useState("");
@@ -21,14 +20,12 @@ export const BoxProvider = (props) => {
             loaded,
             boxSelected,
             loadedBoxItem,
-            quantity,
             dimensions,
             dimensionSelected,
             grossWeight,
             setDimensions,
             setDimensionSelected,
             setGrossWeight,
-            setQuantity,
             setBoxItems,
             setBoxes,
             setLoadedBox,

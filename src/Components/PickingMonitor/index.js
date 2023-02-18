@@ -28,6 +28,8 @@ import { getInfoReferencesRequest } from "../../ServicesConsumers/saleorder";
 
 export const PickingMonitor = () => {
 
+    // Context 
+
     const { 
         saleOrderModal, 
         setReferencesRequest, 
@@ -37,15 +39,10 @@ export const PickingMonitor = () => {
         setLoadedSaleOrderItems 
     } = useSaleOrder();
 
-    const { pickingSelected } = usePicking();
+    const {
+        pickingSelected
+    } = usePicking();
 
-    const { 
-        boxItems,
-        loadedBoxItem,
-        setBoxItems,
-        setLoadedBoxItem
-    } = useBoxItem();
-    
     const {
         boxes,
         loaded,
@@ -54,16 +51,29 @@ export const PickingMonitor = () => {
         setBoxes
     } = useBox();
 
+    const { 
+        boxItems,
+        loadedBoxItem,
+        setBoxItems,
+        setLoadedBoxItem
+    } = useBoxItem();
+    
+    // useEffect
+
     useEffect(() => {
         getBoxes(setBoxes, setLoadedBox, pickingSelected);
     }, [saleOrderModal])
 
     useEffect(() => {
         getBoxesItem(setBoxItems, setLoadedBoxItem, boxSelected)
-        getInfoReferencesRequest(setLoadedSaleOrderItems, setReferencesRequest, noSaleOrder)
     }, [boxSelected])
 
+    useEffect(() => {
+        getInfoReferencesRequest(setLoadedSaleOrderItems, setReferencesRequest, noSaleOrder)
+    }, [noSaleOrder])
 
+    // Render 
+    
     return ReactDOM.createPortal(
         <ContainPickingMonitor>
             <AdminBox>

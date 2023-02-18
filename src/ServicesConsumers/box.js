@@ -16,7 +16,7 @@ export const getDimensions = async (setDimensions) => {
 
 export const getBoxes = async (setBoxes, setLoadedBox, pickingSelected) => {
     if (pickingSelected !== "") {
-        await axios.get(API + "box/box/" + pickingSelected)
+        await axios.get(API + "box/box/" + pickingSelected + "/")
             .then(response => {
                 setBoxes(response.data);
             })
@@ -28,7 +28,8 @@ export const getBoxes = async (setBoxes, setLoadedBox, pickingSelected) => {
 }
 
 export const createBox = async (data, setBoxes, setLoadedBox, idPicking) => {
-    await axios.post(API + "box/", data)
+    if (data.gross_weight === '') { data.gross_weight = 0 };
+    await axios.post(API + "box/box/", data)
         .then((response) => {
             //const { data } = response;
         })
@@ -37,7 +38,8 @@ export const createBox = async (data, setBoxes, setLoadedBox, idPicking) => {
 }
 
 export const updateBox = async (data, setBoxes, setLoadedBox, boxSelected, idPicking) => {
-    await axios.put(API + "box/update/" + boxSelected, data)
+    if (data.gross_weight === '') { data.gross_weight = 0 };
+    await axios.patch(API + "box/box/" + boxSelected, data)
         .then((response) => {
             //const { data } = response;
         })
