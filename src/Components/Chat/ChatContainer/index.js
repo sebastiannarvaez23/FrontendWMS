@@ -11,7 +11,7 @@ export const ChatContainer = (props) => {
             <div style={{
                 display: props.isVisible ? 'block' : 'none'
             }}>
-                <span onClick={() => props.setIsVisible(!props.isVisible)}>Cerrar</span>
+                <span onClick={() => props.setIsVisible(!props.isVisible)}>Close</span>
             </div>
         </div>
     );
