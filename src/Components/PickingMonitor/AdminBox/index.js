@@ -37,7 +37,7 @@ export const AdminBox = (props) => {
                 <h3 className="head-contain-box">Administración de Cajas</h3>
                 <span className="head-contain-box">Seleccione una caja o cree una</span>
                 <div className="update-box-functions">
-                    <input onChange={(e) => { setGrossWeight(e.target.value) }} value={grossWeight} placeholder="Peso" />
+                    <input onChange={(e) => { setGrossWeight(e.target.value) }} value={grossWeight} placeholder="Peso" disabled={!boxSelected} />
                     <select  value={dimensionSelected} onChange={(e) => { setDimensionSelected(e.target.value) }}>
                         <option value=""> - Seleccione Dimensión - </option>
                         {dimensions.map(dimension => (

@@ -6,7 +6,7 @@ import { usePicking } from "../../../Context/picking-context";
 export const ContainPickingMonitor = (props) => {
 
     const { setOpenPickingMonitor, setPickingSelected} = usePicking();
-    const { setBoxSelected, setLoadedBox } = useBox();
+    const { setBoxSelected, setLoadedBox, setGrossWeight } = useBox();
     const { setBoxItems } = useBoxItem();
 
     return (
@@ -16,6 +16,7 @@ export const ContainPickingMonitor = (props) => {
                 setBoxItems([]);
                 setPickingSelected("");
                 setBoxSelected("");
+                setGrossWeight("");
                 setOpenPickingMonitor(false);
             }} className="btn-back">&#62;</button>
             <div className="picking-monitor">
