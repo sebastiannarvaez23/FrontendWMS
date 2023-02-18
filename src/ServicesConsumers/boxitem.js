@@ -8,16 +8,20 @@ export const getBoxesItem = async (setBoxItems, setLoadedBoxItem, idBox) => {
                 setBoxItems(response.data);
             })
             .catch(err => console.log(err))
-            .finally(() => setLoadedBoxItem(true))
+            .finally(() => {
+                setLoadedBoxItem(true);
+            })
     } else {
         setLoadedBoxItem(true);
     }
 }
 
-export const createBoxItem = async (setBoxItems, setLoadedBoxItem, idBox, data) => {
+export const createBoxItem = async (setBoxItems, setLoadedBoxItem, setQuantity, setInpReference, data) => {
     await axios.post(API + "boxitem/", data)
-        .then(() => {
-            getBoxesItem(setBoxItems, setLoadedBoxItem, idBox);
+        .then((response) => {
+            getBoxesItem(setBoxItems, setLoadedBoxItem, data.box);
+            setQuantity("");
+            setInpReference("");
         })
         .catch(err => console.log(err))
         .finally(() => {})

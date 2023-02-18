@@ -6,7 +6,6 @@ export const SaleOrderProvider = (props) => {
     const [noSaleOrder, setNoSaleOrder] = useState("");
     const [saleOrderItems, setSaleOrderItems] = useState([]);
     const [saleOrderModal, setSaleOrderModal] = useState(false);
-    const [inpReference, setInpReference] = useState("");
     const [referencesRequest, setReferencesRequest] = useState([]);
     const [loadedSaleOrderItems, setLoadedSaleOrderItems] = useState(false);
 
@@ -29,14 +28,12 @@ export const SaleOrderProvider = (props) => {
             noSaleOrder,
             saleOrderItems,
             saleOrderModal,
-            inpReference,
             referencesRequest,
             loadedSaleOrderItems,
             setSaleOrder,
             setNoSaleOrder,
             setSaleOrderItems,
             setSaleOrderModal,
-            setInpReference,
             setReferencesRequest,
             setLoadedSaleOrderItems
         })
@@ -45,7 +42,6 @@ export const SaleOrderProvider = (props) => {
         noSaleOrder,
         saleOrderItems,
         saleOrderModal,
-        inpReference,
         referencesRequest,
         loadedSaleOrderItems
     ])

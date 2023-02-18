@@ -4,12 +4,20 @@ import { useBox } from "../../../Context/box-context";
 import { usePicking } from "../../../Context/picking-context";
 import './AdminBox.css';
 
-let now = new Date();
-let date = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate() + " " + now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
-
 export const AdminBox = (props) => {
 
-    const { setGrossWeight, setDimensionSelected, setDimensions, setBoxes, setLoadedBox, boxSelected, dimensions, dimensionSelected, grossWeight } = useBox();
+    const {
+        setGrossWeight,
+        setDimensionSelected,
+        setDimensions,
+        setBoxes,
+        setLoadedBox,
+        boxSelected,
+        dimensions,
+        dimensionSelected,
+        grossWeight
+    } = useBox();
+    
     const { pickingSelected } = usePicking();
 
     let boxDefaultData = {

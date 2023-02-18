@@ -71,7 +71,7 @@ export const Picking = () => {
 
     useEffect(() => {
         getInfoReferencesRequest(setLoadedSaleOrderItems, setReferencesRequest, noSaleOrder)
-    }, [saleOrderModal])
+    }, [noSaleOrder])
 
     // Render
 

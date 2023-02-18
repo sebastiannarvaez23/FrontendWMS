@@ -24,19 +24,14 @@ import { useSaleOrder } from "../../Context/saleorder-context";
 import { useBox } from "../../Context/box-context";
 import { useBoxItem } from "../../Context/boxitem-context";
 
-import { getInfoReferencesRequest } from "../../ServicesConsumers/saleorder";
-
 export const PickingMonitor = () => {
 
     // Context 
 
     const { 
-        saleOrderModal, 
-        setReferencesRequest, 
-        noSaleOrder, 
+        saleOrderModal,
         referencesRequest, 
-        loadedSaleOrderItems, 
-        setLoadedSaleOrderItems 
+        loadedSaleOrderItems,
     } = useSaleOrder();
 
     const {
@@ -65,12 +60,8 @@ export const PickingMonitor = () => {
     }, [saleOrderModal])
 
     useEffect(() => {
-        getBoxesItem(setBoxItems, setLoadedBoxItem, boxSelected)
+        getBoxesItem(setBoxItems, setLoadedBoxItem, boxSelected);
     }, [boxSelected])
-
-    useEffect(() => {
-        getInfoReferencesRequest(setLoadedSaleOrderItems, setReferencesRequest, noSaleOrder)
-    }, [noSaleOrder])
 
     // Render 
     
@@ -111,7 +102,7 @@ export const PickingMonitor = () => {
                 </PanelItemReferenceRequest>
                 <PanelItemReferencePack>
                     <TransitionGroup>
-                        {loadedBoxItem && boxItems.map(reference => (
+                        {loadedBoxItem && boxItems.map((reference) => (
                             <CSSTransition key={reference.id} timeout={500} classNames="fade">
                                 <ItemReferencePack
                                     key={reference.id}
