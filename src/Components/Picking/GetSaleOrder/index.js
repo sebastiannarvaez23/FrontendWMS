@@ -8,8 +8,8 @@ import './GetSaleOrder.css';
 export const GetSaleOrder = (props) => {
 
     const { noSaleOrder, setSaleOrder, setNoSaleOrder } = useSaleOrder();
-    const {setIndicatorsPicking, setPickings} = usePicking();
-    const { setBoxItems} = useBox();
+    const { setIndicatorsPicking, setPickings } = usePicking();
+    const { setBoxItems } = useBox();
 
     function clearInputsSaleOrders() {
         setIndicatorsPicking({
@@ -22,14 +22,14 @@ export const GetSaleOrder = (props) => {
         setBoxItems([])
 
         setSaleOrder({
-            publication_date:"",
-            delivery_date:"",
-            doc_date:"",
-            po_comments:"",
-            customer_name:"",
-            delivery_address:"",
-            pay_term:"",
-            collection:""
+            publication_date: "",
+            delivery_date: "",
+            doc_date: "",
+            po_comments: "",
+            customer_name: "",
+            delivery_address: "",
+            pay_term: "",
+            collection: ""
         });
         setNoSaleOrder("");
         setPickings([])
@@ -41,6 +41,8 @@ export const GetSaleOrder = (props) => {
             <input value={noSaleOrder} onChange={(event) => { setNoSaleOrder(event.target.value) }} className="inp-search-so" />
             <button className="btn btn-export-status-order" onClick={() => { loadInfoSaleOrder(noSaleOrder, setSaleOrder) }}>Cargar</button>
             <button className="btn btn-clean-dashboard-so" onClick={() => { clearInputsSaleOrders() }}>Limpiar</button>
+            <button className="btn saleorder-navigation" onClick={() => { }}>&#60;</button>
+            <button className="btn saleorder-navigation" onClick={() => { }}>&#62;</button>
         </div>
     );
 }

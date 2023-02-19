@@ -37,21 +37,39 @@
 
 .btn{
     border: none;
-    display: block;
     background-color: var(--very-like-pink);
     border-radius: 20px;
     transition: all .2s;
 }
 
+.saleorder-navigation {
+    background-color: var(--very-like-pink);
+    margin-top: 0;
+    margin-left: 8px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: bold;
+    display: inline;
+    height: 40px;
+    width: 40px;
+    vertical-align: middle;
+    line-height: 40px;
+}
+
 .btn-clean-dashboard-so{
     width: 45%;
-    height: 5vh;
+    height: 40px;
+    display: inline;
+    margin-top: 0;
 }
 
 .btn-export-status-order{
     width: 60%;
-    height: 5vh;
+    height: 40px;
     min-width: 160px;
+    margin-bottom: 8px;
 }
 
 .btn-clean-dashboard-so:hover{
