@@ -9,6 +9,7 @@ export const BoxItem = (props) => {
             <span>{props.modelsize}</span>
             <span>{props.color}</span>
             <span>{props.quantity}</span>
+            <span><i class='bx bx-trash' onClick={()=>{alert('Eliminando referencia en caja ' + props.reference)}}></i></span>
         </div>
     );
 }

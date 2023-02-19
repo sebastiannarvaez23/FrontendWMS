@@ -23,6 +23,7 @@ export const Box = (props) => {
             <span>{props.responsible}</span>
             <span>{props.dimension}</span>
             <span>{props.last_modification}</span>
+            <span><i class='bx bx-trash' onClick={()=>{alert('Eliminando caja ' + props.id)}}></i></span>
         </div>
     );
 }

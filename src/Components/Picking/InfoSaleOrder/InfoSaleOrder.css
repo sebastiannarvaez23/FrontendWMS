@@ -31,16 +31,22 @@
 }
 
 .btn-view-sale-order-complete {
-    height: 20px;
+    height: 25px;
     width: 60px;
-    font-size: 15px;
+    font-size: 20px;
     padding: 3px 6px;
     text-overflow: ellipsis;
     overflow: hidden;
+    transition: all .3s;
 
     float: right;
-    margin-right: 20px;
-    color: var(--very-white);
+    margin-right: 10px; 
+}
+
+.btn-view-sale-order-complete:hover {
+    transition: all .3s;
+    cursor: pointer;
+    font-size: 21px;
 }
 
 .info-sale-order div p {

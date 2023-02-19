@@ -22,6 +22,7 @@ export const PickingList = (props) => {
                 <span>Estado</span>
                 <span>Responsable</span>
                 <span>Última modificación</span>
+                <span></span>
             </div>
 
             <button onClick={() => {

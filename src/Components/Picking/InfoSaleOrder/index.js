@@ -10,7 +10,7 @@ export const InfoSaleOrder = () => {
         <div className="info-sale-order">
             <div className="head-contain-info-sale-order">
                 <h4>Información del pedido de venta</h4>
-                <button onClick={() => {(noSaleOrder) && setSaleOrderModal(true)}} className="btn btn-view-sale-order-complete">v</button>
+                <span className="btn-view-sale-order-complete" onClick={() => {(noSaleOrder) && setSaleOrderModal(true)}}>&#128065;</span>
             </div>
             <div className="grid-info-sale-order">
                 <div>

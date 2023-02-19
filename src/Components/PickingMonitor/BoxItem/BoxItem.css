@@ -10,8 +10,8 @@
     border-radius: 10px;
     box-shadow: 1.5px 3px 3px rgba(0, 0, 0, 0.2);
     font-size: 14px;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 10% 35% 15% 25% 14% 1%;
     align-items: center;
     color: var(--very-white)
 }
