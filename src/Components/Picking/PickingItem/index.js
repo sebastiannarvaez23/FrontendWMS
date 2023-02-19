@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useRef } from "react";
 import './PickingItem.css';
 
 // Context
 import { usePicking } from "../../../Context/picking-context";
 
 export const PickingItem = (props) => {
+
     const { setPickingSelected, setOpenPickingMonitor } = usePicking();
+    const pickingItemRef = useRef(null);
 
     return (
-        <div onClick={() => {
+        <div ref={pickingItemRef} onClick={() => {
             setPickingSelected(props.id);
             setOpenPickingMonitor(true);
         }} className={"picking-item"}>

@@ -28,7 +28,14 @@ export const getBoxes = async (setBoxes, setLoadedBox, pickingSelected) => {
 }
 
 export const createBox = async (setGrossWeight, setDimensionSelected, setBoxes, setLoadedBox, idPicking, data) => {
+    
     if (data.gross_weight === '') { data.gross_weight = 0 };
+
+    if (data.dimension === '') {
+        alert('Debe seleccionar una dimension');
+        return;
+    }
+
     await axios.post(API + "box/box/", data)
         .then((response) => {
             //const { data } = response;
@@ -42,7 +49,16 @@ export const createBox = async (setGrossWeight, setDimensionSelected, setBoxes, 
 }
 
 export const updateBox = async (setGrossWeight, setDimensionSelected, setBoxes, setLoadedBox, boxSelected, idPicking, data) => {
-    if (data.gross_weight === '') { data.gross_weight = 0 };
+    if (data.gross_weight === '') { 
+        alert('Debe ingresar el peso de la caja');
+        return;
+    };
+    
+    if (data.dimension === '') {
+        alert('Debe seleccionar una dimension');
+        return;
+    }
+    
     await axios.patch(API + "box/box/" + boxSelected, data)
         .then((response) => {
             //const { data } = response;

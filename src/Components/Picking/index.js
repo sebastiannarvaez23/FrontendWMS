@@ -42,10 +42,10 @@ export const Picking = () => {
         referencesRequest,
         setReferencesRequest,
         loadedSaleOrderItems,
-        setLoadedSaleOrderItems 
+        setLoadedSaleOrderItems
     } = useSaleOrder();
 
-    const { 
+    const {
         openPickingMonitor,
         setPickings,
         setLoadedPicking,
@@ -67,11 +67,8 @@ export const Picking = () => {
 
     useEffect(() => {
         getPickings(setPickings, setLoadedPicking, noSaleOrder);
-    }, [saleOrder])
-
-    useEffect(() => {
         getInfoReferencesRequest(setLoadedSaleOrderItems, setReferencesRequest, noSaleOrder)
-    }, [noSaleOrder])
+    }, [saleOrder])
 
     // Render
 
@@ -115,7 +112,7 @@ export const Picking = () => {
                             classNames="picking-monitor"
                             timeout={300}
                         >
-                            <PickingMonitor />
+                            <PickingMonitor/>
                         </CSSTransition>
                     )}
                 </TransitionGroup>
@@ -127,17 +124,17 @@ export const Picking = () => {
                     <PickingControl>
                         <PickingList>
                             <TransitionGroup>
-                                {loadedPicking && pickings.map((picking) => (
-                                    <CSSTransition key={picking.id} timeout={500} classNames="fade">
-                                        <PickingItem
-                                            key={picking.id}
-                                            id={picking.id}
-                                            status={picking.status}
-                                            responsible={picking.responsible}
-                                            dateModified={picking.last_modification}
-                                        />
-                                    </CSSTransition>
-                                ))}
+                                    {loadedPicking && pickings.map((picking) => (
+                                        <CSSTransition key={picking.id} timeout={500} classNames="fade">
+                                            <PickingItem
+                                                key={picking.id}
+                                                id={picking.id}
+                                                status={picking.status}
+                                                responsible={picking.responsible}
+                                                dateModified={picking.last_modification}
+                                            />
+                                        </CSSTransition>
+                                    ))}
                             </TransitionGroup>
                             {!loadedPicking && <PickingItem id={"Cargando ..."} />}
                         </PickingList>
