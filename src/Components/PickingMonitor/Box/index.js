@@ -13,6 +13,7 @@ export const Box = (props) => {
     if (boxSelected === props.id) {
         className += "-selected";
     }
+
     return (
         <div className={className} onClick={()=>{
             setBoxSelected(props.id);

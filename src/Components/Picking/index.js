@@ -131,7 +131,7 @@ export const Picking = () => {
                                                 id={picking.id}
                                                 status={picking.status}
                                                 responsible={picking.responsible}
-                                                dateModified={picking.last_modification}
+                                                dateModified={(picking.last_modification).substring(5, 16).replace("-", "/")}
                                             />
                                         </CSSTransition>
                                     ))}

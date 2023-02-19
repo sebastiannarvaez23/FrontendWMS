@@ -74,7 +74,7 @@ export const PickingMonitor = () => {
                             <Box
                                 key={box.id}
                                 id={box.id}
-                                last_modification={box.last_modification}
+                                last_modification={(box.last_modification).substring(5, 16).replace("-", "/")}
                                 gross_weight={box.gross_weight}
                                 responsible={box.responsible}
                                 dimension={box.dimension}
