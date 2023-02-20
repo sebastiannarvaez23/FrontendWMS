@@ -12,6 +12,7 @@ export const getBoxesItem = async (setBoxItems, setLoadedBoxItem, idBox) => {
                 setLoadedBoxItem(true);
             })
     } else {
+        setBoxItems([])
         setLoadedBoxItem(true);
     }
 }

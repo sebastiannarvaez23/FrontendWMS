@@ -43,7 +43,6 @@ export const AdminBox = (props) => {
                         if (regex.test(newValue) || newValue === '') {
                             setGrossWeight(newValue);
                         }
-                        
                     }} value={grossWeight} placeholder="Peso" disabled={!boxSelected} />
                     <select  value={dimensionSelected} onChange={(e) => { setDimensionSelected(e.target.value) }}>
                         <option value=""> - Seleccione Dimensión - </option>

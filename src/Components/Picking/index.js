@@ -25,7 +25,7 @@ import { SaleOrderItem } from "./SaleOrderItem";
 // Context
 import { usePicking } from "../../Context/picking-context";
 import { useSaleOrder } from "../../Context/saleorder-context";
-import { useBox } from "../../Context/box-context";
+import { useBoxItem } from "../../Context/boxitem-context";
 
 // Other
 import { dataIndicator } from "./PickingIndicator/data-indicator";
@@ -57,7 +57,7 @@ export const Picking = () => {
 
     const {
         boxItems
-    } = useBox();
+    } = useBoxItem();
 
     // useEffect
 

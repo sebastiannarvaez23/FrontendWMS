@@ -95,7 +95,7 @@
     display: block;
     margin-top: 8px;
     border-radius: 10px;
-    border: none;
+    border: 1px white solid;
 }
 
 .btn-update{
