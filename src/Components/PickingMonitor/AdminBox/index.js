@@ -50,6 +50,7 @@ export const AdminBox = (props) => {
                             <option key={dimension.id} value={dimension.id}> {dimension.name} {dimension.dimension} </option>
                         ))}
                     </select>
+                    <button onClick={() => {}} className="btn btn-create-dimension">+</button>
                 </div>
                 <button onClick={() => { createBox(setGrossWeight, setDimensionSelected, setBoxes, setLoadedBox, pickingSelected, boxDefaultData) }} className="btn-create-box">+</button>
 
