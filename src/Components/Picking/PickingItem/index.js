@@ -18,7 +18,7 @@ export const PickingItem = (props) => {
             <span>{props.status}</span>
             <span>{props.responsible}</span>
             <span>{props.dateModified}</span>
-            <span><i className='bx bx-trash' onClick={()=>{alert('Eliminando Picking ' + props.id)}}></i></span>
+            <span><i className='bx bx-trash' onClick={(event)=>{event.stopPropagation();alert('Eliminando Picking ' + props.id);}}></i></span>
         </div>
     );
 }
