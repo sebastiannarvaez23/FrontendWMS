@@ -22,3 +22,12 @@ export const createPicking = async (data, setPickings, setLoadedPicking, noSaleO
         .catch(err => console.log(err))
         .finally(() => getPickings(setPickings, setLoadedPicking, noSaleOrder))
 }
+
+export const deletePicking = async (idPicking, setPickings, setLoadedPicking, noSaleOrder) => {
+    await axios.delete(API + "picking/" + idPicking)
+        .then((response) => {
+            //const { data } = response;
+        })
+        .catch(err => console.log(err))
+        .finally(() => getPickings(setPickings, setLoadedPicking, noSaleOrder))
+}

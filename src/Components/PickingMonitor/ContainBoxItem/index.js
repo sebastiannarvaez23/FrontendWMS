@@ -8,7 +8,6 @@ export const ContainBoxItem = (props) => {
 
     const {
         boxSelected,
-        setLoadedBoxItem,
     } = useBox();
 
     const {
@@ -16,7 +15,8 @@ export const ContainBoxItem = (props) => {
         setQuantity,
         inpReference,
         setInpReference,
-        setBoxItems
+        setBoxItems,
+        setLoadedBoxItem
     } = useBoxItem();
 
     let defaultDataBoxItem = {

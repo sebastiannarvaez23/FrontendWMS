@@ -1,16 +1,28 @@
-import React, { useRef } from "react";
+import React from "react";
 import './PickingItem.css';
 
 // Context
 import { usePicking } from "../../../Context/picking-context";
+import { useSaleOrder } from "../../../Context/saleorder-context";
+
+// API
+import { deletePicking } from "../../../ServicesConsumers/picking";
 
 export const PickingItem = (props) => {
 
-    const { setPickingSelected, setOpenPickingMonitor } = usePicking();
-    const pickingItemRef = useRef(null);
+    const {
+        noSaleOrder
+    } = useSaleOrder();
 
+    const {
+        setPickingSelected,
+        setPickings,
+        setOpenPickingMonitor,
+        setLoadedPicking
+    } = usePicking();
+    
     return (
-        <div ref={pickingItemRef} onClick={() => {
+        <div onClick={() => {
             setPickingSelected(props.id);
             setOpenPickingMonitor(true);
         }} className={"picking-item"}>
@@ -18,7 +30,10 @@ export const PickingItem = (props) => {
             <span>{props.status}</span>
             <span>{props.responsible}</span>
             <span>{props.dateModified}</span>
-            <span><i className='bx bx-trash' onClick={(event)=>{event.stopPropagation();alert('Eliminando Picking ' + props.id);}}></i></span>
+            <span><i className='bx bx-trash' onClick={(event)=>{
+                event.stopPropagation();
+                deletePicking(props.id, setPickings, setLoadedPicking, noSaleOrder)
+            }}></i></span>
         </div>
     );
 }

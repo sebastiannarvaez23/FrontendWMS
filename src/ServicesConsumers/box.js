@@ -70,3 +70,15 @@ export const updateBox = async (setGrossWeight, setDimensionSelected, setBoxes, 
             setGrossWeight("")
         })
 }
+
+export const deleteBox = async (idBox, setBoxes, setLoadedBox, idPicking, setBoxSelected) => {
+    await axios.delete(API + "box/box/" + idBox)
+        .then((response) => {
+            //const { data } = response;
+        })
+        .catch(err => console.log(err))
+        .finally(() => {
+            getBoxes(setBoxes, setLoadedBox, idPicking);
+            setBoxSelected("");
+        })
+}

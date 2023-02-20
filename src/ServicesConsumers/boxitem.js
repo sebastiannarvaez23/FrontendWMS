@@ -26,3 +26,12 @@ export const createBoxItem = async (setBoxItems, setLoadedBoxItem, setQuantity, 
         .catch(err => console.log(err))
         .finally(() => {})
 }
+
+export const deleteBoxItem = async (idBoxItem, setBoxItems, setLoadedBoxItem, idBox) => {
+    await axios.delete(API + "boxitem/" + idBoxItem)
+        .then((response) => {
+            getBoxesItem(setBoxItems, setLoadedBoxItem, idBox);
+        })
+        .catch(err => console.log(err))
+        .finally(() => {})
+}

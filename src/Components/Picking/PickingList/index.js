@@ -21,7 +21,7 @@ export const PickingList = (props) => {
                 <span>id</span>
                 <span>Estado</span>
                 <span>Responsable</span>
-                <span>Última modificación</span>
+                <span>Creación</span>
                 <span></span>
             </div>
 
