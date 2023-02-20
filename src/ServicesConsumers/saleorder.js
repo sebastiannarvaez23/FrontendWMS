@@ -2,12 +2,14 @@ import axios from 'axios';
 import { API } from './api/base.js';
 
 export const loadInfoSaleOrder = async (noSaleOrder, setSaleOrder) => {
-    await axios.get(API + "saleorder/" + noSaleOrder)
-        .then(response => {
-            setSaleOrder(response.data);
-        })
-        .catch(err => console.log(err))
-        .finally(() => { })
+    if (noSaleOrder !== "") {
+        await axios.get(API + "saleorder/" + noSaleOrder)
+            .then(response => {
+                setSaleOrder(response.data);
+            })
+            .catch(err => console.log(err))
+            .finally(() => { })
+    }
 }
 
 export const getInfoReferencesRequest = async (setLoadedSaleOrderItems, setSaleOrderItems, noSaleOrder) => {

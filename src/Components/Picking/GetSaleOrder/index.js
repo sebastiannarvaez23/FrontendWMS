@@ -38,7 +38,18 @@ export const GetSaleOrder = (props) => {
     return (
         <div className="dashboard-sale-order">
             <h3>Pedido de Venta</h3>
-            <input value={noSaleOrder} onChange={(event) => { setNoSaleOrder(event.target.value) }} className="inp-search-so" />
+            <input value={noSaleOrder} onChange={(event) => {
+                const regex = /^\d{0,6}$/; // Expresión regular para validar que solo sean números
+                const newValue = event.target.value;
+                if (regex.test(newValue) || newValue === '') {
+                    setNoSaleOrder(newValue);
+                }
+            }} onKeyDown={(e)=>{
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    loadInfoSaleOrder(noSaleOrder, setSaleOrder);
+                  }
+            }} className="inp-search-so" />
             <button className="btn btn-export-status-order" onClick={() => { loadInfoSaleOrder(noSaleOrder, setSaleOrder) }}>Cargar</button>
             <button className="btn btn-clean-dashboard-so" onClick={() => { clearInputsSaleOrders() }}>Limpiar</button>
             <button className="btn saleorder-navigation" onClick={() => { }}>&#60;</button>

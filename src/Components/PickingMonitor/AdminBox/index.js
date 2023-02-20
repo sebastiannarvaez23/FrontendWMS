@@ -37,7 +37,14 @@ export const AdminBox = (props) => {
                 <h3 className="head-contain-box">Administración de Cajas</h3>
                 <span className="head-contain-box">Seleccione una caja o cree una</span>
                 <div className="update-box-functions">
-                    <input onChange={(e) => { setGrossWeight(e.target.value) }} value={grossWeight} placeholder="Peso" disabled={!boxSelected} />
+                    <input onChange={(e) => {
+                        const regex = /^\d{0,3}(\.\d{0,2})?$/; // Expresión regular para validar que solo sean números y puntos
+                        const newValue = e.target.value;
+                        if (regex.test(newValue) || newValue === '') {
+                            setGrossWeight(newValue);
+                        }
+                        
+                    }} value={grossWeight} placeholder="Peso" disabled={!boxSelected} />
                     <select  value={dimensionSelected} onChange={(e) => { setDimensionSelected(e.target.value) }}>
                         <option value=""> - Seleccione Dimensión - </option>
                         {dimensions.map(dimension => (
