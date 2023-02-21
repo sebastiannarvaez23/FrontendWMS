@@ -12,6 +12,7 @@ export const BoxProvider = (props) => {
     const [dimensions, setDimensions] = useState([]);
     const [dimensionSelected, setDimensionSelected] = useState("");
     const [grossWeight, setGrossWeight] = useState("");
+    const [modalDimension, setModalDimension] = useState(true);
 
     const value = useMemo(() => {
         return ({
@@ -23,6 +24,8 @@ export const BoxProvider = (props) => {
             dimensions,
             dimensionSelected,
             grossWeight,
+            modalDimension,
+            setModalDimension,
             setDimensions,
             setDimensionSelected,
             setGrossWeight,
@@ -40,7 +43,8 @@ export const BoxProvider = (props) => {
         loadedBoxItem,
         dimensions,
         dimensionSelected,
-        grossWeight
+        grossWeight,
+        modalDimension
     ])
     return <BoxContext.Provider value={value} {...props} />
 }

@@ -15,7 +15,8 @@ export const AdminBox = (props) => {
         boxSelected,
         dimensions,
         dimensionSelected,
-        grossWeight
+        grossWeight,
+        setModalDimension
     } = useBox();
     
     const { pickingSelected } = usePicking();
@@ -50,7 +51,7 @@ export const AdminBox = (props) => {
                             <option key={dimension.id} value={dimension.id}> {dimension.name} {dimension.dimension} </option>
                         ))}
                     </select>
-                    <button onClick={() => {}} className="btn btn-create-dimension">+</button>
+                    <button onClick={() => {setModalDimension(true)}} className="btn btn-create-dimension">+</button>
                 </div>
                 <button onClick={() => { createBox(setGrossWeight, setDimensionSelected, setBoxes, setLoadedBox, pickingSelected, boxDefaultData) }} className="btn-create-box">+</button>
 

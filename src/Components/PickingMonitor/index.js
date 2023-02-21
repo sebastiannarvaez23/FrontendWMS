@@ -23,14 +23,15 @@ import { usePicking } from "../../Context/picking-context";
 import { useSaleOrder } from "../../Context/saleorder-context";
 import { useBox } from "../../Context/box-context";
 import { useBoxItem } from "../../Context/boxitem-context";
+import { ModalAgregarDimension } from "./ModalAgregarDimension";
 
 export const PickingMonitor = () => {
 
     // Context 
 
-    const { 
+    const {
         saleOrderModal,
-        referencesRequest, 
+        referencesRequest,
         loadedSaleOrderItems,
     } = useSaleOrder();
 
@@ -43,16 +44,17 @@ export const PickingMonitor = () => {
         loaded,
         boxSelected,
         setLoadedBox,
-        setBoxes
+        setBoxes,
+        modalDimension
     } = useBox();
 
-    const { 
+    const {
         boxItems,
         loadedBoxItem,
         setBoxItems,
         setLoadedBoxItem
     } = useBoxItem();
-    
+
     // useEffect
 
     useEffect(() => {
@@ -64,9 +66,10 @@ export const PickingMonitor = () => {
     }, [boxSelected])
 
     // Render 
-    
+
     return ReactDOM.createPortal(
         <ContainPickingMonitor>
+            
             <AdminBox>
                 <TransitionGroup>
                     {loaded && boxes.map(box => (
@@ -118,6 +121,17 @@ export const PickingMonitor = () => {
                     {!loadedBoxItem && (<BoxItem id={"Cargando ..."} />)}
                 </ContainBoxItem>
             </AdminReferences>
+
+            <TransitionGroup>
+                {!!modalDimension && (
+                    <CSSTransition
+                        classNames="add-dimension"
+                        timeout={300}
+                    >
+                        <ModalAgregarDimension />
+                    </CSSTransition>
+                )}
+            </TransitionGroup>
         </ContainPickingMonitor>,
         document.getElementById('modal')
     );
