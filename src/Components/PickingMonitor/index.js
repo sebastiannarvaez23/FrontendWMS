@@ -34,7 +34,7 @@ export const PickingMonitor = () => {
     const {
         saleOrderModal,
         referencesRequest,
-        loadedSaleOrderItems,
+        loadGetBoxesSaleOrderItems,
     } = useSaleOrder();
 
     const {
@@ -42,22 +42,22 @@ export const PickingMonitor = () => {
     } = usePicking();
 
     const {
-        boxes,
-        loaded,
+        listBoxes,
+        loadGetBoxes,
         boxSelected,
-        setLoadedBox,
-        setBoxes,
-        modalDimension,
-        loadDimensions,
-        dimensions,
-        modalAddDimension
+        setLoadGetBoxes,
+        setListBoxes,
+        viewModalDimension,
+        loadListDimensions,
+        listDimensions,
+        viewModalAddDimension
     } = useBox();
 
     const {
-        boxItems,
-        loadedBoxItem,
-        setBoxItems,
-        setLoadedBoxItem,
+        listBoxItems,
+        loadGetBoxItems,
+        setListBoxItems,
+        setLoadGetBoxItems,
         setInpReference,
         setQuantity
     } = useBoxItem();
@@ -65,11 +65,11 @@ export const PickingMonitor = () => {
     // useEffect
 
     useEffect(() => {
-        getBoxes(setBoxes, setLoadedBox, pickingSelected);
+        getBoxes(setListBoxes, setLoadGetBoxes, pickingSelected);
     }, [saleOrderModal])
 
     useEffect(() => {
-        getBoxesItem(setBoxItems, setLoadedBoxItem, boxSelected);
+        getBoxesItem(setListBoxItems, setLoadGetBoxItems, boxSelected);
         setInpReference("");
         setQuantity("");
     }, [boxSelected])
@@ -81,7 +81,7 @@ export const PickingMonitor = () => {
 
             <AdminBox>
                 <TransitionGroup>
-                    {loaded && boxes.map(box => (
+                    {loadGetBoxes && listBoxes.map(box => (
                         <CSSTransition key={box.id} timeout={500} classNames="fade">
                             <Box
                                 key={box.id}
@@ -94,12 +94,12 @@ export const PickingMonitor = () => {
                         </CSSTransition>
                     ))}
                 </TransitionGroup>
-                {!loaded && (<Box id={"Cargando ..."} />)}
+                {!loadGetBoxes && (<Box id={"Cargando ..."} />)}
 
             </AdminBox>
             <AdminReferences>
                 <ContainSaleOrderItem>
-                    {loadedSaleOrderItems && referencesRequest.map(reference => (
+                    {loadGetBoxesSaleOrderItems && referencesRequest.map(reference => (
                         <SaleOrderItem
                             key={reference.id}
                             id={reference.id}
@@ -110,11 +110,11 @@ export const PickingMonitor = () => {
                             color={reference.color}
                         />
                     ))}
-                    {!loadedSaleOrderItems && (<SaleOrderItem id={"Cargando ..."} />)}
+                    {!loadGetBoxesSaleOrderItems && (<SaleOrderItem id={"Cargando ..."} />)}
                 </ContainSaleOrderItem>
                 <ContainBoxItem>
                     <TransitionGroup>
-                        {loadedBoxItem && boxItems.map((reference) => (
+                        {loadGetBoxItems && listBoxItems.map((reference) => (
                             <CSSTransition key={reference.id} timeout={500} classNames="fade">
                                 <BoxItem
                                     key={reference.id}
@@ -127,19 +127,19 @@ export const PickingMonitor = () => {
                             </CSSTransition>
                         ))}
                     </TransitionGroup>
-                    {!loadedBoxItem && (<BoxItem id={"Cargando ..."} />)}
+                    {!loadGetBoxItems && (<BoxItem id={"Cargando ..."} />)}
                 </ContainBoxItem>
             </AdminReferences>
 
             <TransitionGroup>
-                {!!modalDimension && (
+                {!!viewModalDimension && (
                     <CSSTransition
                         classNames="add-dimension"
                         timeout={300}
                     >
                         <ModalDimension>
                             <TransitionGroup>
-                                {loadDimensions && dimensions.map((dimension) => (
+                                {loadListDimensions && listDimensions.map((dimension) => (
                                     <CSSTransition key={dimension.id} timeout={500} classNames="fade">
                                         <DimensionItem
                                         name={dimension.name}
@@ -151,14 +151,14 @@ export const PickingMonitor = () => {
                                     </CSSTransition>
                                 ))}
                             </TransitionGroup>
-                            {!loadedBoxItem && (<BoxItem id={"Cargando ..."} />)}
+                            {!loadGetBoxItems && (<BoxItem id={"Cargando ..."} />)}
                         </ModalDimension>
                     </CSSTransition>
                 )}
             </TransitionGroup>
 
             <TransitionGroup>
-                {!!modalAddDimension && (
+                {!!viewModalAddDimension && (
                     <CSSTransition
                         classNames="add-dimension"
                         timeout={300}

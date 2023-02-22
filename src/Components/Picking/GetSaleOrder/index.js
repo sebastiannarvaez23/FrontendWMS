@@ -9,7 +9,7 @@ export const GetSaleOrder = (props) => {
 
     const { noSaleOrder, setSaleOrder, setNoSaleOrder } = useSaleOrder();
     const { setIndicatorsPicking, setPickings } = usePicking();
-    const { setBoxItems } = useBox();
+    const { setListBoxItems } = useBox();
 
     function clearInputsSaleOrders() {
         setIndicatorsPicking({
@@ -19,7 +19,7 @@ export const GetSaleOrder = (props) => {
             request_quantity_by_saleorder: ""
         })
 
-        setBoxItems([])
+        setListBoxItems([])
 
         setSaleOrder({
             publication_date: "",

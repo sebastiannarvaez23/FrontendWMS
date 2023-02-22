@@ -4,25 +4,25 @@ export const BoxItemContext = createContext();
 
 export const BoxItemProvider = (props) => {
 
-    const [boxItems, setBoxItems] = useState([]);
-    const [loadedBoxItem, setLoadedBoxItem] = useState(false);
+    const [listBoxItems, setListBoxItems] = useState([]);
+    const [loadGetBoxItems, setLoadGetBoxItems] = useState(false);
     const [inpReference, setInpReference] = useState("");
     const [quantity, setQuantity] = useState("");
 
     const value = useMemo(() => {
         return ({
-            boxItems,
-            loadedBoxItem,
+            listBoxItems,
+            loadGetBoxItems,
             quantity,
             inpReference,
             setInpReference,
             setQuantity,
-            setBoxItems,
-            setLoadedBoxItem
+            setLoadGetBoxItems,
+            setListBoxItems
         })
     }, [
-        boxItems,
-        loadedBoxItem,
+        listBoxItems,
+        loadGetBoxItems,
         quantity,
         inpReference
     ])

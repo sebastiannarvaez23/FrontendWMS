@@ -13,8 +13,8 @@ export const BoxItem = (props) => {
     } = useBox();
     
     const {
-        setLoadedBoxItem,
-        setBoxItems
+        setLoadGetBoxItems,
+        setListBoxItems
     } = useBoxItem();
     
     return (
@@ -26,7 +26,7 @@ export const BoxItem = (props) => {
             <span>{props.quantity}</span>
             <span><i className='bx bx-trash' onClick={(event)=>{
                 event.stopPropagation();
-                deleteBoxItem(props.id, setBoxItems, setLoadedBoxItem, boxSelected)
+                deleteBoxItem(props.id, setListBoxItems, setLoadGetBoxItems, boxSelected)
             }}></i></span>
         </div>
     );

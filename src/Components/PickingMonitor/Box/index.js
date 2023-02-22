@@ -9,8 +9,8 @@ export const Box = (props) => {
     const {
         setBoxSelected,
         boxSelected,
-        setBoxes,
-        setLoadedBox
+        setListBoxes,
+        setLoadGetBoxes
     } = useBox();
 
     const {
@@ -33,7 +33,7 @@ export const Box = (props) => {
             <span>{props.last_modification}</span>
             <span><i className='bx bx-trash' onClick={(event)=>{
                 event.stopPropagation();
-                deleteBox(props.id, setBoxes, setLoadedBox, pickingSelected, setBoxSelected);
+                deleteBox(props.id, setListBoxes, setLoadGetBoxes, pickingSelected, setBoxSelected);
             }}></i></span>
         </div>
     );

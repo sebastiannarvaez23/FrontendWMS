@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { API } from './api/base.js';
 
-export const getBoxesItem = async (setBoxItems, setLoadedBoxItem, idBox) => {
+export const getBoxesItem = async (setBoxItems, setLoadGetBoxItems, idBox) => {
     if (idBox !== "") {
         await axios.get(API + "boxitem/" + idBox + "/")
             .then(response => {
@@ -9,18 +9,18 @@ export const getBoxesItem = async (setBoxItems, setLoadedBoxItem, idBox) => {
             })
             .catch(err => console.log(err))
             .finally(() => {
-                setLoadedBoxItem(true);
+                setLoadGetBoxItems(true);
             })
     } else {
         setBoxItems([])
-        setLoadedBoxItem(true);
+        setLoadGetBoxItems(true);
     }
 }
 
-export const createBoxItem = async (setBoxItems, setLoadedBoxItem, setQuantity, setInpReference, data) => {
+export const createBoxItem = async (setBoxItems, setLoadGetBoxItems, setQuantity, setInpReference, data) => {
     await axios.post(API + "boxitem/", data)
         .then((response) => {
-            getBoxesItem(setBoxItems, setLoadedBoxItem, data.box);
+            getBoxesItem(setBoxItems, setLoadGetBoxItems, data.box);
             setQuantity("");
             setInpReference("");
         })
@@ -28,10 +28,10 @@ export const createBoxItem = async (setBoxItems, setLoadedBoxItem, setQuantity, 
         .finally(() => {})
 }
 
-export const deleteBoxItem = async (idBoxItem, setBoxItems, setLoadedBoxItem, idBox) => {
+export const deleteBoxItem = async (idBoxItem, setBoxItems, setLoadGetBoxItems, idBox) => {
     await axios.delete(API + "boxitem/" + idBoxItem)
         .then((response) => {
-            getBoxesItem(setBoxItems, setLoadedBoxItem, idBox);
+            getBoxesItem(setBoxItems, setLoadGetBoxItems, idBox);
         })
         .catch(err => console.log(err))
         .finally(() => {})

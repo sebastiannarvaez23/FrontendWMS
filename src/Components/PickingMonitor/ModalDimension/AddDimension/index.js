@@ -6,17 +6,17 @@ import "./AddDimension.css";
 export const AddDimension = () => {
 
     const {
-        setModalAddDimension
+        setViewModalAddDimension
     } = useBox();
 
     const handleFrontLayerClick = (event) => {
-        if (event.target.classList.contains('front-layer-add-dimensions')) {
-            setModalAddDimension(false);
+        if (event.target.classList.contains('front-layer-add-listDimensions')) {
+            setViewModalAddDimension(false);
         }
     }
 
     return ReactDOM.createPortal(
-        <div className="front-layer-add-dimensions" onClick={handleFrontLayerClick}>
+        <div className="front-layer-add-listDimensions" onClick={handleFrontLayerClick}>
             <div className="contain-add-dimension">
                 <h2>Agregue una dimensión</h2>
                 <input placeholder="Nombre" />

@@ -7,7 +7,7 @@ export const SaleOrderProvider = (props) => {
     const [saleOrderItems, setSaleOrderItems] = useState([]);
     const [saleOrderModal, setSaleOrderModal] = useState(false);
     const [referencesRequest, setReferencesRequest] = useState([]);
-    const [loadedSaleOrderItems, setLoadedSaleOrderItems] = useState(false);
+    const [loadGetBoxesSaleOrderItems, setLoadedSaleOrderItems] = useState(false);
 
     // Information Sale Order
     const [saleOrder, setSaleOrder] = useState({
@@ -29,7 +29,7 @@ export const SaleOrderProvider = (props) => {
             saleOrderItems,
             saleOrderModal,
             referencesRequest,
-            loadedSaleOrderItems,
+            loadGetBoxesSaleOrderItems,
             setSaleOrder,
             setNoSaleOrder,
             setSaleOrderItems,
@@ -43,7 +43,7 @@ export const SaleOrderProvider = (props) => {
         saleOrderItems,
         saleOrderModal,
         referencesRequest,
-        loadedSaleOrderItems
+        loadGetBoxesSaleOrderItems
     ])
     return <SaleOrderContext.Provider value={value} {...props} />
 }

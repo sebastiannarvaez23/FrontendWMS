@@ -9,16 +9,16 @@ export const AdminBox = (props) => {
     const {
         setGrossWeight,
         setDimensionSelected,
-        setDimensions,
-        setBoxes,
-        setLoadedBox,
+        setListDimensions,
+        setListBoxes,
+        setLoadGetBoxes,
         boxSelected,
-        dimensions,
+        listDimensions,
         dimensionSelected,
         grossWeight,
-        setModalDimension,
-        setLoadDimensions,
-        modalDimension
+        setViewModalDimension,
+        setLoadListDimensions,
+        viewModalDimension
     } = useBox();
     
     const { pickingSelected } = usePicking();
@@ -31,8 +31,8 @@ export const AdminBox = (props) => {
     }
 
     useEffect(() => {
-        getDimensions(setDimensions, setLoadDimensions);
-    }, [modalDimension])
+        getDimensions(setListDimensions, setLoadListDimensions);
+    }, [viewModalDimension])
 
     return (
         <div>
@@ -49,13 +49,13 @@ export const AdminBox = (props) => {
                     }} value={grossWeight} placeholder="Peso" disabled={!boxSelected} />
                     <select  value={dimensionSelected} onChange={(e) => { setDimensionSelected(e.target.value) }}>
                         <option value=""> - Seleccione Dimensión - </option>
-                        {dimensions.map(dimension => (
+                        {listDimensions.map(dimension => (
                             <option key={dimension.id} value={dimension.id}> {dimension.name} {dimension.dimension} </option>
                         ))}
                     </select>
-                    <button onClick={() => {setModalDimension(true)}} className="btn btn-create-dimension">+</button>
+                    <button onClick={() => {setViewModalDimension(true)}} className="btn btn-create-dimension">+</button>
                 </div>
-                <button onClick={() => { createBox(setGrossWeight, setDimensionSelected, setBoxes, setLoadedBox, pickingSelected, boxDefaultData) }} className="btn-create-box">+</button>
+                <button onClick={() => { createBox(setGrossWeight, setDimensionSelected, setListBoxes, setLoadGetBoxes, pickingSelected, boxDefaultData) }} className="btn-create-box">+</button>
 
                 <div className="box-list">
                     <div className="headers-list-box">
@@ -67,7 +67,7 @@ export const AdminBox = (props) => {
                     </div>
                     {props.children}
                 </div>
-                <button onClick={() => { updateBox(setGrossWeight, setDimensionSelected, setBoxes, setLoadedBox, boxSelected, pickingSelected, boxDefaultData) }} className="btn-update">Modificar</button>
+                <button onClick={() => { updateBox(setGrossWeight, setDimensionSelected, setListBoxes, setLoadGetBoxes, boxSelected, pickingSelected, boxDefaultData) }} className="btn-update">Modificar</button>
             </div>
 
         </div>

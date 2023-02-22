@@ -11,8 +11,8 @@ export const PickingProvider = (props) => {
         request_quantity_by_saleorder: ""
     })
     const [pickings, setPickings] = useState([]);
-    const [loadedPicking, setLoadedPicking] = useState(false);
-    const [loadedIndicator, setloadedIndicator] = useState(true);
+    const [loadGetBoxesPicking, setLoadedPicking] = useState(false);
+    const [loadGetBoxesIndicator, setloadGetBoxesIndicator] = useState(true);
     const [pickingSelected, setPickingSelected] = useState("");
 
     // Picking Monitor
@@ -22,22 +22,22 @@ export const PickingProvider = (props) => {
         return ({
             indicatorsPicking,
             pickings,
-            loadedPicking,
-            loadedIndicator,
+            loadGetBoxesPicking,
+            loadGetBoxesIndicator,
             pickingSelected,
             openPickingMonitor,
             setOpenPickingMonitor,
             setIndicatorsPicking,
             setPickings,
             setLoadedPicking,
-            setloadedIndicator,
+            setloadGetBoxesIndicator,
             setPickingSelected
         })
     }, [
         indicatorsPicking,
         pickings,
-        loadedPicking,
-        loadedIndicator,
+        loadGetBoxesPicking,
+        loadGetBoxesIndicator,
         pickingSelected,
         openPickingMonitor,
     ])

@@ -4,55 +4,47 @@ export const BoxContext = createContext();
 
 export const BoxProvider = (props) => {
 
-    const [boxItems, setBoxItems] = useState([]);
-    const [boxes, setBoxes] = useState([]);
-    const [loaded, setLoadedBox] = useState(false);
+    const [listBoxes, setListBoxes] = useState([]);
+    const [loadGetBoxes, setLoadGetBoxes] = useState(false);
     const [boxSelected, setBoxSelected] = useState("");
-    const [loadedBoxItem, setLoadedBoxItem] = useState(false);
-    const [dimensions, setDimensions] = useState([]);
-    const [loadDimensions, setLoadDimensions] = useState(false);
+    const [listDimensions, setListDimensions] = useState([]);
+    const [loadListDimensions, setLoadListDimensions] = useState(false);
     const [dimensionSelected, setDimensionSelected] = useState("");
     const [grossWeight, setGrossWeight] = useState("");
-    const [modalDimension, setModalDimension] = useState(false);
-    const [modalAddDimension, setModalAddDimension] = useState(false);
+    const [viewModalDimension, setViewModalDimension] = useState(false);
+    const [viewModalAddDimension, setViewModalAddDimension] = useState(false);
 
     const value = useMemo(() => {
         return ({
-            boxItems,
-            boxes,
-            loaded,
+            listBoxes,
+            loadGetBoxes,
             boxSelected,
-            loadedBoxItem,
-            dimensions,
+            listDimensions,
             dimensionSelected,
             grossWeight,
-            modalDimension,
-            loadDimensions,
-            modalAddDimension,
-            setModalAddDimension,
-            setLoadDimensions,
-            setModalDimension,
-            setDimensions,
+            viewModalDimension,
+            loadListDimensions,
+            viewModalAddDimension,
+            setViewModalAddDimension,
+            setLoadListDimensions,
+            setViewModalDimension,
+            setListDimensions,
             setDimensionSelected,
             setGrossWeight,
-            setBoxItems,
-            setBoxes,
-            setLoadedBox,
             setBoxSelected,
-            setLoadedBoxItem
+            setLoadGetBoxes,
+            setListBoxes,
         })
     }, [
-        boxItems,
-        boxes,
-        loaded,
+        listBoxes,
+        loadGetBoxes,
         boxSelected,
-        loadedBoxItem,
-        dimensions,
+        listDimensions,
         dimensionSelected,
         grossWeight,
-        modalDimension,
-        loadDimensions,
-        modalAddDimension
+        viewModalDimension,
+        loadListDimensions,
+        viewModalAddDimension
     ])
     return <BoxContext.Provider value={value} {...props} />
 }

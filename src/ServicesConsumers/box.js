@@ -3,11 +3,11 @@ import { API } from './api/base.js';
 
 // Dimension
 
-export const getDimensions = async (setDimensions, setLoadDimensions) => {
+export const getDimensions = async (setListDimensions, setLoadListDimensions) => {
     await axios.get(API + "box/dimension/")
         .then(response => {
-            setDimensions(response.data);
-            setLoadDimensions(true);
+            setListDimensions(response.data);
+            setLoadListDimensions(true);
         })
         .catch(err => console.log(err))
         .finally()
@@ -15,20 +15,20 @@ export const getDimensions = async (setDimensions, setLoadDimensions) => {
 
 // Box
 
-export const getBoxes = async (setBoxes, setLoadedBox, pickingSelected) => {
+export const getBoxes = async (setListBoxes, setLoadGetBoxes, pickingSelected) => {
     if (pickingSelected !== "") {
         await axios.get(API + "box/box/" + pickingSelected + "/")
             .then(response => {
-                setBoxes(response.data);
+                setListBoxes(response.data);
             })
             .catch(err => console.log(err))
-            .finally(() => setLoadedBox(true))
+            .finally(() => setLoadGetBoxes(true))
     } else {
-        setLoadedBox(true);
+        setLoadGetBoxes(true);
     }
 }
 
-export const createBox = async (setGrossWeight, setDimensionSelected, setBoxes, setLoadedBox, idPicking, data) => {
+export const createBox = async (setGrossWeight, setDimensionSelected, setListBoxes, setLoadGetBoxes, idPicking, data) => {
     
     if (data.gross_weight === '') { data.gross_weight = 0 };
 
@@ -43,13 +43,13 @@ export const createBox = async (setGrossWeight, setDimensionSelected, setBoxes, 
         })
         .catch(err => console.log(err))
         .finally(() => {
-            getBoxes(setBoxes, setLoadedBox, idPicking);
+            getBoxes(setListBoxes, setLoadGetBoxes, idPicking);
             setDimensionSelected("");
             setGrossWeight("")
         })
 }
 
-export const updateBox = async (setGrossWeight, setDimensionSelected, setBoxes, setLoadedBox, boxSelected, idPicking, data) => {
+export const updateBox = async (setGrossWeight, setDimensionSelected, setListBoxes, setLoadGetBoxes, boxSelected, idPicking, data) => {
     if (data.gross_weight === '') { 
         alert('Debe ingresar el peso de la caja');
         return;
@@ -66,20 +66,20 @@ export const updateBox = async (setGrossWeight, setDimensionSelected, setBoxes, 
         })
         .catch(err => console.log(err))
         .finally(() => {
-            getBoxes(setBoxes, setLoadedBox, idPicking);
+            getBoxes(setListBoxes, setLoadGetBoxes, idPicking);
             setDimensionSelected("");
             setGrossWeight("")
         })
 }
 
-export const deleteBox = async (idBox, setBoxes, setLoadedBox, idPicking, setBoxSelected) => {
+export const deleteBox = async (idBox, setListBoxes, setLoadGetBoxes, idPicking, setBoxSelected) => {
     await axios.delete(API + "box/box/" + idBox)
         .then((response) => {
             //const { data } = response;
         })
         .catch(err => console.log(err))
         .finally(() => {
-            getBoxes(setBoxes, setLoadedBox, idPicking);
+            getBoxes(setListBoxes, setLoadGetBoxes, idPicking);
             setBoxSelected("");
         })
 }

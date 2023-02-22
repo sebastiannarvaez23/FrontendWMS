@@ -41,7 +41,7 @@ export const Picking = () => {
         saleOrderModal,
         referencesRequest,
         setReferencesRequest,
-        loadedSaleOrderItems,
+        loadGetBoxesSaleOrderItems,
         setLoadedSaleOrderItems
     } = useSaleOrder();
 
@@ -49,21 +49,21 @@ export const Picking = () => {
         openPickingMonitor,
         setPickings,
         setLoadedPicking,
-        loadedPicking,
+        loadGetBoxesPicking,
         pickings,
         indicatorsPicking,
         setIndicatorsPicking
     } = usePicking();
 
     const {
-        boxItems
+        listBoxItems
     } = useBoxItem();
 
     // useEffect
 
     useEffect(() => {
         getInfoIndicators(saleOrder.customer_name, noSaleOrder, setIndicatorsPicking);
-    }, [saleOrder, boxItems])
+    }, [saleOrder, listBoxItems])
 
     useEffect(() => {
         getPickings(setPickings, setLoadedPicking, noSaleOrder);
@@ -86,7 +86,7 @@ export const Picking = () => {
                         >
                             <ModalSaleOrder>
                                 <TransitionGroup>
-                                    {loadedSaleOrderItems && referencesRequest.map((reference) => (
+                                    {loadGetBoxesSaleOrderItems && referencesRequest.map((reference) => (
                                         <CSSTransition key={reference.id} timeout={500} classNames="fade">
                                             <SaleOrderItem
                                                 key={reference.id}
@@ -100,7 +100,7 @@ export const Picking = () => {
                                         </CSSTransition>
                                     ))}
                                 </TransitionGroup>
-                                {!loadedSaleOrderItems && <SaleOrderItem id={"Cargando ..."} />}
+                                {!loadGetBoxesSaleOrderItems && <SaleOrderItem id={"Cargando ..."} />}
                             </ModalSaleOrder>
                         </CSSTransition>
                     )}
@@ -124,7 +124,7 @@ export const Picking = () => {
                     <PickingControl>
                         <PickingList>
                             <TransitionGroup>
-                                    {loadedPicking && pickings.map((picking) => (
+                                    {loadGetBoxesPicking && pickings.map((picking) => (
                                         <CSSTransition key={picking.id} timeout={500} classNames="fade">
                                             <PickingItem
                                                 key={picking.id}
@@ -136,7 +136,7 @@ export const Picking = () => {
                                         </CSSTransition>
                                     ))}
                             </TransitionGroup>
-                            {!loadedPicking && <PickingItem id={"Cargando ..."} />}
+                            {!loadGetBoxesPicking && <PickingItem id={"Cargando ..."} />}
                         </PickingList>
                         <PickingIndicatorsList>
                             <PickingIndicator dataIndicator={dataIndicatorSaleOrder} key={"saleorder"} nameIndicator={"Orden de Venta"} />
