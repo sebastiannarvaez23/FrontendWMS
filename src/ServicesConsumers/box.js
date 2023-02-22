@@ -3,10 +3,11 @@ import { API } from './api/base.js';
 
 // Dimension
 
-export const getDimensions = async (setDimensions) => {
+export const getDimensions = async (setDimensions, setLoadDimensions) => {
     await axios.get(API + "box/dimension/")
         .then(response => {
             setDimensions(response.data);
+            setLoadDimensions(true);
         })
         .catch(err => console.log(err))
         .finally()

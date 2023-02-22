@@ -1,21 +1,22 @@
 import React from "react";
-import { useBox } from "../../../Context/box-context";
-import "./ModalAgregarDimension.css";
+import ReactDOM from "react-dom";
+import { useBox } from "../../../../Context/box-context";
+import "./AddDimension.css";
 
-export const ModalAgregarDimension = () => {
+export const AddDimension = () => {
 
     const {
-        setModalDimension
+        setModalAddDimension
     } = useBox();
 
     const handleFrontLayerClick = (event) => {
-        if (event.target.classList.contains('contain-modal-add-dimension')) {
-            setModalDimension(false);
+        if (event.target.classList.contains('front-layer-add-dimensions')) {
+            setModalAddDimension(false);
         }
     }
 
-    return (
-        <div className="contain-modal-add-dimension" onClick={handleFrontLayerClick}>
+    return ReactDOM.createPortal(
+        <div className="front-layer-add-dimensions" onClick={handleFrontLayerClick}>
             <div className="contain-add-dimension">
                 <h2>Agregue una dimensión</h2>
                 <input placeholder="Nombre" />
@@ -28,6 +29,7 @@ export const ModalAgregarDimension = () => {
                     <button className="btn btn-add-dimension">Agregar dimensión</button>
                 </div>
             </div>
-        </div>
+        </div>,
+        document.getElementById("addDimension")
     )
 }

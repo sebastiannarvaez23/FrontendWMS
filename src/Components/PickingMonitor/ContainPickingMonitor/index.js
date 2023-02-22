@@ -7,7 +7,11 @@ export const ContainPickingMonitor = (props) => {
 
     const { setOpenPickingMonitor, setPickingSelected} = usePicking();
     const { setBoxSelected, setLoadedBox, setGrossWeight } = useBox();
-    const { setBoxItems } = useBoxItem();
+    const { 
+        setBoxItems,
+        setInpReference,
+        setQuantity
+    } = useBoxItem();
 
     return (
         <section className="picking-monitor-container">
@@ -18,6 +22,8 @@ export const ContainPickingMonitor = (props) => {
                 setBoxSelected("");
                 setGrossWeight("");
                 setOpenPickingMonitor(false);
+                setInpReference("");
+                setQuantity("");
             }} className="btn-back">&#62;</button>
             <div className="picking-monitor">
                 {props.children}

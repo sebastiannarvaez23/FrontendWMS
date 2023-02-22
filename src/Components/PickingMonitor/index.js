@@ -23,7 +23,9 @@ import { usePicking } from "../../Context/picking-context";
 import { useSaleOrder } from "../../Context/saleorder-context";
 import { useBox } from "../../Context/box-context";
 import { useBoxItem } from "../../Context/boxitem-context";
-import { ModalAgregarDimension } from "./ModalAgregarDimension";
+import { ModalDimension } from "./ModalDimension";
+import { AddDimension } from "./ModalDimension/AddDimension";
+import { DimensionItem } from "./ModalDimension/DimensionItem";
 
 export const PickingMonitor = () => {
 
@@ -45,14 +47,19 @@ export const PickingMonitor = () => {
         boxSelected,
         setLoadedBox,
         setBoxes,
-        modalDimension
+        modalDimension,
+        loadDimensions,
+        dimensions,
+        modalAddDimension
     } = useBox();
 
     const {
         boxItems,
         loadedBoxItem,
         setBoxItems,
-        setLoadedBoxItem
+        setLoadedBoxItem,
+        setInpReference,
+        setQuantity
     } = useBoxItem();
 
     // useEffect
@@ -63,13 +70,15 @@ export const PickingMonitor = () => {
 
     useEffect(() => {
         getBoxesItem(setBoxItems, setLoadedBoxItem, boxSelected);
+        setInpReference("");
+        setQuantity("");
     }, [boxSelected])
 
     // Render 
 
     return ReactDOM.createPortal(
         <ContainPickingMonitor>
-            
+
             <AdminBox>
                 <TransitionGroup>
                     {loaded && boxes.map(box => (
@@ -128,7 +137,33 @@ export const PickingMonitor = () => {
                         classNames="add-dimension"
                         timeout={300}
                     >
-                        <ModalAgregarDimension />
+                        <ModalDimension>
+                            <TransitionGroup>
+                                {loadDimensions && dimensions.map((dimension) => (
+                                    <CSSTransition key={dimension.id} timeout={500} classNames="fade">
+                                        <DimensionItem
+                                        name={dimension.name}
+                                        dimension_height={dimension.dimension_height}
+                                        dimension_width={dimension.dimension_width}
+                                        dimension_length={dimension.dimension_length}
+                                        weight={dimension.weight}
+                                        />
+                                    </CSSTransition>
+                                ))}
+                            </TransitionGroup>
+                            {!loadedBoxItem && (<BoxItem id={"Cargando ..."} />)}
+                        </ModalDimension>
+                    </CSSTransition>
+                )}
+            </TransitionGroup>
+
+            <TransitionGroup>
+                {!!modalAddDimension && (
+                    <CSSTransition
+                        classNames="add-dimension"
+                        timeout={300}
+                    >
+                        <AddDimension />
                     </CSSTransition>
                 )}
             </TransitionGroup>

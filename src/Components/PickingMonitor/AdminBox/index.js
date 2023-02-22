@@ -16,7 +16,9 @@ export const AdminBox = (props) => {
         dimensions,
         dimensionSelected,
         grossWeight,
-        setModalDimension
+        setModalDimension,
+        setLoadDimensions,
+        modalDimension
     } = useBox();
     
     const { pickingSelected } = usePicking();
@@ -29,8 +31,8 @@ export const AdminBox = (props) => {
     }
 
     useEffect(() => {
-        getDimensions(setDimensions);
-    }, [])
+        getDimensions(setDimensions, setLoadDimensions);
+    }, [modalDimension])
 
     return (
         <div>
