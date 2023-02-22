@@ -6,12 +6,35 @@ import "./AddDimension.css";
 export const AddDimension = () => {
 
     const {
-        setViewModalAddDimension
+        setViewModalAddDimension,
+        setGrossWeightBoxDimension,
+        grossWeightBoxDimension,
+        heightBoxDimension,
+        widthDimension,
+        lengthBoxDimension,
+        setHeightBoxDimension,
+        setWidthDimension,
+        setLengthBoxDimension,
+        nameNewBoxDimension,
+        setNameNewBoxDimension
     } = useBox();
 
     const handleFrontLayerClick = (event) => {
         if (event.target.classList.contains('front-layer-add-listDimensions')) {
             setViewModalAddDimension(false);
+            setHeightBoxDimension("");
+            setWidthDimension("");
+            setLengthBoxDimension("");
+            setGrossWeightBoxDimension("");
+            setNameNewBoxDimension("");
+        }
+    }
+
+    const onFormatValueDecimalInput = (e, setFunction) => {
+        const regex = /^\d{0,3}(\.\d{0,2})?$/; // Expresión regular para validar que solo sean números y puntos
+        const newValue = e.target.value;
+        if (regex.test(newValue) || newValue === '') {
+            setFunction(newValue);
         }
     }
 
@@ -19,11 +42,11 @@ export const AddDimension = () => {
         <div className="front-layer-add-listDimensions" onClick={handleFrontLayerClick}>
             <div className="contain-add-dimension">
                 <h2>Agregue una dimensión</h2>
-                <input placeholder="Nombre" />
-                <input placeholder="Alto" />
-                <input placeholder="Ancho" />
-                <input placeholder="Largo" />
-                <input placeholder="Peso Bruto" />
+                <input onChange={(e) => {setNameNewBoxDimension(e.target.value)}} value={nameNewBoxDimension} placeholder="Nombre (DHL Grande)" />
+                <input onChange={(e) => {onFormatValueDecimalInput(e, setHeightBoxDimension)}} value={heightBoxDimension} placeholder="Alto (mts 1.3)" />
+                <input onChange={(e) => {onFormatValueDecimalInput(e, setWidthDimension)}} value={widthDimension} placeholder="Ancho (mts 1.3)" />
+                <input onChange={(e) => {onFormatValueDecimalInput(e, setLengthBoxDimension)}} value={lengthBoxDimension} placeholder="Largo (mts 1.3)" />
+                <input onChange={(e) => {onFormatValueDecimalInput(e, setGrossWeightBoxDimension)}} value={grossWeightBoxDimension} placeholder="Peso Bruto (kg 1.2)" />
 
                 <div className="contain-bottom">
                     <button className="btn btn-add-dimension">Agregar dimensión</button>

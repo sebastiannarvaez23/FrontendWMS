@@ -36,6 +36,6 @@ export const ModalDimension = (props) => {
             </div>
         </div>
         ,
-        document.getElementById("listDimensions")
+        document.getElementById("dimensions")
     )
 }

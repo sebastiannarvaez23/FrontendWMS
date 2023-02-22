@@ -7,12 +7,20 @@ export const BoxProvider = (props) => {
     const [listBoxes, setListBoxes] = useState([]);
     const [loadGetBoxes, setLoadGetBoxes] = useState(false);
     const [boxSelected, setBoxSelected] = useState("");
-    const [listDimensions, setListDimensions] = useState([]);
-    const [loadListDimensions, setLoadListDimensions] = useState(false);
-    const [dimensionSelected, setDimensionSelected] = useState("");
     const [grossWeight, setGrossWeight] = useState("");
-    const [viewModalDimension, setViewModalDimension] = useState(false);
+    
+    // dimensions
+    
     const [viewModalAddDimension, setViewModalAddDimension] = useState(false);
+    const [viewModalDimension, setViewModalDimension] = useState(false);
+    const [dimensionSelected, setDimensionSelected] = useState("");
+    const [loadListDimensions, setLoadListDimensions] = useState(false);
+    const [listDimensions, setListDimensions] = useState([]);
+    const [grossWeightBoxDimension, setGrossWeightBoxDimension] = useState("");
+    const [heightBoxDimension, setHeightBoxDimension] = useState("");
+    const [widthDimension, setWidthDimension] = useState("");
+    const [lengthBoxDimension, setLengthBoxDimension] = useState("");
+    const [nameNewBoxDimension, setNameNewBoxDimension] = useState("");
 
     const value = useMemo(() => {
         return ({
@@ -25,6 +33,16 @@ export const BoxProvider = (props) => {
             viewModalDimension,
             loadListDimensions,
             viewModalAddDimension,
+            grossWeightBoxDimension,
+            heightBoxDimension,
+            widthDimension,
+            lengthBoxDimension,
+            nameNewBoxDimension,
+            setNameNewBoxDimension,
+            setLengthBoxDimension,
+            setWidthDimension,
+            setHeightBoxDimension,
+            setGrossWeightBoxDimension,
             setViewModalAddDimension,
             setLoadListDimensions,
             setViewModalDimension,
@@ -44,7 +62,12 @@ export const BoxProvider = (props) => {
         grossWeight,
         viewModalDimension,
         loadListDimensions,
-        viewModalAddDimension
+        viewModalAddDimension,
+        grossWeightBoxDimension,
+        heightBoxDimension,
+        widthDimension,
+        lengthBoxDimension,
+        nameNewBoxDimension
     ])
     return <BoxContext.Provider value={value} {...props} />
 }
