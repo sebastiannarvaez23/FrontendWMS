@@ -50,7 +50,8 @@ export const PickingMonitor = () => {
         viewModalDimension,
         loadListDimensions,
         listDimensions,
-        viewModalAddDimension
+        viewModalAddDimension,
+        searchDimension
     } = useBox();
 
     const {
@@ -74,6 +75,17 @@ export const PickingMonitor = () => {
         setQuantity("");
     }, [boxSelected])
 
+
+    let searchedDimensions = [];
+    if (!searchDimension.length >= 1) {
+        searchedDimensions = listDimensions;
+    } else {
+        searchedDimensions = listDimensions.filter(dimension => {
+            const dimensionName = dimension.name.toLowerCase();
+            const searchText = searchDimension.toLowerCase();
+            return dimensionName.includes(searchText);
+        });
+    }
     // Render 
 
     return ReactDOM.createPortal(
@@ -139,14 +151,14 @@ export const PickingMonitor = () => {
                     >
                         <ModalDimension>
                             <TransitionGroup>
-                                {loadListDimensions && listDimensions.map((dimension) => (
+                                {loadListDimensions && searchedDimensions.map((dimension) => (
                                     <CSSTransition key={dimension.id} timeout={500} classNames="fade">
                                         <DimensionItem
-                                        name={dimension.name}
-                                        dimension_height={dimension.dimension_height}
-                                        dimension_width={dimension.dimension_width}
-                                        dimension_length={dimension.dimension_length}
-                                        weight={dimension.weight}
+                                            name={dimension.name}
+                                            dimension_height={dimension.dimension_height}
+                                            dimension_width={dimension.dimension_width}
+                                            dimension_length={dimension.dimension_length}
+                                            weight={dimension.weight}
                                         />
                                     </CSSTransition>
                                 ))}

@@ -7,7 +7,9 @@ export const ModalDimension = (props) => {
 
     const {
         setViewModalDimension,
-        setViewModalAddDimension
+        setViewModalAddDimension,
+        searchDimension,
+        setSearchDimension
     } = useBox();
 
     const handleFrontLayerClick = (event) => {
@@ -20,7 +22,7 @@ export const ModalDimension = (props) => {
         <div className="front-layer-listDimensions" onClick={handleFrontLayerClick}>
             <div className="contain-listDimensions">
                 <h2>Dimensiones</h2>
-                <input className="inp-search-listDimensions" placeholder="Buscar dimension.." />
+                <input onChange={(e)=>{setSearchDimension(e.target.value)}} value={searchDimension} className="inp-search-listDimensions" placeholder="Buscar dimension.." />
                 <div className="list-listDimensions">
                     <div className="head-list-listDimensions">
                         <span>Nombre</span>

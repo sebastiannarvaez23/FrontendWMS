@@ -21,6 +21,7 @@ export const BoxProvider = (props) => {
     const [widthDimension, setWidthDimension] = useState("");
     const [lengthBoxDimension, setLengthBoxDimension] = useState("");
     const [nameNewBoxDimension, setNameNewBoxDimension] = useState("");
+    const [searchDimension, setSearchDimension] = useState("");
 
     const value = useMemo(() => {
         return ({
@@ -38,6 +39,8 @@ export const BoxProvider = (props) => {
             widthDimension,
             lengthBoxDimension,
             nameNewBoxDimension,
+            searchDimension,
+            setSearchDimension,
             setNameNewBoxDimension,
             setLengthBoxDimension,
             setWidthDimension,
@@ -67,7 +70,8 @@ export const BoxProvider = (props) => {
         heightBoxDimension,
         widthDimension,
         lengthBoxDimension,
-        nameNewBoxDimension
+        nameNewBoxDimension,
+        searchDimension
     ])
     return <BoxContext.Provider value={value} {...props} />
 }
