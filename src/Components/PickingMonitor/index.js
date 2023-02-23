@@ -154,6 +154,7 @@ export const PickingMonitor = () => {
                                 {loadListDimensions && searchedDimensions.map((dimension) => (
                                     <CSSTransition key={dimension.id} timeout={500} classNames="fade">
                                         <DimensionItem
+                                            id={dimension.id}
                                             name={dimension.name}
                                             dimension_height={dimension.dimension_height}
                                             dimension_width={dimension.dimension_width}

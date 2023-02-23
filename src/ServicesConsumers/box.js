@@ -13,6 +13,17 @@ export const getDimensions = async (setListDimensions, setLoadListDimensions) =>
         .finally()
 }
 
+export const deleteDimension = async (setListDimensions, setLoadListDimensions, idDimension) => {
+    await axios.delete(API + "box/dimension/" + idDimension)
+        .then(response => {
+
+        })
+        .catch(err => console.log(err))
+        .finally(()=> {
+            getDimensions(setListDimensions, setLoadListDimensions);
+        })
+}
+
 // Box
 
 export const getBoxes = async (setListBoxes, setLoadGetBoxes, pickingSelected) => {
