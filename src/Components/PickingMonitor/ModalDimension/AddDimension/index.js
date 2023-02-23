@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { useBox } from "../../../../Context/box-context";
+import { createDimension } from "../../../../ServicesConsumers/box";
 import "./AddDimension.css";
 
 export const AddDimension = () => {
@@ -16,8 +17,19 @@ export const AddDimension = () => {
         setWidthDimension,
         setLengthBoxDimension,
         nameNewBoxDimension,
-        setNameNewBoxDimension
+        setNameNewBoxDimension,
+        setListDimensions,
+        setLoadListDimensions
     } = useBox();
+
+    let defaultDataDimension = {
+        "name": nameNewBoxDimension,
+        "dimension_height": heightBoxDimension,
+        "dimension_width": widthDimension,
+        "dimension_length": lengthBoxDimension,
+        "weight": grossWeightBoxDimension,
+        "is_delete": false
+      }
 
     const handleFrontLayerClick = (event) => {
         if (event.target.classList.contains('front-layer-add-listDimensions')) {
@@ -49,7 +61,7 @@ export const AddDimension = () => {
                 <input onChange={(e) => {onFormatValueDecimalInput(e, setGrossWeightBoxDimension)}} value={grossWeightBoxDimension} placeholder="Peso Bruto (kg 1.2)" />
 
                 <div className="contain-bottom">
-                    <button className="btn btn-add-dimension">Agregar dimensión</button>
+                    <button className="btn btn-add-dimension" onClick={()=>{createDimension(setListDimensions, setLoadListDimensions, defaultDataDimension)}}>Agregar dimensión</button>
                 </div>
             </div>
         </div>,

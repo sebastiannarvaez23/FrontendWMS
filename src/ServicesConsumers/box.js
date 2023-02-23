@@ -13,6 +13,17 @@ export const getDimensions = async (setListDimensions, setLoadListDimensions) =>
         .finally()
 }
 
+export const createDimension = async (setListDimensions, setLoadListDimensions, data) => {
+    await axios.post(API + "box/dimension/", data)
+        .then(response => {
+
+        })
+        .catch(err => console.log(err))
+        .finally(()=> {
+            getDimensions(setListDimensions, setLoadListDimensions);
+        })
+}
+
 export const deleteDimension = async (setListDimensions, setLoadListDimensions, idDimension) => {
     await axios.delete(API + "box/dimension/" + idDimension)
         .then(response => {
