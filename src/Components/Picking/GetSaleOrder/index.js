@@ -1,15 +1,15 @@
 import React from "react";
 import { loadInfoSaleOrder } from "../../../ServicesConsumers/saleorder";
-import { useBox } from "../../../Context/box-context";
 import { usePicking } from "../../../Context/picking-context";
 import { useSaleOrder } from "../../../Context/saleorder-context";
+import { useBoxItem } from "../../../Context/boxitem-context";
 import './GetSaleOrder.css';
 
 export const GetSaleOrder = (props) => {
 
     const { noSaleOrder, setSaleOrder, setNoSaleOrder } = useSaleOrder();
     const { setIndicatorsPicking, setPickings } = usePicking();
-    const { setListBoxItems } = useBox();
+    const { setListBoxItems } = useBoxItem();
 
     function clearInputsSaleOrders() {
         setIndicatorsPicking({

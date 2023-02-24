@@ -36,7 +36,7 @@ export const ContainBoxItem = (props) => {
                     setQuantity(newValue);
                 }
             }} value={quantity} className="inp-ref inp-set-cant" placeholder="Cantidad" disabled={!boxSelected} />
-            <button onClick={() => { createBoxItem(setListBoxItems, setLoadGetBoxItems, setQuantity, setInpReference, defaultDataBoxItem) }} className="btn-pack">Empacar</button>
+            <button onClick={() => { createBoxItem(setListBoxItems, setLoadGetBoxItems, setQuantity, setInpReference, defaultDataBoxItem) }} className="btn-pack" disabled={!inpReference}>Empacar</button>
             <div className="ref-list-box-pack">
                 <div className="headers-list-ref-boxitem">
                     <span>#</span>
