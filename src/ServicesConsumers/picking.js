@@ -1,11 +1,14 @@
 import axios from 'axios';
 import { API } from './api/base.js';
+axios.defaults.withCredentials = true;
 
 export const getPickings = async (setPickings, setLoadedPicking, noSaleOrder) => {
+
     if (noSaleOrder !== "") {
         await axios.get(API + "picking/" + noSaleOrder, {
             headers: {
-                "Authorization": "Token 65e4067fb71f7f60c5311862cc4ecc41788e2713"
+                'Content-Type': 'application/json',
+                "Authorization": `Token ${Cookies.get('token')}`
             }
         })
             .then(response => {
@@ -21,8 +24,9 @@ export const getPickings = async (setPickings, setLoadedPicking, noSaleOrder) =>
 export const createPicking = async (data, setPickings, setLoadedPicking, noSaleOrder) => {
     if (noSaleOrder !== "") {
         await axios.post(API + "picking/", data, {
+            withCredentials: true,
             headers: {
-                "Authorization": "Token 65e4067fb71f7f60c5311862cc4ecc41788e2713"
+                'Content-Type': 'application/json'
             }
         })
             .then((response) => {
@@ -35,8 +39,9 @@ export const createPicking = async (data, setPickings, setLoadedPicking, noSaleO
 
 export const deletePicking = async (idPicking, setPickings, setLoadedPicking, noSaleOrder) => {
     await axios.delete(API + "picking/" + idPicking, {
+        withCredentials: true,
         headers: {
-            "Authorization": "Token 65e4067fb71f7f60c5311862cc4ecc41788e2713"
+            'Content-Type': 'application/json'
         }
     })
         .then((response) => {

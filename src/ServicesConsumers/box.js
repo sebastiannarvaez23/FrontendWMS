@@ -4,7 +4,11 @@ import { API } from './api/base.js';
 // Dimension
 
 export const getDimensions = async (setListDimensions, setLoadListDimensions) => {
-    await axios.get(API + "box/dimension/")
+    await axios.get(API + "box/dimension/", {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
         .then(response => {
             setListDimensions(response.data);
             setLoadListDimensions(true);
@@ -14,23 +18,31 @@ export const getDimensions = async (setListDimensions, setLoadListDimensions) =>
 }
 
 export const createDimension = async (setListDimensions, setLoadListDimensions, data) => {
-    await axios.post(API + "box/dimension/", data)
+    await axios.post(API + "box/dimension/", data, {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
         .then(response => {
 
         })
         .catch(err => console.log(err))
-        .finally(()=> {
+        .finally(() => {
             getDimensions(setListDimensions, setLoadListDimensions);
         })
 }
 
 export const deleteDimension = async (setListDimensions, setLoadListDimensions, idDimension) => {
-    await axios.delete(API + "box/dimension/" + idDimension)
+    await axios.delete(API + "box/dimension/" + idDimension, {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
         .then(response => {
 
         })
         .catch(err => console.log(err))
-        .finally(()=> {
+        .finally(() => {
             getDimensions(setListDimensions, setLoadListDimensions);
         })
 }
@@ -39,7 +51,11 @@ export const deleteDimension = async (setListDimensions, setLoadListDimensions, 
 
 export const getBoxes = async (setListBoxes, setLoadGetBoxes, pickingSelected) => {
     if (pickingSelected !== "") {
-        await axios.get(API + "box/box/" + pickingSelected + "/")
+        await axios.get(API + "box/box/" + pickingSelected + "/", {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
             .then(response => {
                 setListBoxes(response.data);
             })
@@ -51,7 +67,7 @@ export const getBoxes = async (setListBoxes, setLoadGetBoxes, pickingSelected) =
 }
 
 export const createBox = async (setGrossWeight, setDimensionSelected, setListBoxes, setLoadGetBoxes, idPicking, data) => {
-    
+
     if (data.gross_weight === '') { data.gross_weight = 0 };
 
     if (data.dimension === '') {
@@ -59,7 +75,11 @@ export const createBox = async (setGrossWeight, setDimensionSelected, setListBox
         return;
     }
 
-    await axios.post(API + "box/box/", data)
+    await axios.post(API + "box/box/", data, {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
         .then((response) => {
             //const { data } = response;
         })
@@ -72,17 +92,21 @@ export const createBox = async (setGrossWeight, setDimensionSelected, setListBox
 }
 
 export const updateBox = async (setGrossWeight, setDimensionSelected, setListBoxes, setLoadGetBoxes, boxSelected, idPicking, data) => {
-    if (data.gross_weight === '') { 
+    if (data.gross_weight === '') {
         alert('Debe ingresar el peso de la caja');
         return;
     };
-    
+
     if (data.dimension === '') {
         alert('Debe seleccionar una dimension');
         return;
     }
-    
-    await axios.patch(API + "box/box/" + boxSelected, data)
+
+    await axios.patch(API + "box/box/" + boxSelected, data, {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
         .then((response) => {
             //const { data } = response;
         })
@@ -95,7 +119,11 @@ export const updateBox = async (setGrossWeight, setDimensionSelected, setListBox
 }
 
 export const deleteBox = async (idBox, setListBoxes, setLoadGetBoxes, idPicking, setBoxSelected) => {
-    await axios.delete(API + "box/box/" + idBox)
+    await axios.delete(API + "box/box/" + idBox, {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
         .then((response) => {
             //const { data } = response;
         })
