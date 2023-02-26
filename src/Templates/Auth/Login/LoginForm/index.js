@@ -1,36 +1,22 @@
 import React from "react";
-import axios from 'axios';
 import './LoginForm.css';
 import { useNavigate } from "react-router-dom";
-import { API } from "../../../../ServicesConsumers/api/base";
-import Cookies from 'js-cookie';
 import { useAuth } from "../../../../Context/auth-context";
+import { loginUser } from "../../../../ServicesConsumers/auth";
 
 export const FormLogin = (props) => {
+  
+  const navigate = useNavigate();
 
   const {
     username, setUsername,
-    password, setPassword
+    password, setPassword,
+    setUser
   } = useAuth();
-
-  const navigate = useNavigate();
-
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await axios.post(API + "registration/users/login/",  { "username": username, "password": password }, {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }, { withCredentials: true })
-      .then((response) => {
-        //const { data } = response;
-        if (response.data.status === 200) {
-          Cookies.set('token', response.data.access_token);
-          navigate("/picking");
-        }
-      })
-      .catch(err => console.log(err))
-      .finally(() => { })
+    loginUser(username, password, setUser, navigate);
   };
 
   function cleanForm() {

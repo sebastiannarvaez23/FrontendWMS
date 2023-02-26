@@ -9,3 +9,10 @@ export const confRequest = {
         "Authorization": `Token ${Cookies.get('token')}`
     }
 }
+
+export const confRequestLogin = ({
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }, { withCredentials: true }
+)

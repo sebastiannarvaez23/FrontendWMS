@@ -14,7 +14,7 @@ import { PickingProvider } from './Context/picking-context';
 import { SaleOrderProvider } from './Context/saleorder-context';
 import { BoxProvider } from './Context/box-context';
 import { BoxItemProvider } from './Context/boxitem-context';
-import { AuthProvider } from './Context/auth-context';
+import { AuthProvider, useAuth } from './Context/auth-context';
 
 import { PrivateRoute } from './PrivateRoute.js';
 
@@ -33,10 +33,15 @@ export default () => (
 );
 
 function App() {
+
+  const {
+    user
+  } = useAuth();
+
   return (
     <Router>
       <Routes>
-        <Route element={<PrivateRoute user={'sebastian'} />}>
+        <Route element={<PrivateRoute user={user} />}>
           <Route path="/picking" element={<Picking />} />
         </Route>
         <Route path="" element={<Login />} />
