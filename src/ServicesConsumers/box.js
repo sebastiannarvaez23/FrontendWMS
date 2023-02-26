@@ -1,14 +1,11 @@
 import axios from 'axios';
 import { API } from './api/base.js';
+import { confRequest } from './api/base.js';
 
 // Dimension
 
 export const getDimensions = async (setListDimensions, setLoadListDimensions) => {
-    await axios.get(API + "box/dimension/", {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
+    await axios.get(API + "box/dimension/", confRequest)
         .then(response => {
             setListDimensions(response.data);
             setLoadListDimensions(true);
@@ -18,11 +15,7 @@ export const getDimensions = async (setListDimensions, setLoadListDimensions) =>
 }
 
 export const createDimension = async (setListDimensions, setLoadListDimensions, data) => {
-    await axios.post(API + "box/dimension/", data, {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
+    await axios.post(API + "box/dimension/", data, confRequest)
         .then(response => {
 
         })
@@ -33,11 +26,7 @@ export const createDimension = async (setListDimensions, setLoadListDimensions, 
 }
 
 export const deleteDimension = async (setListDimensions, setLoadListDimensions, idDimension) => {
-    await axios.delete(API + "box/dimension/" + idDimension, {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
+    await axios.delete(API + "box/dimension/" + idDimension, confRequest)
         .then(response => {
 
         })
@@ -51,11 +40,7 @@ export const deleteDimension = async (setListDimensions, setLoadListDimensions, 
 
 export const getBoxes = async (setListBoxes, setLoadGetBoxes, pickingSelected) => {
     if (pickingSelected !== "") {
-        await axios.get(API + "box/box/" + pickingSelected + "/", {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
+        await axios.get(API + "box/box/" + pickingSelected + "/", confRequest)
             .then(response => {
                 setListBoxes(response.data);
             })
@@ -75,11 +60,7 @@ export const createBox = async (setGrossWeight, setDimensionSelected, setListBox
         return;
     }
 
-    await axios.post(API + "box/box/", data, {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
+    await axios.post(API + "box/box/", data, confRequest)
         .then((response) => {
             //const { data } = response;
         })
@@ -102,11 +83,7 @@ export const updateBox = async (setGrossWeight, setDimensionSelected, setListBox
         return;
     }
 
-    await axios.patch(API + "box/box/" + boxSelected, data, {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
+    await axios.patch(API + "box/box/" + boxSelected, data, confRequest)
         .then((response) => {
             //const { data } = response;
         })
@@ -119,11 +96,7 @@ export const updateBox = async (setGrossWeight, setDimensionSelected, setListBox
 }
 
 export const deleteBox = async (idBox, setListBoxes, setLoadGetBoxes, idPicking, setBoxSelected) => {
-    await axios.delete(API + "box/box/" + idBox, {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
+    await axios.delete(API + "box/box/" + idBox, confRequest)
         .then((response) => {
             //const { data } = response;
         })

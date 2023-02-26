@@ -1,16 +1,11 @@
 import axios from 'axios';
 import { API } from './api/base.js';
-import Cookies from 'js-cookie';
+import { confRequest } from './api/base.js';
 
 export const getPickings = async (setPickings, setLoadedPicking, noSaleOrder) => {
 
     if (noSaleOrder !== "") {
-        await axios.get(API + "picking/" + noSaleOrder, {
-            headers: {
-                'Content-Type': 'application/json',
-                "Authorization": `Token ${Cookies.get('token')}`
-            }
-        })
+        await axios.get(API + "picking/" + noSaleOrder, confRequest)
             .then(response => {
                 setPickings(response.data);
             })
@@ -23,12 +18,7 @@ export const getPickings = async (setPickings, setLoadedPicking, noSaleOrder) =>
 
 export const createPicking = async (data, setPickings, setLoadedPicking, noSaleOrder) => {
     if (noSaleOrder !== "") {
-        await axios.post(API + "picking/", data, {
-            withCredentials: true,
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
+        await axios.post(API + "picking/", data, confRequest)
             .then((response) => {
                 //const { data } = response;
             })
@@ -38,12 +28,7 @@ export const createPicking = async (data, setPickings, setLoadedPicking, noSaleO
 }
 
 export const deletePicking = async (idPicking, setPickings, setLoadedPicking, noSaleOrder) => {
-    await axios.delete(API + "picking/" + idPicking, {
-        withCredentials: true,
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
+    await axios.delete(API + "picking/" + idPicking, confRequest)
         .then((response) => {
             //const { data } = response;
         })
