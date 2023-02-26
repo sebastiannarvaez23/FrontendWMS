@@ -1,0 +1,4 @@
+Operario: Se deben seleccionar los modulos de OPERACION a los que tenga acceso
+Administrador Logistico: Acceso a las bodegas, analiticas, modulos de operacion, y crud operarios
+Adiministrador Gerencial: Acceso a analiticas, restriccion a modulos de operacion, y crud operarios y administradores logisticos
+Administrador Tecnologico: Acceso completo del sistema

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { API } from './api/base.js';
-axios.defaults.withCredentials = true;
+import Cookies from 'js-cookie';
 
 export const getPickings = async (setPickings, setLoadedPicking, noSaleOrder) => {
 

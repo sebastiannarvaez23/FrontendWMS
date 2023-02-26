@@ -7,31 +7,38 @@ import {
   Route
 } from "react-router-dom";
 
-import { Picking } from './Components/Picking';
-import { Login } from './Components/Login';
+import { Picking } from './Templates/Picking';
+import { Login } from './Templates/Auth/Login';
 
 import { PickingProvider } from './Context/picking-context';
 import { SaleOrderProvider } from './Context/saleorder-context';
 import { BoxProvider } from './Context/box-context';
 import { BoxItemProvider } from './Context/boxitem-context';
+import { AuthProvider } from './Context/auth-context';
+
+import { PrivateRoute } from './PrivateRoute.js';
 
 export default () => (
-  <SaleOrderProvider>
-    <PickingProvider>
-      <BoxProvider>
-        <BoxItemProvider>
-          <App />
-        </BoxItemProvider>
-      </BoxProvider>
-    </PickingProvider>
-  </SaleOrderProvider>
+  <AuthProvider>
+    <SaleOrderProvider>
+      <PickingProvider>
+        <BoxProvider>
+          <BoxItemProvider>
+            <App />
+          </BoxItemProvider>
+        </BoxProvider>
+      </PickingProvider>
+    </SaleOrderProvider>
+  </AuthProvider>
 );
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/picking" element={<Picking />} />
+        <Route element={<PrivateRoute user={'sebastian'} />}>
+          <Route path="/picking" element={<Picking />} />
+        </Route>
         <Route path="" element={<Login />} />
       </Routes>
     </Router>
