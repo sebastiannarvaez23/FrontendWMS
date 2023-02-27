@@ -5,7 +5,7 @@ import { useAuth } from "../../../../Context/auth-context";
 import { loginUser } from "../../../../ServicesConsumers/auth";
 
 export const FormLogin = (props) => {
-  
+
   const navigate = useNavigate();
 
   const {
@@ -13,7 +13,7 @@ export const FormLogin = (props) => {
     password, setPassword,
     setUser
   } = useAuth();
-  
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     loginUser(username, password, setUser, navigate);
@@ -39,7 +39,7 @@ export const FormLogin = (props) => {
       </form>
       <div><button className="btn btn-login">¿Olvidaste la contraseña?</button></div>
       <div className="footer-login">
-        <span>API</span> • <span>Más información</span> • <span>Integraciones</span> • <span>Recomendaciones</span> • <span>Privacidad y Seguridad</span>
+        <span>Más información</span> • <span>API</span> • <span>Migraciones</span> • <span>Integraciones</span> • <span>Recomendaciones</span> • <span>Privacidad y Seguridad</span>
       </div>
     </div>
   );

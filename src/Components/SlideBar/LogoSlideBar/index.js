@@ -5,7 +5,7 @@ export const LogoSlideBar = () => {
     return (
         <div className="logo-details">
             <i className=''></i>
-            <span className="logo_name">WMS</span>
+            <span className="logo_name">Modulos</span>
         </div>
     );
 }
