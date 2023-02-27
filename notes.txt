@@ -1,4 +1,8 @@
+ROLES:
 Operario: Se deben seleccionar los modulos de OPERACION a los que tenga acceso
 Administrador Logistico: Acceso a las bodegas, analiticas, modulos de operacion, y crud operarios
 Adiministrador Gerencial: Acceso a analiticas, restriccion a modulos de operacion, y crud operarios y administradores logisticos
 Administrador Tecnologico: Acceso completo del sistema
+
+Enfoques de Arquitectura Multitenant para Aplicaciones SaaS:
+https://adrianalonsodev.medium.com/enfoques-de-arquitectura-multitenant-para-aplicaciones-saas-cf210d6c2f10#:~:text=%C2%BFQu%C3%A9%20es%20una%20arquitectura%20multitenant,a%20m%C3%BAltiples%20clientes%20u%20organizaciones.

@@ -3,6 +3,8 @@ import { API, confRequestLogin } from './api/base.js';
 import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
 
+const https = require('https');
+
 export const loginUser = async (username, password, setUser, navigate) => {
   await axios.post(API + "registration/users/login/",  { "username": username, "password": password }, confRequestLogin)
       .then((response) => {

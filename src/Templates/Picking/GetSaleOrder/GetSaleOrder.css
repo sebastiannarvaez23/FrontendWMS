@@ -1,9 +1,3 @@
-:root {
-    --primary-color: #5856e9;
-    --very-white: #f3eef5;
-    --component: #e6e4f5;
-    --very-like-pink: #f3b4c1;
-}
 
 .dashboard-sale-order {
     margin: 20px;
@@ -19,7 +13,7 @@
 }
 
 .inp-search-so {
-    height: 5vh;
+    height: 5vh !important;
     padding: 3px;
     padding-left: 10px;
     border-radius: 5px;
@@ -43,6 +37,7 @@
     background-color: var(--very-like-pink);
     border-radius: 20px;
     transition: all .2s;
+    color: var(--very-white)
 }
 
 .saleorder-navigation {

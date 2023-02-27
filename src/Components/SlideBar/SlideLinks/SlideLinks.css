@@ -37,7 +37,7 @@
     min-width: 78px;
     text-align: center;
     line-height: 50px;
-    color: var(--primary-color) !important;
+    color: var(--very-like-pink) !important;
     font-size: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -60,7 +60,7 @@
   .sidebar .nav-links li a .link_name{
     font-size: 18px;
     font-weight: 400;
-    color: var(--primary-color) !important;
+    color: var(--very-like-pink) !important;
     transition: all 0.4s ease;
   }
 
@@ -165,7 +165,7 @@
   }
   .sidebar .profile-details .profile_name,
   .sidebar .profile-details .job{
-    color: var(--primary-color) !important;
+    color: var(--very-like-pink) !important;
     font-size: 18px;
     font-weight: 500;
     white-space: nowrap;

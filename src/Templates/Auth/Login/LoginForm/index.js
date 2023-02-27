@@ -19,12 +19,6 @@ export const FormLogin = (props) => {
     loginUser(username, password, setUser, navigate);
   };
 
-  function cleanForm() {
-    setUsername('');
-    setPassword('');
-    props.setShowCredentialError(false);
-  }
-
   const onLoginUser = (event) => {
     //console.log(event.target.value);
     setUsername(event.target.value);
@@ -35,16 +29,18 @@ export const FormLogin = (props) => {
   }
 
   return (
-    <div>
+    <div className="contain-form-login">
       <form onSubmit={handleSubmit}>
         <div className="inp-login"><input onChange={onLoginUser} value={username} placeholder="usuario" className="form-control" /></div>
         <div className="inp-login"><input onChange={onLoginPass} value={password} placeholder="contraseña" className="form-control" type={"password"} /></div>
+        <div className="contain-check-remember-cerdentials"><input className="checkbox-remember-credentials" type="checkbox" /> <p>Recordar credenciales</p></div>
         {props.children}
         <div><button className="btn btn-login" type={"submit"}>Iniciar Sesion</button></div>
       </form>
-      <div><button onClick={cleanForm} className="btn btn-login">Limpiar</button></div>
-      <div className="contain-contact-manager"><a href="https://wa.me/573106418293" target={"_blank"}>Contactar al administrador</a></div>
-      <div className="contain-contact-manager"><a href="http://localhost:8000/admin/" target={"_blank"}>Gestionar Usuarios</a></div>
+      <div><button className="btn btn-login">¿Olvidaste la contraseña?</button></div>
+      <div className="footer-login">
+        <span>API</span> • <span>Más información</span> • <span>Integraciones</span> • <span>Recomendaciones</span> • <span>Privacidad y Seguridad</span>
+      </div>
     </div>
   );
 }

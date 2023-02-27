@@ -27,11 +27,9 @@
 }
 
 .contain-listDimensions .inp-search-listDimensions {
-    height: 35px;
+    height: 35px !important;
     padding-left: 10px;
 }
-
-
 
 .front-layer-listDimensions input:focus{
     outline: 2px solid var(--primary-color);

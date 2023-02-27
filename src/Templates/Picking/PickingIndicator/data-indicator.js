@@ -1,5 +1,22 @@
+import "../Picking.css";
 
 export const dataIndicator = (packed, request) => {
+
+    let div;
+    let styles;
+    let veryLikePink;
+    let primaryColor
+
+    div = document.createElement('div');
+    document.body.appendChild(div);
+    styles = window.getComputedStyle(div);
+    veryLikePink = styles.getPropertyValue('--very-like-pink');
+
+    div = document.createElement('div');
+    document.body.appendChild(div);
+    styles = window.getComputedStyle(div);
+    primaryColor = styles.getPropertyValue('--primary-color');
+
     return {
         labels: [],
         datasets: [
@@ -7,12 +24,12 @@ export const dataIndicator = (packed, request) => {
                 label: '# of Votes',
                 data: [packed, parseInt(request, 10) - parseInt(packed, 10)],
                 backgroundColor: [
-                    '#5856e9',
-                    '#fcdae1',
+                    veryLikePink,
+                    primaryColor,
                 ],
                 borderColor: [
-                    '#5856e9',
-                    '#fcdae1',
+                    veryLikePink,
+                    primaryColor,
                 ],
                 borderWidth: 1,
             },

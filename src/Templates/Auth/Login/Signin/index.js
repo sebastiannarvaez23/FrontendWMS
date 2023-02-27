@@ -2,7 +2,7 @@ import React from "react";
 import './Signup.css';
 import { useAuth } from "../../../../Context/auth-context";
 
-export const Signup = (props) => {
+export const Signin = (props) => {
 
     const {
         showCredentialError

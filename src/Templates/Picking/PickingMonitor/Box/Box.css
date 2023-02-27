@@ -1,9 +1,4 @@
-:root {
-    --primary-color: #5856e9;
-    --very-white: #f3eef5;
-    --component: #e6e4f5;
-    --very-like-pink: #fcdae1;
-}
+
 
 .box-item{
     background-color: var(--primary-color);
@@ -48,7 +43,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: black;
+    color: var(--very-white);
 }
 
 .box-item-selected:hover{

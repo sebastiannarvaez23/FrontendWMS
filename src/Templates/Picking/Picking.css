@@ -1,3 +1,10 @@
+:root {
+    --primary-color: #807d7d;
+    --very-white: #f3eef5;
+    --component: #e6e4f5;
+    --very-like-pink: #3d3b3b;
+}
+
 .fade-enter {
     opacity: 0;
 }

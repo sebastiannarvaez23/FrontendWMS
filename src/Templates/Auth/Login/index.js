@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Signup } from "./Signup";
+import { Signin } from "./Signin";
 import { TitleLogin } from './LoginTitle';
 import { FormLogin } from './LoginForm';
 import './Login.css';
@@ -7,10 +7,10 @@ import './Login.css';
 export const Login = () => {
   return (
     <Fragment>
-      <Signup>
+      <Signin>
         <TitleLogin />
         <FormLogin />
-      </Signup>
+      </Signin>
     </Fragment>
   );
 }
