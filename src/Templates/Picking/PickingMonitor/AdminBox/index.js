@@ -24,7 +24,7 @@ export const AdminBox = (props) => {
     const { pickingSelected } = usePicking();
 
     let boxDefaultData = {
-        responsible: 2,
+        responsible: 1,
         gross_weight: grossWeight,
         dimension: dimensionSelected,
         picking: pickingSelected
