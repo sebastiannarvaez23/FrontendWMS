@@ -2,15 +2,17 @@ import React from "react";
 import { createPicking } from "../../../ServicesConsumers/picking";
 import { usePicking } from "../../../Context/picking-context";
 import { useSaleOrder } from "../../../Context/saleorder-context";
+import { useAuth } from "../../../Context/auth-context";
 import './PickingList.css';
 
 export const PickingList = (props) => {
 
+    const { user } = useAuth();
     const { noSaleOrder } = useSaleOrder();
     const { setPickings, setLoadedPicking } = usePicking()
 
     let pickingDefaultData = {
-        responsible: 1,
+        responsible: user.id,
         sale_order: noSaleOrder
     }
 

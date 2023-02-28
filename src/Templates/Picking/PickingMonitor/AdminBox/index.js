@@ -2,9 +2,12 @@ import React, { useEffect } from "react";
 import { getDimensions, updateBox, createBox } from "../../../../ServicesConsumers/box";
 import { useBox } from "../../../../Context/box-context";
 import { usePicking } from "../../../../Context/picking-context";
+import { useAuth } from "../../../../Context/auth-context";
 import './AdminBox.css';
 
 export const AdminBox = (props) => {
+
+    const { user } = useAuth();
 
     const {
         setGrossWeight,
@@ -24,7 +27,7 @@ export const AdminBox = (props) => {
     const { pickingSelected } = usePicking();
 
     let boxDefaultData = {
-        responsible: 1,
+        responsible: user.id,
         gross_weight: grossWeight,
         dimension: dimensionSelected,
         picking: pickingSelected
