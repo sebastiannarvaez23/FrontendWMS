@@ -19,13 +19,7 @@ h1 {
     font-size: 35px;
 }
 
-button {
-    margin-top: 8px;
-    width: 30%;
-    height: 30px;
-}
-
-.contain-form-login button {
+.contain-form-login .btn-wms {
     margin-top: 8px;
     width: 50% !important;
     height: 35px !important;
@@ -99,11 +93,5 @@ button {
 
     .inp-login input {
         height: 5vh;
-    }
-
-    button {
-        margin-top: 8px;
-        width: 60%;
-        height: 35px;
     }
 }

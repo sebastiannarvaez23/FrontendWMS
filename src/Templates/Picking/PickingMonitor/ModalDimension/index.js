@@ -33,7 +33,7 @@ export const ModalDimension = (props) => {
                     {props.children}
                 </div>
                 <div>
-                    <button className="btn button-create-dimension" onClick={()=>{setViewModalAddDimension(true)}}>Crear dimensión</button>
+                    <button className="btn-wms button-create-dimension" onClick={()=>{setViewModalAddDimension(true)}}>Crear dimensión</button>
                 </div>
             </div>
         </div>

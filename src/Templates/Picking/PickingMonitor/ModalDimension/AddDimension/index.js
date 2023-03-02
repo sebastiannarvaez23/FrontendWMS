@@ -61,7 +61,7 @@ export const AddDimension = () => {
                 <input onChange={(e) => {onFormatValueDecimalInput(e, setGrossWeightBoxDimension)}} value={grossWeightBoxDimension} placeholder="Peso Bruto (kg 1.2)" />
 
                 <div className="contain-bottom">
-                    <button className="btn btn-add-dimension" onClick={()=>{createDimension(setListDimensions, setLoadListDimensions, defaultDataDimension)}}>Agregar dimensión</button>
+                    <button className="btn-wms btn-add-dimension" onClick={()=>{createDimension(setListDimensions, setLoadListDimensions, defaultDataDimension)}}>Agregar dimensión</button>
                 </div>
             </div>
         </div>,

@@ -50,10 +50,10 @@ export const GetSaleOrder = (props) => {
                     loadInfoSaleOrder(noSaleOrder, setSaleOrder);
                   }
             }} className="inp-search-so" />
-            <button className="btn btn-export-status-order" onClick={() => { loadInfoSaleOrder(noSaleOrder, setSaleOrder) }}>Cargar</button>
-            <button className="btn btn-clean-dashboard-so" onClick={() => { clearInputsSaleOrders() }}>Limpiar</button>
-            <button className="btn saleorder-navigation" onClick={() => { }}>&#60;</button>
-            <button className="btn saleorder-navigation" onClick={() => { }}>&#62;</button>
+            <button className="btn-wms btn-export-status-order" onClick={() => { loadInfoSaleOrder(noSaleOrder, setSaleOrder) }}>Cargar</button>
+            <button className="btn-wms btn-clean-dashboard-so" onClick={() => { clearInputsSaleOrders() }}>Limpiar</button>
+            <button className="btn-wms saleorder-navigation" onClick={() => { }}>&#60;</button>
+            <button className="btn-wms saleorder-navigation" onClick={() => { }}>&#62;</button>
         </div>
     );
 }

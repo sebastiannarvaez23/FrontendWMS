@@ -32,7 +32,7 @@
     outline: 2px solid #b89199;
 }
 
-.btn {
+.btn-wms {
     border: none;
     background-color: var(--very-like-pink);
     border-radius: 20px;

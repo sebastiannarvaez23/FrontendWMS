@@ -56,7 +56,7 @@ export const AdminBox = (props) => {
                             <option key={dimension.id} value={dimension.id}> {dimension.name} {dimension.dimension} </option>
                         ))}
                     </select>
-                    <button onClick={() => {setViewModalDimension(true)}} className="btn btn-create-dimension">+</button>
+                    <button onClick={() => {setViewModalDimension(true)}} className="btn-wms btn-create-dimension">+</button>
                 </div>
                 <button onClick={() => { createBox(setGrossWeight, setDimensionSelected, setListBoxes, setLoadGetBoxes, pickingSelected, boxDefaultData) }} className="btn-create-box">+</button>
 
