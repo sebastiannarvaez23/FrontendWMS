@@ -16,7 +16,7 @@
     "react-scripts": "^2.1.3",
     "react-transition-group": "^4.4.5",
     "reactfire": "^4.0.0-rc.2",
-    "sweetalert2": "^11.6.5",
+    "sweetalert2": "^11.7.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

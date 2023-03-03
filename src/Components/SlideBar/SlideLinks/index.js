@@ -1,38 +1,12 @@
 import React from "react";
 import './SlideLinks.css';
-import Swal from 'sweetalert2';
 import imgProfile from "../image/profile.jpg";
+import { alertWithConfirm } from "../../../Alerts/question";
 
 const logout = () => {
-    const swalWithBootstrapButtons = Swal.mixin({
-        customClass: {
-            confirmButton: 'btn btn-success',
-            cancelButton: 'btn btn-danger'
-        },
-        buttonsStyling: false
-    })
-
-    swalWithBootstrapButtons.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Sí, cerrar la sesion',
-        cancelButtonText: 'No, cancelar!',
-        reverseButtons: true
-    }).then((result) => {
-        if (result.isConfirmed) {
-
-        } else if (
-            /* Read more about handling dismissals below */
-            result.dismiss === Swal.DismissReason.cancel
-        ) {
-            swalWithBootstrapButtons.fire(
-                'Cancelado',
-                'Continúa despachando!',
-                'error'
-            )
-        }
+    alertWithConfirm('¿Desea cerrar la sesión?', 'Sí, ¡deseo salir!', ()=>{
+        // Logica para salir de la sesion
+        alert("Saliendo de la sesión")
     })
 }
 
