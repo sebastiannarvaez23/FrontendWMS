@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { alertEventSuccess } from '../Alerts/success.js';
 import { API } from './api/base.js';
 import { confRequest } from './api/base.js';
 
@@ -20,10 +21,10 @@ export const createPicking = async (data, setPickings, setLoadedPicking, noSaleO
     if (noSaleOrder !== "") {
         await axios.post(API + "picking/", data, confRequest)
             .then((response) => {
-                //const { data } = response;
+                getPickings(setPickings, setLoadedPicking, noSaleOrder);
             })
             .catch(err => console.log(err))
-            .finally(() => getPickings(setPickings, setLoadedPicking, noSaleOrder))
+            .finally(() => alertEventSuccess("¡Picking creado con exito!"))
     }
 }
 
