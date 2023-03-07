@@ -1,16 +1,16 @@
 import axios from 'axios';
 import { API, confRequestLogin } from './api/base.js';
 import Cookies from 'js-cookie';
-import { alertSmallTopCenter } from '../Alerts/info.js';
+import { alertSmallTopCenter } from '../Alerts/SweetAlerts.js';
 
 export const loginUser = async (username, password, setUser, navigate) => {
   if (username === "") {
-    alertSmallTopCenter("Ingrese un usuario para autenticarse");
+    alertSmallTopCenter("Ingrese un usuario para autenticarse", "info");
     return
   }
 
   if (password === "") {
-    alertSmallTopCenter("Ingrese una contraseña para autenticarse");
+    alertSmallTopCenter("Ingrese una contraseña para autenticarse", "info");
     return
   }
 
@@ -22,6 +22,6 @@ export const loginUser = async (username, password, setUser, navigate) => {
           navigate("/picking");
         } 
       })
-      .catch(err => alertSmallTopCenter("Credenciales incorrectas"))
+      .catch(err => alertSmallTopCenter("Credenciales incorrectas", "info"))
       .finally(() => { })
 }

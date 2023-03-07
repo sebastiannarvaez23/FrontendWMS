@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { alertEventSuccess } from '../Alerts/SweetAlerts.js';
 import { API } from './api/base.js';
 import { confRequest } from './api/base.js';
 
@@ -33,6 +34,7 @@ export const deleteBoxItem = async (idBoxItem, setBoxItems, setLoadGetBoxItems, 
     await axios.delete(API + "boxitem/" + idBoxItem, confRequest)
         .then((response) => {
             getBoxesItem(setBoxItems, setLoadGetBoxItems, idBox);
+            alertEventSuccess("¡Referencia eliminada de la caja!", "success")
         })
         .catch(err => console.log(err))
         .finally(() => {})

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { alertEventSuccess } from '../Alerts/SweetAlerts.js';
 import { API } from './api/base.js';
 import { confRequest } from './api/base.js';
 
@@ -8,8 +9,7 @@ export const loadInfoSaleOrder = async (noSaleOrder, setSaleOrder) => {
             .then(response => {
                 setSaleOrder(response.data);
             })
-            .catch(err => console.log(err))
-            .finally(() => { })
+            .catch(err => alertEventSuccess("La orden de venta consultada no existe", "info"))
     }
 }
 

@@ -1,7 +1,7 @@
 import React from "react";
 import './SlideLinks.css';
 import imgProfile from "../image/profile.jpg";
-import { alertWithConfirm } from "../../../Alerts/question";
+import { alertWithConfirm } from "../../../Alerts/SweetAlerts";
 
 const logout = () => {
     alertWithConfirm('¿Desea cerrar la sesión?', 'Sí, ¡deseo salir!', ()=>{
