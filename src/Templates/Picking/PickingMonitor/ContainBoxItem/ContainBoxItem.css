@@ -103,6 +103,8 @@
     z-index: 1;
     transition: all .2s;
     margin-left: 12px;
+    width: 30%;
+    height: 30px;
 }
 
 .btn-pack:hover{

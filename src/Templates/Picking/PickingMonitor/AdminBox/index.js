@@ -57,6 +57,8 @@ export const AdminBox = (props) => {
                         ))}
                     </select>
                     <button onClick={() => {setViewModalDimension(true)}} className="btn-wms btn-create-dimension">+</button>
+                    <button onClick={() => {alert("Descargando PackingList")}} className="btn-wms btn-download-packinglist"><i class='bx bx-sort-down'></i></button>
+                    <button onClick={() => {alert("Descargando Tabla Anexa")}} className="btn-wms btn-download-packinglist"><i class='bx bxs-report'></i></button>
                 </div>
                 <button onClick={() => { createBox(setGrossWeight, setDimensionSelected, setListBoxes, setLoadGetBoxes, pickingSelected, boxDefaultData) }} className="btn-create-box">+</button>
 

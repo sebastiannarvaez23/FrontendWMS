@@ -2,6 +2,7 @@ import React from "react";
 import './SlideLinks.css';
 import imgProfile from "../image/profile.jpg";
 import { alertWithConfirm } from "../../../Alerts/SweetAlerts";
+import { useAuth } from "../../../Context/auth-context";
 
 const logout = () => {
     alertWithConfirm('¿Desea cerrar la sesión?', 'Sí, ¡deseo salir!', ()=>{
@@ -11,6 +12,11 @@ const logout = () => {
 }
 
 export const SlideLinks = () => {
+
+    const {
+        user
+    } =useAuth()
+
     return (
         <ul className="nav-links">
             <li>
@@ -100,7 +106,7 @@ export const SlideLinks = () => {
                         <img src={imgProfile} alt="profileImg" />
                     </div>
                     <div className="name-job">
-                        <div className="profile_name">Santi Sanchez</div>
+                        <div className="profile_name">{user.username}</div>
                         <div className="job">Web Desginer</div>
                     </div>
                     <i onClick={() => { logout() }} className='bx bx-log-out'></i>
