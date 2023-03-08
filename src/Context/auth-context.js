@@ -5,8 +5,8 @@ export const AuthContext = createContext();
 export const AuthProvider = (props) => {
 
     const [user, setUser] = useState();
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const [username, setUsername] = useState('manager');
+    const [password, setPassword] = useState('admin123');
     const [showCredentialError, setShowCredentialError] = React.useState(false);
 
     const value = useMemo(() => {

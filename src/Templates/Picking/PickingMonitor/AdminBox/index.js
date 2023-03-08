@@ -65,7 +65,7 @@ export const AdminBox = (props) => {
                 <div className="box-list">
                     <div className="headers-list-box">
                         <span>#</span>
-                        <span>Peso bruto</span>
+                        <span>Bruto</span>
                         <span>Responsable</span>
                         <span>Dimension</span>
                         <span>Ultima Mod</span>
