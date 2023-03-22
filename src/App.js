@@ -9,6 +9,7 @@ import {
 
 import { Picking } from './Templates/Picking';
 import { Login } from './Templates/Auth/Login';
+import { RegisterCompany } from './Templates/Auth/RegisterCompany';
 
 import { PickingProvider } from './Context/picking-context';
 import { SaleOrderProvider } from './Context/saleorder-context';
@@ -44,7 +45,8 @@ function App() {
         <Route element={<PrivateRoute user={user} />}>
           <Route path="/picking" element={<Picking />} />
         </Route>
-        <Route path="" element={<Login />} />
+        <Route path="/signin" element={<Login />} />
+        <Route path="/signup" element={<RegisterCompany />} />
       </Routes>
     </Router>
   );

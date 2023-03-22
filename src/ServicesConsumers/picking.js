@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { alertEventSuccess } from '../Alerts/SweetAlerts';
-import { API } from './api/base.js';
-import { confRequest } from './api/base.js';
+import { API } from './api/conf.js';
+import { confRequest } from './api/conf.js';
 
 export const getPickings = async (setPickings, setLoadedPicking, noSaleOrder) => {
     if (noSaleOrder !== "") {
