@@ -1,6 +1,7 @@
 import Cookies from 'js-cookie';
 
-export const API = 'http://localhost:8000/';
+export const APIPUBLIC = 'http://public.localhost:8000/';
+export const API = (domain) => 'http://' + domain + ':8000/';
 
 export const confRequest = {
   headers: {

@@ -3,9 +3,9 @@ import { alertEventSuccess } from '../Alerts/SweetAlerts.js';
 import { API } from './api/conf.js';
 import { confRequest } from './api/conf.js';
 
-export const getBoxesItem = async (setBoxItems, setLoadGetBoxItems, idBox) => {
+export const getBoxesItem = async (domain, setBoxItems, setLoadGetBoxItems, idBox) => {
     if (idBox !== "") {
-        await axios.get(API + "boxitem/" + idBox + "/", confRequest)
+        await axios.get(API(domain) + "boxitem/" + idBox + "/", confRequest)
             .then(response => {
                 setBoxItems(response.data);
             })
@@ -19,8 +19,8 @@ export const getBoxesItem = async (setBoxItems, setLoadGetBoxItems, idBox) => {
     }
 }
 
-export const createBoxItem = async (setBoxItems, setLoadGetBoxItems, setQuantity, setInpReference, data) => {
-    await axios.post(API + "boxitem/", data, confRequest)
+export const createBoxItem = async (domain, setBoxItems, setLoadGetBoxItems, setQuantity, setInpReference, data) => {
+    await axios.post(API(domain) + "boxitem/", data, confRequest)
         .then((response) => {
             getBoxesItem(setBoxItems, setLoadGetBoxItems, data.box);
             setQuantity("");
@@ -30,8 +30,8 @@ export const createBoxItem = async (setBoxItems, setLoadGetBoxItems, setQuantity
         .finally(() => {})
 }
 
-export const deleteBoxItem = async (idBoxItem, setBoxItems, setLoadGetBoxItems, idBox) => {
-    await axios.delete(API + "boxitem/" + idBoxItem, confRequest)
+export const deleteBoxItem = async (domain, idBoxItem, setBoxItems, setLoadGetBoxItems, idBox) => {
+    await axios.delete(API(domain) + "boxitem/" + idBoxItem, confRequest)
         .then((response) => {
             getBoxesItem(setBoxItems, setLoadGetBoxItems, idBox);
             alertEventSuccess("¡Referencia eliminada de la caja!", "success")

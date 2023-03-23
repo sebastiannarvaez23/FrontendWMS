@@ -1,8 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../../Context/auth-context";
+import { signUpCompany } from "../../../../ServicesConsumers/auth";
 import "./RegisterForm.css";
 
 export const RegisterForm = () => {
+
+    const navigate = useNavigate();
 
     const {
         companyNit, setCompanyNit,
@@ -11,10 +15,22 @@ export const RegisterForm = () => {
         companyCountry, setCompanyCountry,
         companyState, setCompanyState,
         companyCity, setCompanyCity,
+        company, setCompany,
     } = useAuth();
+
+    let defaultInfoCompany = {
+        schema_name: "hola1",
+        nit: companyNit,
+        name: companyName,
+        address: companyAddress,
+        country: "p",
+        state: "p",
+        city: "p"
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        signUpCompany(setCompany, navigate, defaultInfoCompany);
     };
 
     return (

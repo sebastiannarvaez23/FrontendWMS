@@ -3,9 +3,9 @@ import { alertEventSuccess } from '../Alerts/SweetAlerts.js';
 import { API } from './api/conf.js';
 import { confRequest } from './api/conf.js';
 
-export const loadInfoSaleOrder = async (noSaleOrder, setSaleOrder) => {
+export const getInfoSaleOrder = async (domain, noSaleOrder, setSaleOrder) => {
     if (noSaleOrder !== "") {
-        await axios.get(API + "saleorder/" + noSaleOrder, confRequest)
+        await axios.get(API(domain) + "saleorder/" + noSaleOrder, confRequest)
             .then(response => {
                 setSaleOrder(response.data);
             })
@@ -13,9 +13,9 @@ export const loadInfoSaleOrder = async (noSaleOrder, setSaleOrder) => {
     }
 }
 
-export const getInfoReferencesRequest = async (setLoadedSaleOrderItems, setSaleOrderItems, noSaleOrder) => {
+export const getInfoReferencesRequest = async (domain, setLoadedSaleOrderItems, setSaleOrderItems, noSaleOrder) => {
     if (noSaleOrder !== "") {
-        await axios.get(API + "saleorderitem/" + noSaleOrder, confRequest)
+        await axios.get(API(domain) + "saleorderitem/" + noSaleOrder, confRequest)
             .then(response => {
                 setSaleOrderItems(response.data);
             })
@@ -26,9 +26,9 @@ export const getInfoReferencesRequest = async (setLoadedSaleOrderItems, setSaleO
     }
 }
 
-export const getInfoIndicators = async (customerName, noSaleOrder, setIndicatorsPicking) => {
+export const getInfoIndicators = async (domain, customerName, noSaleOrder, setIndicatorsPicking) => {
     if (customerName !== "" && noSaleOrder !== "") {
-        await axios.get(API + "saleorder/indicator/" + customerName + "/" + noSaleOrder + "/", confRequest)
+        await axios.get(API(domain) + "saleorder/indicator/" + customerName + "/" + noSaleOrder + "/", confRequest)
             .then(response => {
                 setIndicatorsPicking(response.data);
             })

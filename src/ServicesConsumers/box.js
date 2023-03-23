@@ -5,8 +5,8 @@ import { confRequest } from './api/conf.js';
 
 // Dimension
 
-export const getDimensions = async (setListDimensions, setLoadListDimensions) => {
-    await axios.get(API + "box/dimension/", confRequest)
+export const getDimensions = async (domain, setListDimensions, setLoadListDimensions) => {
+    await axios.get(API(domain) + "box/dimension/", confRequest)
         .then(response => {
             setListDimensions(response.data);
             setLoadListDimensions(true);
@@ -15,8 +15,8 @@ export const getDimensions = async (setListDimensions, setLoadListDimensions) =>
         .finally()
 }
 
-export const createDimension = async (setListDimensions, setLoadListDimensions, setViewModalAddDimension, data) => {
-    await axios.post(API + "box/dimension/", data, confRequest)
+export const createDimension = async (domain, setListDimensions, setLoadListDimensions, setViewModalAddDimension, data) => {
+    await axios.post(API(domain) + "box/dimension/", data, confRequest)
         .then(response => {
             getDimensions(setListDimensions, setLoadListDimensions);
             setViewModalAddDimension(false);
@@ -26,8 +26,8 @@ export const createDimension = async (setListDimensions, setLoadListDimensions, 
         .finally(() => {})
 }
 
-export const deleteDimension = async (setListDimensions, setLoadListDimensions, idDimension) => {
-    await axios.delete(API + "box/dimension/" + idDimension, confRequest)
+export const deleteDimension = async (domain, setListDimensions, setLoadListDimensions, idDimension) => {
+    await axios.delete(API(domain) + "box/dimension/" + idDimension, confRequest)
         .then(response => {
             getDimensions(setListDimensions, setLoadListDimensions);
             alertEventSuccess("¡Dimensión eliminada!", "success");
@@ -38,9 +38,9 @@ export const deleteDimension = async (setListDimensions, setLoadListDimensions, 
 
 // Box
 
-export const getBoxes = async (setListBoxes, setLoadGetBoxes, pickingSelected) => {
+export const getBoxes = async (domain, setListBoxes, setLoadGetBoxes, pickingSelected) => {
     if (pickingSelected !== "") {
-        await axios.get(API + "box/box/" + pickingSelected + "/", confRequest)
+        await axios.get(API(domain) + "box/box/" + pickingSelected + "/", confRequest)
             .then(response => {
                 setListBoxes(response.data);
             })
@@ -51,7 +51,7 @@ export const getBoxes = async (setListBoxes, setLoadGetBoxes, pickingSelected) =
     }
 }
 
-export const createBox = async (setGrossWeight, setDimensionSelected, setListBoxes, setLoadGetBoxes, idPicking, data) => {
+export const createBox = async (domain, setGrossWeight, setDimensionSelected, setListBoxes, setLoadGetBoxes, idPicking, data) => {
 
     if (data.gross_weight === '') { data.gross_weight = 0 };
 
@@ -60,7 +60,7 @@ export const createBox = async (setGrossWeight, setDimensionSelected, setListBox
         return;
     }
 
-    await axios.post(API + "box/box/", data, confRequest)
+    await axios.post(API(domain) + "box/box/", data, confRequest)
         .then((response) => {
             //const { data } = response;
             getBoxes(setListBoxes, setLoadGetBoxes, idPicking);
@@ -72,7 +72,7 @@ export const createBox = async (setGrossWeight, setDimensionSelected, setListBox
         .finally(() => {})
 }
 
-export const updateBox = async (setGrossWeight, setDimensionSelected, setListBoxes, setLoadGetBoxes, boxSelected, idPicking, data) => {
+export const updateBox = async (domain, setGrossWeight, setDimensionSelected, setListBoxes, setLoadGetBoxes, boxSelected, idPicking, data) => {
     if (boxSelected === '') {
         alertSmallTopCenter('Debe seleccionar una caja para modificarla', 'info');
         return;
@@ -88,7 +88,7 @@ export const updateBox = async (setGrossWeight, setDimensionSelected, setListBox
         return;
     }
 
-    await axios.patch(API + "box/box/" + boxSelected, data, confRequest)
+    await axios.patch(API(domain) + "box/box/" + boxSelected, data, confRequest)
         .then((response) => {
             //const { data } = response;
             getBoxes(setListBoxes, setLoadGetBoxes, idPicking);
@@ -100,8 +100,8 @@ export const updateBox = async (setGrossWeight, setDimensionSelected, setListBox
         .finally(() => {})
 }
 
-export const deleteBox = async (idBox, setListBoxes, setLoadGetBoxes, idPicking, setBoxSelected) => {
-    await axios.delete(API + "box/box/" + idBox, confRequest)
+export const deleteBox = async (domain, idBox, setListBoxes, setLoadGetBoxes, idPicking, setBoxSelected) => {
+    await axios.delete(API(domain) + "box/box/" + idBox, confRequest)
         .then((response) => {
             //const { data } = response;
             getBoxes(setListBoxes, setLoadGetBoxes, idPicking);

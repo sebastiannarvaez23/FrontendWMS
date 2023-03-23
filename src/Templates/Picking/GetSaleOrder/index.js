@@ -1,5 +1,5 @@
 import React from "react";
-import { loadInfoSaleOrder } from "../../../ServicesConsumers/saleorder";
+import { getInfoSaleOrder } from "../../../ServicesConsumers/saleorder";
 import { usePicking } from "../../../Context/picking-context";
 import { useSaleOrder } from "../../../Context/saleorder-context";
 import { useBoxItem } from "../../../Context/boxitem-context";
@@ -47,10 +47,10 @@ export const GetSaleOrder = (props) => {
             }} onKeyDown={(e)=>{
                 if (e.key === 'Enter') {
                     e.preventDefault();
-                    loadInfoSaleOrder(noSaleOrder, setSaleOrder);
+                    getInfoSaleOrder(noSaleOrder, setSaleOrder);
                   }
             }} className="inp-search-so" />
-            <button className="btn-wms btn-export-status-order" onClick={() => { loadInfoSaleOrder(noSaleOrder, setSaleOrder) }}>Cargar</button>
+            <button className="btn-wms btn-export-status-order" onClick={() => { getInfoSaleOrder(noSaleOrder, setSaleOrder) }}>Cargar</button>
             <button className="btn-wms btn-clean-dashboard-so" onClick={() => { clearInputsSaleOrders() }}>Limpiar</button>
             <button className="btn-wms saleorder-navigation" onClick={() => { }}>&#60;</button>
             <button className="btn-wms saleorder-navigation" onClick={() => { }}>&#62;</button>

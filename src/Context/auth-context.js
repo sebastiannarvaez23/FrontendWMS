@@ -9,7 +9,8 @@ export const AuthProvider = (props) => {
     const [user, setUser] = useState();
     const [username, setUsername] = useState('manager');
     const [password, setPassword] = useState('admin123');
-    const [showCredentialError, setShowCredentialError] = React.useState(false);
+    const [showCredentialError, setShowCredentialError] = useState(false);
+    const [domain, setDomain] = useState("");
 
     // Signup Company
 
@@ -19,6 +20,16 @@ export const AuthProvider = (props) => {
     const [companyCountry, setCompanyCountry] = useState("");
     const [companyState, setCompanyState] = useState("");
     const [companyCity, setCompanyCity] = useState("");
+    const [company, setCompany] = useState({
+        id: "",
+        schema_name: "",
+        nit: "",
+        name: "",
+        address: "",
+        country: "",
+        state: "",
+        city: ""
+    });
     
     // Signup User
 
@@ -37,12 +48,14 @@ export const AuthProvider = (props) => {
             username, setUsername,
             password, setPassword,
             showCredentialError, setShowCredentialError,
+            domain, setDomain,
             companyNit, setCompanyNit,
             companyName, setCompanyName,
             companyAddress, setCompanyAddress,
             companyCountry, setCompanyCountry,
             companyState, setCompanyState,
             companyCity, setCompanyCity,
+            company, setCompany,
             userEmail, setUserEmail,
             userNames, setUserNames,
             userLastNames, setUserLastNames,
@@ -57,12 +70,14 @@ export const AuthProvider = (props) => {
         username,
         password,
         showCredentialError,
+        domain,
         companyNit,
         companyName,
         companyAddress,
         companyCountry,
         companyState,
         companyCity,
+        company,
         userEmail,
         userNames,
         userLastNames,
