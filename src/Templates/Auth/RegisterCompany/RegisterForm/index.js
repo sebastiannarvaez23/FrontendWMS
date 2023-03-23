@@ -20,7 +20,7 @@ export const RegisterForm = () => {
                 </div>
                 <div className="inp-register">
                     <select onChange={""} value={""} placeholder="Estado/Región" className="form-control">
-                        <option>- Seleccione region/estado -</option>
+                        <option>- Seleccione región/estado -</option>
                     </select>
                 </div>
                 <div className="inp-register">
@@ -34,7 +34,6 @@ export const RegisterForm = () => {
             <div className="footer-register">
                 <span>Más información</span> • <span>API</span> • <span>Migraciones</span> • <span>Integraciones</span> • <span>Sugerencias y Recomendaciones</span> • <span>Privacidad y Seguridad</span>
             </div>
-
         </div>
     )
 }

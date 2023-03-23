@@ -10,6 +10,7 @@ import {
 import { Picking } from './Templates/Picking';
 import { Login } from './Templates/Auth/Login';
 import { RegisterCompany } from './Templates/Auth/RegisterCompany';
+import { RegisterUser } from './Templates/Auth/RegisterUser';
 
 import { PickingProvider } from './Context/picking-context';
 import { SaleOrderProvider } from './Context/saleorder-context';
@@ -46,7 +47,8 @@ function App() {
           <Route path="/picking" element={<Picking />} />
         </Route>
         <Route path="/signin" element={<Login />} />
-        <Route path="/signup" element={<RegisterCompany />} />
+        <Route path="/signup/company" element={<RegisterCompany />} />
+        <Route path="/signup/user" element={<RegisterUser />} />
       </Routes>
     </Router>
   );

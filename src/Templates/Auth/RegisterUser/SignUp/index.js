@@ -3,7 +3,7 @@ import './SignUp.css';
 
 export const SignUp = (props) => {
     return (
-        <div>
+        <div className={"content-register-user"}>
             {props.children}
         </div>
     )

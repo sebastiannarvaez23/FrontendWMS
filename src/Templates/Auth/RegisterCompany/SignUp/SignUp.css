@@ -1,8 +1,8 @@
 .content-register {
     display: grid;
-    grid-template-rows: 14vh 35vh 10vh;
+    grid-template-rows: 14vh 35vh 14vh;
     width: 60%;
-    height: 80vh;
+    height: 83vh;
     background: linear-gradient(to bottom right, var(--component), #f3eef5d5);
     padding: 40px;
     margin-top: 8vh;
