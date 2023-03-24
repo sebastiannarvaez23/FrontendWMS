@@ -42,6 +42,12 @@ export const AuthProvider = (props) => {
     const [userPasswordConfirmation, setUserPasswordConfirmation] = useState("");
     const [userEqualPasswords, setUserEqualPassword] = useState(false);
 
+    // Contries, states and cities
+
+    const [countries, setContries] = useState([]);
+    const [states, setStates] = useState([]);
+    const [cities, setCities] = useState([]);
+
     const value = useMemo(() => {
         return ({
             user, setUser,
@@ -63,7 +69,10 @@ export const AuthProvider = (props) => {
             userUsername, setUserUsername,
             userPassword, setUserPassword,
             userPasswordConfirmation, setUserPasswordConfirmation,
-            userEqualPasswords, setUserEqualPassword
+            userEqualPasswords, setUserEqualPassword,
+            countries, setContries,
+            states, setStates,
+            cities, setCities
         })
     }, [
         user,
@@ -85,7 +94,10 @@ export const AuthProvider = (props) => {
         userUsername,
         userPassword,
         userPasswordConfirmation,
-        userEqualPasswords
+        userEqualPasswords,
+        countries,
+        states,
+        cities
     ])
     return <AuthContext.Provider value={value} {...props} />
 }

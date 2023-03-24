@@ -11,7 +11,7 @@ export const RegisterForm = () => {
         userUsername, setUserUsername,
         userPassword, setUserPassword,
         userPasswordConfirmation, setUserPasswordConfirmation,
-        userEqualPasswords, setUserEqualPassword
+        //userEqualPasswords, setUserEqualPassword
     } = useAuth();
 
     const handleSubmit = async (event) => {

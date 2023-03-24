@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../../Context/auth-context";
 import { signUpCompany } from "../../../../ServicesConsumers/auth";
+import { getCountries } from "../../../../ServicesConsumers/battuta/apis";
 import "./RegisterForm.css";
 
 export const RegisterForm = () => {
@@ -15,23 +16,31 @@ export const RegisterForm = () => {
         companyCountry, setCompanyCountry,
         companyState, setCompanyState,
         companyCity, setCompanyCity,
-        company, setCompany,
+        //company, 
+        setCompany,
+        countries, setContries,
+        //states, setStates,
+        //cities, setCities,
     } = useAuth();
 
     let defaultInfoCompany = {
-        schema_name: "hola1",
+        schema_name: "hola2",
         nit: companyNit,
         name: companyName,
         address: companyAddress,
-        country: "p",
-        state: "p",
-        city: "p"
+        country: "Colombia",
+        state: "Departamento del Valle del Cauca",
+        city: "Cali"
     }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         signUpCompany(setCompany, navigate, defaultInfoCompany);
     };
+
+    useEffect(() => {
+        getCountries(setContries);
+    }, [])
 
     return (
         <div className="contain-form-register">
@@ -42,6 +51,9 @@ export const RegisterForm = () => {
                 <div className="inp-register">
                     <select onChange={(e) => { setCompanyCountry(e.target.value) }} value={companyCountry} placeholder="Pais" className="form-control">
                         <option>- Seleccione país -</option>
+                        {!!countries && countries.map((country) => (
+                            <option>{country.name}</option>
+                        ))}
                     </select>
                 </div>
                 <div className="inp-register">
