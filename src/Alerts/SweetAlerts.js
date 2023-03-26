@@ -22,7 +22,7 @@ export const alertSmallTopCenter = (msnTitle, icon) => {
   })
 }
 
-export const alertWithConfirm = (msnTitle, msnConfirm, functionResult) => {
+export const alertWithConfirm = (msnTitle, msnConfirm, functionResult, functionResultCancel) => {
   Swal.fire({
     title: msnTitle,
     //text: "You won't be able to revert this!",
@@ -35,6 +35,8 @@ export const alertWithConfirm = (msnTitle, msnConfirm, functionResult) => {
   }).then((result) => {
     if (result.isConfirmed) {
       functionResult();
+    } else {
+      functionResultCancel();
     }
   })
 }
@@ -46,5 +48,40 @@ export const alertEventSuccess = (msnTitle, icon) => {
     title: msnTitle,
     showConfirmButton: false,
     timer: 1500
+  })
+}
+
+export const alertWithInput = (msnTitle, api, functionResult, functionResultCancel) => {
+  Swal.fire({
+    title: msnTitle,
+    input: 'text',
+    inputAttributes: {
+      autocapitalize: 'off'
+    },
+    showCancelButton: true,
+    confirmButtonText: 'Look up',
+    showLoaderOnConfirm: true,
+    preConfirm: (valueInput) => {
+      let url = api + valueInput;
+      return fetch(url)
+        .then(response => { 
+          if (!response.ok) {
+            throw new Error(response.statusText)
+          }
+          return response.json()
+        })
+        .catch(error => {
+          Swal.showValidationMessage(
+            `Request failed: ${error}`
+          )
+        })
+    },
+    allowOutsideClick: () => !Swal.isLoading()
+  }).then((result) => {
+    if (result.isConfirmed) {
+      functionResult(result.value);
+    } else {
+      functionResultCancel();
+    }
   })
 }

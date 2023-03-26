@@ -23,20 +23,35 @@ export const RegisterForm = () => {
         //cities, setCities,
     } = useAuth();
 
-    let defaultInfoCompany = {
-        schema_name: "hola2",
-        nit: companyNit,
-        name: companyName,
-        address: companyAddress,
-        country: "Colombia",
-        state: "Departamento del Valle del Cauca",
-        city: "Cali"
-    }
-
     const handleSubmit = async (event) => {
         event.preventDefault();
-        signUpCompany(setCompany, navigate, defaultInfoCompany);
+        signUpCompany(setCompany, navigate, generateSchemaName(companyName));
     };
+
+    const generateSchemaName = (companyName) => {
+        const cleanName = companyName.toLowerCase().replace(/[^a-z]/g, '');
+        const prefix = "wms";
+        let randomName = "";
+        
+        for (let i = 0; i < 6; i++) {
+          const randomIndex = Math.floor(Math.random() * cleanName.length);
+          randomName += cleanName.charAt(randomIndex);
+        }
+
+        let schemaName = prefix + randomName;
+
+        let defaultInfoCompany = {
+            schema_name: schemaName,
+            nit: companyNit,
+            name: companyName,
+            address: companyAddress,
+            country: "Colombia",
+            state: "Departamento del Valle del Cauca",
+            city: "Cali"
+        }
+        console.log(defaultInfoCompany);
+        return defaultInfoCompany;
+    }
 
     useEffect(() => {
         getCountries(setContries);

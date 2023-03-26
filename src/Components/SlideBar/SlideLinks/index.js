@@ -8,7 +8,7 @@ const logout = () => {
     alertWithConfirm('¿Desea cerrar la sesión?', 'Sí, ¡deseo salir!', ()=>{
         // Logica para salir de la sesion
         alert("Saliendo de la sesión")
-    })
+    }, ()=>{})
 }
 
 export const SlideLinks = () => {
