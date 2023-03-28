@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { APIPUBLIC, confRequestLogin } from './api/conf.js';
+import { API, APIPUBLIC, confRequestLogin } from './api/conf.js';
 import Cookies from 'js-cookie';
 import { alertSmallTopCenter } from '../Alerts/SweetAlerts.js';
 
-export const loginUser = async (username, password, setUser, navigate) => {
+export const loginUser = async (domain, username, password, setUser, navigate) => {
   if (username === "") {
     alertSmallTopCenter("Ingrese un usuario para autenticarse", "info");
     return
@@ -14,7 +14,7 @@ export const loginUser = async (username, password, setUser, navigate) => {
     return
   }
 
-  await axios.post(APIPUBLIC + "registration/login/", { username, password }, confRequestLogin)
+  await axios.post(API(domain) + "registration/login/", { username, password }, confRequestLogin)
     .then((response) => {
       if (response.data.status === 200) {
         Cookies.set('token', response.data.access_token);
@@ -26,16 +26,24 @@ export const loginUser = async (username, password, setUser, navigate) => {
     .finally(() => { })
 }
 
-export const signUpCompany = async (setCompany, navigate, data) => {
+export const signUpCompany = async (setCompany, setDomain, navigate, data) => {
   await axios.post(APIPUBLIC + "company/", data, confRequestLogin)
     .then((response) => {
         setCompany(response.data);
+        setDomain(response.data.schema_name)
         navigate('/signup/user');
     })
     .catch(err => {})
     .finally(() => {})
 }
 
-export const signUpUserAdmin = async (data) => {
-
+export const signUpUserAdmin = async (domain, data) => {
+  console.log(data);
+  await axios.post(API(domain) + "registration/signup/", data, confRequestLogin)
+  .then((response) => {
+    console.log("usuario registrado");
+    console.log(response.data);
+  })
+  .catch(err => {})
+  .finally(() => {})
 }

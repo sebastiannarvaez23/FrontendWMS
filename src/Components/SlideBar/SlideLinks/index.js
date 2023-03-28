@@ -5,7 +5,7 @@ import { alertWithConfirm } from "../../../Alerts/SweetAlerts";
 import { useAuth } from "../../../Context/auth-context";
 
 const logout = () => {
-    alertWithConfirm('¿Desea cerrar la sesión?', 'Sí, ¡deseo salir!', ()=>{
+    alertWithConfirm('¿Desea cerrar la sesión?', 'Sí, ¡deseo salir!', 'Cancelar', ()=>{
         // Logica para salir de la sesion
         alert("Saliendo de la sesión")
     }, ()=>{})

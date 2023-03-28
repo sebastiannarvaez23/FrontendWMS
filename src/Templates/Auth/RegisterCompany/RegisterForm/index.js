@@ -18,6 +18,7 @@ export const RegisterForm = () => {
         companyCity, setCompanyCity,
         //company, 
         setCompany,
+        setDomain,
         countries, setContries,
         //states, setStates,
         //cities, setCities,
@@ -25,7 +26,7 @@ export const RegisterForm = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        signUpCompany(setCompany, navigate, generateSchemaName(companyName));
+        signUpCompany(setCompany, setDomain, navigate, generateSchemaName(companyName));
     };
 
     const generateSchemaName = (companyName) => {

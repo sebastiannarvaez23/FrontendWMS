@@ -33,13 +33,13 @@ export const AuthProvider = (props) => {
     
     // Signup User
 
-    const [userEmail, setUserEmail] = useState("");
-    const [userNames, setUserNames] = useState("");
-    const [userLastNames, setUserLastNames] = useState("");
-    const [userTelephone, setUserTelephone] = useState("");
-    const [userUsername, setUserUsername] = useState("");
-    const [userPassword, setUserPassword] = useState("");
-    const [userPasswordConfirmation, setUserPasswordConfirmation] = useState("");
+    const [userEmail, setUserEmail] = useState("narvaezsebas23@gmail.com");
+    const [userNames, setUserNames] = useState("prueba interfaz 1");
+    const [userLastNames, setUserLastNames] = useState("apellidos");
+    const [userTelephone, setUserTelephone] = useState("213321123321");
+    const [userUsername, setUserUsername] = useState("sabastiannarvaez23");
+    const [userPassword, setUserPassword] = useState("Pruebapass23");
+    const [userPasswordConfirmation, setUserPasswordConfirmation] = useState("Pruebapass23");
     const [userEqualPasswords, setUserEqualPassword] = useState(false);
 
     // Contries, states and cities

@@ -22,7 +22,7 @@ export const alertSmallTopCenter = (msnTitle, icon) => {
   })
 }
 
-export const alertWithConfirm = (msnTitle, msnConfirm, functionResult, functionResultCancel) => {
+export const alertWithConfirm = (msnTitle, msnConfirm, btnCancel, functionResult, functionResultCancel) => {
   Swal.fire({
     title: msnTitle,
     //text: "You won't be able to revert this!",
@@ -31,7 +31,7 @@ export const alertWithConfirm = (msnTitle, msnConfirm, functionResult, functionR
     confirmButtonColor: veryLikePink,
     cancelButtonColor: '#d33',
     confirmButtonText: msnConfirm,
-    cancelButtonText: 'Cancelar',
+    cancelButtonText: btnCancel,
   }).then((result) => {
     if (result.isConfirmed) {
       functionResult();
@@ -51,7 +51,7 @@ export const alertEventSuccess = (msnTitle, icon) => {
   })
 }
 
-export const alertWithInput = (msnTitle, api, functionResult, functionResultCancel) => {
+export const alertWithInput = (msnTitle, api, msnErrorQuery, functionResult, functionResultCancel) => {
   Swal.fire({
     title: msnTitle,
     input: 'text',
@@ -72,7 +72,7 @@ export const alertWithInput = (msnTitle, api, functionResult, functionResultCanc
         })
         .catch(error => {
           Swal.showValidationMessage(
-            `Request failed: ${error}`
+            msnErrorQuery
           )
         })
     },
