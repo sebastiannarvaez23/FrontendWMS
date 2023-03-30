@@ -1,8 +1,8 @@
 import Swal from 'sweetalert2';
-import "./Alerts.css";
+import styles from "./Alerts.module.css";
 
-const root = document.documentElement;
-const veryLikePink = getComputedStyle(root).getPropertyValue('--very-like-pink');
+// const root = document.documentElement;
+// const veryLikePink = getComputedStyle(root).getPropertyValue('--very-like-pink');
 
 export const alertSmallTopCenter = (msnTitle, icon) => {
   const Toast = Swal.mixin({
