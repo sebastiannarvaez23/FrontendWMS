@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import FooterAuth from "../../components/FooterAuth";
+import { ExtContainFirstLevel, Title } from "./styled";
 
 const Login = () => {
 
@@ -21,9 +22,9 @@ const Login = () => {
   }
 
   return (
-    <div>
+    <ExtContainFirstLevel>
       <div>
-        <h1 className="title-app">W Machine</h1>
+        <Title>W Machine</Title>
         <h2>Iniciar Sesion</h2>
       </div>
       <div className="contain-form-login">
@@ -36,7 +37,7 @@ const Login = () => {
         <div><button className="btn-wms btn-login">¿Olvidaste la contraseña?</button></div>
         <FooterAuth />
       </div>
-    </div>
+    </ExtContainFirstLevel>
   );
 }
 
