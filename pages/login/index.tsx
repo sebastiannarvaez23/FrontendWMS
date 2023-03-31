@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import FooterAuth from "../../components/FooterAuth";
-import { ExtContainFirstLevel, Title } from "./styled";
+import { CheckRememberCredential, ContainCheckRememberCredential, ExtButton, ExtContainFirstLevel, ExtInput, Title } from "./styled";
 
 const Login = () => {
 
@@ -27,16 +27,19 @@ const Login = () => {
         <Title>W Machine</Title>
         <h2>Iniciar Sesion</h2>
       </div>
-      <div className="contain-form-login">
+      <div>
         <form onSubmit={handleSubmit}>
-          <div className="inp-login"><input onChange={onLoginUser} value={username} placeholder="usuario" className="form-control" /></div>
-          <div className="inp-login"><input onChange={onLoginPass} value={password} placeholder="contraseña" className="form-control" type={"password"} /></div>
-          <div className="contain-check-remember-cerdentials"><input className="checkbox-remember-credentials" type="checkbox" /> <p>Recordar credenciales</p></div>
-          <div><button className="btn-wms btn-login" type={"submit"}>Iniciar Sesion</button></div>
+          <div className="inp-login"><ExtInput onChange={onLoginUser} value={username} placeholder="usuario" /></div>
+          <div className="inp-login"><ExtInput onChange={onLoginPass} value={password} placeholder="contraseña" type={"password"} /></div>
+          <ContainCheckRememberCredential>
+            <CheckRememberCredential type="checkbox" />
+            <p>Recordar credenciales</p>
+          </ContainCheckRememberCredential>
+          <div><ExtButton type={"submit"}>Iniciar Sesion</ExtButton></div>
         </form>
-        <div><button className="btn-wms btn-login">¿Olvidaste la contraseña?</button></div>
-        <FooterAuth />
+        <div><ExtButton>¿Olvidaste la contraseña?</ExtButton></div>
       </div>
+      <FooterAuth />
     </ExtContainFirstLevel>
   );
 }
