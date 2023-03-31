@@ -1,17 +1,43 @@
-import React, { Fragment } from "react";
-import Signin from "./Signin";
-import LoginTitle from "./LoginTitle";
-import LoginForm from "./LoginForm";
+import React, { useState } from "react";
+import FooterAuth from "../../components/FooterAuth";
 
 const Login = () => {
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    //loginUser(username, password, setUser, navigate);
+  };
+
+  const onLoginUser = (event) => {
+    //console.log(event.target.value);
+    setUsername(event.target.value);
+  }
+
+  const onLoginPass = (event) => {
+    setPassword(event.target.value);
+  }
+
   return (
-    <Fragment>
-      <Signin>
-        <LoginTitle />
-        <LoginForm />
-      </Signin>
-    </Fragment>
+    <div>
+      <div>
+        <h1 className="title-app">W Machine</h1>
+        <h2>Iniciar Sesion</h2>
+      </div>
+      <div className="contain-form-login">
+        <form onSubmit={handleSubmit}>
+          <div className="inp-login"><input onChange={onLoginUser} value={username} placeholder="usuario" className="form-control" /></div>
+          <div className="inp-login"><input onChange={onLoginPass} value={password} placeholder="contraseña" className="form-control" type={"password"} /></div>
+          <div className="contain-check-remember-cerdentials"><input className="checkbox-remember-credentials" type="checkbox" /> <p>Recordar credenciales</p></div>
+          <div><button className="btn-wms btn-login" type={"submit"}>Iniciar Sesion</button></div>
+        </form>
+        <div><button className="btn-wms btn-login">¿Olvidaste la contraseña?</button></div>
+        <FooterAuth />
+      </div>
+    </div>
   );
 }
 
-export default Login; 
+export default Login;
