@@ -1,9 +1,0 @@
-.input-password-confirmation-error:focus {
-    outline: red 3px solid;
-    transition: all .4s;
-}
-
-.input-password-confirmation-success:focus {
-    outline: rgb(25, 221, 25) 3px solid;
-    transition: all .4s;
-}
