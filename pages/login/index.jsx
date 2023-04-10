@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 
 // Redux
 import { addCredential } from "../../redux/authSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 // Components
 import {
@@ -17,7 +17,7 @@ import FooterAuth from "../../components/FooterAuth";
 
 const Login = () => {
 
-  const credential = useSelector((state) => state.credential);
+  const credential = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -30,7 +30,6 @@ const Login = () => {
   };
 
   const onLoginUser = (event) => {
-    //console.log(event.target.value);
     setUsername(event.target.value);
   }
 
