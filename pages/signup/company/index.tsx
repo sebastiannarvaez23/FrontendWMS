@@ -1,32 +1,16 @@
 import React, { useEffect, useState } from "react";
 import FooterAuth from "../../../components/FooterAuth";
 import { ExtButton, ExtContainFirstLevel, ExtInput, ExtSelect } from "./styled";
-import { AuthProvider, useAuth } from "../../../src/Context/auth-context";
 
 const Company = () => {
 
-  /* const [companyNit, setCompanyNit] = useState("");
+  const [companyNit, setCompanyNit] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [companyAddress, setCompanyAddress] = useState("");
   const [companyCountry, setCompanyCountry] = useState("");
   const [companyState, setCompanyState] = useState("");
   const [companyCity, setCompanyCity] = useState("");
-  const [countries, setContries] = useState([]); */
-
-  const {
-    companyNit, setCompanyNit,
-    companyName, setCompanyName,
-    companyAddress, setCompanyAddress,
-    companyCountry, setCompanyCountry,
-    companyState, setCompanyState,
-    companyCity, setCompanyCity,
-    //company, 
-    setCompany,
-    setDomain,
-    countries, setContries,
-    //states, setStates,
-    //cities, setCities,
-  } = useAuth();
+  const [countries, setContries] = useState([]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();

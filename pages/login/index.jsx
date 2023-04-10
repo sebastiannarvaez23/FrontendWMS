@@ -1,14 +1,31 @@
-import React, { useState } from "react";
+// React
+import React, { useState, useEffect } from "react";
+
+// Redux
+import { addCredential } from "../../redux/authSlice";
+import { useDispatch, useSelector } from "react-redux";
+
+// Components
+import {
+  CheckRememberCredential,
+  ContainCheckRememberCredential,
+  ExtButton, ExtContainFirstLevel,
+  ExtInput,
+  Title
+} from "./styled";
 import FooterAuth from "../../components/FooterAuth";
-import { CheckRememberCredential, ContainCheckRememberCredential, ExtButton, ExtContainFirstLevel, ExtInput, Title } from "./styled";
 
 const Login = () => {
 
+  const credential = useSelector((state) => state.credential);
+  const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    dispatch(addCredential({ username, password }));
+    console.log(credential);
     //loginUser(username, password, setUser, navigate);
   };
 
