@@ -1,8 +1,8 @@
 // React
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 // Redux
-import { addCredential } from "../../redux/authSlice";
+import { addCredential } from "../../redux/userSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 // Components
@@ -17,7 +17,6 @@ import FooterAuth from "../../components/FooterAuth";
 
 const Login = () => {
 
-  const credential = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   
   const [username, setUsername] = useState("");
@@ -25,9 +24,7 @@ const Login = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    dispatch(addCredential({ username, password }));
-    console.log(credential);
-    //loginUser(username, password, setUser, navigate);
+    //await loginUser(username, password, setUser, navigate);
   };
 
   const onLoginUser = (event) => {
