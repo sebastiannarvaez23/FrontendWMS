@@ -1,9 +1,16 @@
 import styled from "styled-components";
 
-const LinkSpan = styled.span`
+export const LinkSpan = styled.span`
+
+    font-size: 14px;
+
     &:hover {
       cursor: pointer;
     }
   `;
 
-export default LinkSpan
+export const ContainFooter = styled.div`
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  `;
