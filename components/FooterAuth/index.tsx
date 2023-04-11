@@ -1,9 +1,11 @@
 import React from 'react';
+import LinkSpan from './styled';
+
 
 const FooterAuth = () => {
   return (
     <div>
-      <span>Más información</span> • <span>API</span> • <span>Migraciones</span> • <span>Integraciones</span> • <span>Sugerencias y Recomendaciones</span> • <span>Privacidad y Seguridad</span>
+      <LinkSpan>Más información</LinkSpan> • <LinkSpan>API</LinkSpan> • <LinkSpan>Migraciones</LinkSpan> • <LinkSpan>Integraciones</LinkSpan> • <LinkSpan>Sugerencias y Recomendaciones</LinkSpan> • <LinkSpan>Privacidad y Seguridad</LinkSpan>
     </div>
   )
 }

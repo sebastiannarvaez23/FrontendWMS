@@ -19,6 +19,7 @@ const Login = () => {
 
   const credential = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+  
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -40,7 +41,7 @@ const Login = () => {
   return (
     <ExtContainFirstLevel>
       <div>
-        <Title>W Machine</Title>
+        <Title>Warehouse Anywhere</Title>
         <h2>Iniciar Sesion</h2>
       </div>
       <div>

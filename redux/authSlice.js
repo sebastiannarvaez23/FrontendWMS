@@ -19,6 +19,10 @@ export const authSlice = createSlice({
             state.username = username;
             state.password = password;
         },
+        deleteCredencial: (state, action) => {
+            state.username = null;
+            state.password = null;
+        }
     },
 });
 

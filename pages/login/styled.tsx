@@ -4,7 +4,7 @@ import Button from "../../components/_elements/Button";
 import Input from "../../components/_elements/Input";
 
 export const ExtContainFirstLevel = styled(ContainFirstLevel)`
-    grid-template-rows: 20vh 48vh 20vh;
+    grid-template-rows: 20vh 47vh 20vh;
     width: 45%;
     height: 75vh;
     padding: 40px;
