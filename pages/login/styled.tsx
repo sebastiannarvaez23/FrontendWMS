@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import ContainFirstLevel from "../../components/ContainFirstLevel";
-import Button from "../../components/_elements/Button";
-import Input from "../../components/_elements/Input";
+import ContainFirstLevel from "../../src/components/ContainFirstLevel";
+import Button from "../../src/components/_elements/Button";
+import Input from "../../src/components/_elements/Input";
 
 export const ExtContainFirstLevel = styled(ContainFirstLevel)`
     grid-template-rows: 20vh 47vh 20vh;

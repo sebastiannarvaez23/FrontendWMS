@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { alertEventSuccess } from '../Alerts/SweetAlerts.js';
+import { alertEventSuccess } from '../../Alerts/SweetAlerts.js';
 import { API } from './api/conf.js';
 import { confRequest } from './api/conf.js';
 

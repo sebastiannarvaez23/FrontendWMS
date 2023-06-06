@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 
 // Redux
-import { addCredential } from "../../redux/userSlice";
+import { addCredential } from "../../src/redux/userSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 // Components
@@ -13,12 +13,12 @@ import {
   ExtInput,
   Title
 } from "./styled";
-import FooterAuth from "../../components/FooterAuth";
+import FooterAuth from "@components/FooterAuth";
 
 const Login = () => {
 
   const dispatch = useDispatch();
-  
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 

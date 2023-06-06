@@ -6,3 +6,17 @@ Administrador Tecnologico: Acceso completo del sistema
 
 Enfoques de Arquitectura Multitenant para Aplicaciones SaaS:
 https://adrianalonsodev.medium.com/enfoques-de-arquitectura-multitenant-para-aplicaciones-saas-cf210d6c2f10#:~:text=%C2%BFQu%C3%A9%20es%20una%20arquitectura%20multitenant,a%20m%C3%BAltiples%20clientes%20u%20organizaciones.
+
+// next.config.js
+env: {
+        customKey: 'customValue',
+    },
+    basePath: '/dist',
+    compress: true,
+    async redirects() {
+        return [{
+            source: '/hola',
+            destination: '/hello',
+            permanent: true
+        }]
+    }

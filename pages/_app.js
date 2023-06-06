@@ -1,7 +1,7 @@
-import { AuthProvider } from "../context/auth-context";
-import { store } from '../redux/store';
+import { AuthProvider } from "../src/context/auth-context";
+import { store } from '../src/redux/store';
 import { Provider } from 'react-redux';
-import '../public/style.css';
+import '../src/public/style.css';
 
 function MyApp({ Component, pageProps }) {
 
