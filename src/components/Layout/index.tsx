@@ -1,5 +1,17 @@
 import React from 'react';
 
+export const openSlidebar = (): void => {
+    let sidebar: HTMLElement | null = document.querySelector(".sidebar");
+    sidebar?.classList.toggle("close");
+    let arrow: NodeListOf<Element> = document.querySelectorAll(".arrow");
+    for (let i = 0; i < arrow.length; i++) {
+        arrow[i].addEventListener("click", (e: Event) => {
+            let arrowParent: HTMLElement | null = (e.target as HTMLElement).parentElement?.parentElement;
+            arrowParent?.classList.toggle("showMenu");
+        });
+    }
+}
+
 const Layout = () => {
     return (
         <div className="sidebar close">

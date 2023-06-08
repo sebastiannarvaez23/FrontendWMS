@@ -13,7 +13,7 @@ import {
   ExtInput,
   Title
 } from "./styled";
-import FooterAuth from "@components/FooterAuth";
+import FooterAuth from "../../src/components/FooterAuth";
 
 const Login = () => {
 
@@ -29,11 +29,11 @@ const Login = () => {
 
   const onLoginUser = (event) => {
     setUsername(event.target.value);
-  }
+  };
 
   const onLoginPass = (event) => {
     setPassword(event.target.value);
-  }
+  };
 
   return (
     <ExtContainFirstLevel>
