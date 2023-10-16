@@ -1,1 +1,110 @@
-<p>sidebar works!</p>
+<div class="sidebar close">
+    <div class="logo-details">
+        <i class=''></i>
+        <span class="logo-name">Modulos</span>
+    </div>
+    <ul class="nav-links">
+        <li>
+            <a href="/">
+                <i class='bx bx-grid-alt'></i>
+                <span class="link-name">Inicio</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link-name" href="/">Inicio</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="/">
+                <i class='bx bx-door-open'></i>
+                <span class="link-name">Recepción</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link-name" href="/">Recepción</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="/">
+                <i class='bx bx-coin-stack'></i>
+                <span class="link-name">Inventarios</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link-name" href="/">Inventarios</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="/">
+                <i class='bx bx-home-alt'></i>
+                <span class="link-name">Almacenamiento</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link-name" href="/">Almacenamiento</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="/">
+                <i class='bx bxs-truck'></i>
+                <span class="link-name">Picking</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link-name" href="/">Picking</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="/">
+                <i class='bx bxs-plane-alt'></i>
+                <span class="link-name">Envío</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link-name" href="/">Envío</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="/">
+                <i class='bx bx-undo'></i>
+                <span class="link-name">Devoluciones</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link-name" href="/">Devoluciones</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="/">
+                <i class='bx bx-pie-chart-alt-2'></i>
+                <span class="link-name">Analiticas</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link-name" href="/">Analiticas</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="">
+                <i class='bx bx-cog'></i>
+                <span class="link-name">Configuraciones</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link-name" href="http://localhost:8000/admin/">Configuraciones</a></li>
+            </ul>
+        </li>
+        <li>
+            <div class="profile-details">
+                <div class="profile-content">
+                    <img src="./../../../assets/profile-pictures/profile.jpg" alt="profile" />
+                </div>
+                <div class="name-job">
+                    <div class="profile-name">{{ "Nombre de usuario...".length > 10 ? ("Nombre de usuario..." |
+                        slice:0:10) +
+                        '...' : "Nombre de usuario..." }}</div>
+                    <div class="job">Web Desginer</div>
+                </div>
+                <i class='bx bx-log-out'></i>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<section class="home-section">
+    <div class="home-content">
+        <i (click)="openSlidebar('hola mundo')" class="bx bx-menu"></i>
+        <span class="text">Picking</span>
+    </div>
+</section>
