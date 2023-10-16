@@ -1,0 +1,21 @@
+.text {
+    font-size: 26px;
+    font-weight: 600;
+    padding-left: 70px;
+}
+
+.info-saleorder {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    width: 95%;
+    position: absolute;
+    margin-top: 40px;
+}
+
+.info-picking {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  width: 95%;
+  position: absolute;
+  margin-top: 38vh;
+}

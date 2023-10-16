@@ -294,12 +294,6 @@
     cursor: pointer;
 }
 
-.home-section .home-content .text {
-    font-size: 26px;
-    font-weight: 600;
-    padding-left: 70px;
-}
-
 @media (max-width: 420px) {
     .sidebar.close .nav-links li .sub-menu {
         display: none;
