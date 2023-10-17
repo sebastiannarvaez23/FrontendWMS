@@ -1,3 +1,19 @@
 {
-  "title": "Despachos"
+  "sidebar": {
+    "title": "Modulos",
+    "index": "Inicio",
+    "reception": "Recepción",
+    "inventories": "Inventarios",
+    "storage": "Almacenamiento",
+    "picking": "Despachos",
+    "shipping": "Envíos",
+    "returns": "Devoluciones",
+    "analytics": "Analíticas",
+    "settings": "Configuraciones"
+  },
+  "modules": {
+    "picking": {
+      "title-page": "Despachos"
+    }
+  }
 }
