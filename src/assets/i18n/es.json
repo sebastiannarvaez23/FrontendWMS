@@ -13,7 +13,33 @@
   },
   "modules": {
     "picking": {
-      "title-page": "Despachos"
+      "title-page": "Despachos",
+      "title-search-so": "Buscar Orden de Venta",
+      "title-info-so": "Información de la Orden de Venta",
+      "title-list-pickings": "Listado de despachos",
+      "title-indicators-picking": "Inicadores de despacho",
+      "btn": {
+        "search-so": "Buscar",
+        "clean-info-so-searched": "Limpiar",
+        "next-so": ">",
+        "before-so": "<"
+      },
+      "label": {
+        "date-document": "Fecha del documento",
+        "date-delivery": "Fecha de entrega",
+        "date-billing": "Fecha de facturación",
+        "delivery-address": "Dirección de entrega",
+        "customer-name": "Nombre del cliente",
+        "customer-phone": "Contacto del cliente",
+        "customer-email": "Email del cliente",
+        "obs": "Observaciones"
+      },
+      "headers": [
+        "Nro Picking",
+        "Despachado",
+        "Responsable",
+        "Cración"
+      ]
     }
   }
 }

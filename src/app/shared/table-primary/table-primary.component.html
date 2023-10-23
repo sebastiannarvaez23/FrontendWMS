@@ -1,0 +1,16 @@
+<div class="contain-table">
+  <div class="headers-table">
+    <span *ngFor="let header of headers">{{header}}</span>
+  </div>
+  <div class="contain-rows">
+    <div class="row-table" *ngFor="let row of rows">
+      <span>{{row.data1}}</span>
+      <span>{{row.data2}}</span>
+      <span>{{row.data3}}</span>
+      <span>{{row.data4}}</span>
+    </div>
+  </div>
+  <div class="footer-table">
+    <span>Se encontraron {{rows.length}} registros</span>
+  </div>
+</div>
