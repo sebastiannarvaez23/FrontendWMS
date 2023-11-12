@@ -1,23 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './AppComponent';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
-import { FormsModule } from '@angular/forms';
-import { PickingComponent } from './components/pages/picking/picking.component';
-import { LoginComponent } from './components/pages/auth/login/login.component';
-import { SignupComponent } from './components/pages/auth/signup/signup.component';
-import { CardPrimaryComponent } from './shared/card-primary/card-primary.component';
-import { CardSecondaryComponent } from './shared/card-secondary/card-secondary.component';
-import { TablePrimaryComponent } from './shared/table-primary/table-primary.component';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PickingModule } from './picking/picking.module';
+import { CoreModule } from './core/core.module';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -26,21 +19,15 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 @NgModule({
   declarations: [
     AppComponent,
-    SidebarComponent,
-    PickingComponent,
-    LoginComponent,
-    SignupComponent,
-    CardPrimaryComponent,
-    CardSecondaryComponent,
-    TablePrimaryComponent,
   ],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     CommonModule,
-    NgxChartsModule,
+    PickingModule,
+    CoreModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     TranslateModule.forRoot({
       loader: {
@@ -48,9 +35,9 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient],
       },
-    }),
+    })
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

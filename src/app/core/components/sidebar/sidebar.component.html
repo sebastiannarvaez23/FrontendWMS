@@ -24,7 +24,7 @@
         <li>
           <a class="link-name" href="/">{{
             "sidebar.reception" | translate
-          }}</a>
+            }}</a>
         </li>
       </ul>
     </li>
@@ -37,7 +37,7 @@
         <li>
           <a class="link-name" href="/">{{
             "sidebar.inventories" | translate
-          }}</a>
+            }}</a>
         </li>
       </ul>
     </li>
@@ -94,7 +94,7 @@
         <li>
           <a class="link-name" href="/">{{
             "sidebar.analytics" | translate
-          }}</a>
+            }}</a>
         </li>
       </ul>
     </li>
@@ -112,17 +112,14 @@
     <li>
       <div class="profile-details">
         <div class="profile-content">
-          <img
-            src="./../../../assets/profile-pictures/profile.jpg"
-            alt="profile"
-          />
+          <img src="./../../../assets/profile-pictures/profile.jpg" alt="profile" />
         </div>
         <div class="name-job">
           <div class="profile-name">
             {{
-              "Nombre de usuario...".length > 10
-                ? ("Nombre de usuario..." | slice : 0 : 10) + "..."
-                : "Nombre de usuario..."
+            "Nombre de usuario...".length > 10
+            ? ("Nombre de usuario..." | slice: 0:10) + "..."
+            : "Nombre de usuario..."
             }}
           </div>
           <div class="job">Web Desginer</div>
@@ -137,6 +134,6 @@
   <div class="home-content">
     <i (click)="openSlidebar('hola mundo')" class="bx bx-menu"></i>
 
-    <app-picking></app-picking>
+    <ng-content></ng-content>
   </div>
 </section>
