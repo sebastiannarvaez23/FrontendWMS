@@ -7,10 +7,10 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './AppComponent';
-import { PickingModule } from './picking/picking.module';
 import { CoreModule } from './core/core.module';
+import { PickingModule } from './picking/picking.module';
+import { AppComponent } from './AppComponent';
+import { AppRoutingModule } from './app-routing.module';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -25,10 +25,10 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    PickingModule,
-    CoreModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    CoreModule,
+    PickingModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

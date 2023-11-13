@@ -18,7 +18,7 @@
   width: 78px;
 }
 
-.sidebar.close ~ .home-section {
+.sidebar.close~.home-section {
   left: 78px;
   width: calc(100% - 78px);
 }
@@ -271,7 +271,7 @@
   max-width: 1500px;
 }
 
-.sidebar.close ~ .home-section {
+.sidebar.close~.home-section {
   left: 78px;
   width: calc(100% - 78px);
 }
@@ -303,4 +303,12 @@
   .home-section {
     margin: 0 auto;
   }
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-right: 5%;
+  color: rgb(135, 148, 148);
 }

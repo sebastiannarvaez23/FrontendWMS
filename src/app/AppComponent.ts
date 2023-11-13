@@ -3,7 +3,12 @@ import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  template: `
+  <div class="contain-app">
+    <app-sidebar>
+        <app-picking></app-picking>
+    </app-sidebar>
+  </div>`,
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {

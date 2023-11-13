@@ -98,20 +98,27 @@ export class TablePrimaryComponent implements AfterViewInit, OnChanges {
   }
 
   applyStyles() {
-    /* Headers Table*/
-    console.log("aquiiiiii")
-    console.log(this.headers);
-    if (this.headers) {
+    if (!this.el.nativeElement) {
+      console.error('Element not found');
+      return;
+    }
+
+    /* Headers Table */
+    const headersTable = this.el.nativeElement.querySelector('.headers-table');
+    if (headersTable && this.headers) {
       const numHeaders = this.headers.length;
       const gridTemplateColumnsHeader = `repeat(${numHeaders}, ${100 / numHeaders}%)`;
-      this.renderer.setStyle(this.el.nativeElement.querySelector('.headers-table'), 'grid-template-columns', gridTemplateColumnsHeader);
+      this.renderer.setStyle(headersTable, 'grid-template-columns', gridTemplateColumnsHeader);
     }
 
     /* Body Table */
-    const numElementsInRow = Object.keys(this.rows[0]).length;
-    this.rows.forEach((row, index) => {
-      const gridTemplateColumnsDataInRow = `repeat(${numElementsInRow}, ${100 / numElementsInRow}%)`;
-      this.renderer.setStyle(this.el.nativeElement.querySelectorAll('.row-table')[index], 'grid-template-columns', gridTemplateColumnsDataInRow);
-    });
+    const rowTables = this.el.nativeElement.querySelectorAll('.row-table');
+    if (rowTables) {
+      const numElementsInRow = Object.keys(this.rows[0]).length;
+      rowTables.forEach((rowTable: Element, index: number) => {
+        const gridTemplateColumnsDataInRow = `repeat(${numElementsInRow}, ${100 / numElementsInRow}%)`;
+        this.renderer.setStyle(rowTable, 'grid-template-columns', gridTemplateColumnsDataInRow);
+      });
+    }
   }
 }
