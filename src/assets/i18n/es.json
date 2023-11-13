@@ -35,7 +35,7 @@
         "obs": "Observaciones"
       },
       "headers": [
-        "Nro Picking",
+        "Id Picking",
         "Despachado",
         "Responsable",
         "Cración"

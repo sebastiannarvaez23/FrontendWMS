@@ -5,86 +5,14 @@ import { Component, Renderer2, ElementRef, AfterViewInit, Input, OnChanges, Simp
   templateUrl: './table-primary.component.html',
   styleUrls: ['./table-primary.component.css'],
 })
-export class TablePrimaryComponent implements AfterViewInit, OnChanges {
+export class TablePrimaryComponent<T extends Record<string, any>> implements AfterViewInit, OnChanges {
   @Input() headers: string[] = [];
+  @Input() rows: T[] = [];
 
-  rows = [
-    {
-      'data1': "dato n",
-      'data2': "dato n",
-      'data3': "dato n",
-      'data4': "dato n"
-    },
-    {
-      'data1': "dato n",
-      'data2': "dato n",
-      'data3': "dato n",
-      'data4': "dato n"
-    },
-    {
-      'data1': "dato n",
-      'data2': "dato n",
-      'data3': "dato n",
-      'data4': "dato n"
-    },
-    {
-      'data1': "dato n",
-      'data2': "dato n",
-      'data3': "dato n",
-      'data4': "dato n"
-    },
-    {
-      'data1': "dato n",
-      'data2': "dato n",
-      'data3': "dato n",
-      'data4': "dato n"
-    },
-    {
-      'data1': "dato n",
-      'data2': "dato n",
-      'data3': "dato n",
-      'data4': "dato n"
-    },
-    {
-      'data1': "dato n",
-      'data2': "dato n",
-      'data3': "dato n",
-      'data4': "dato n"
-    },
-    {
-      'data1': "dato n",
-      'data2': "dato n",
-      'data3': "dato n",
-      'data4': "dato n"
-    },
-    {
-      'data1': "dato n",
-      'data2': "dato n",
-      'data3': "dato n",
-      'data4': "dato n"
-    },
-    {
-      'data1': "dato n",
-      'data2': "dato n",
-      'data3': "dato n",
-      'data4': "dato n"
-    },
-    {
-      'data1': "dato n",
-      'data2': "dato n",
-      'data3': "dato n",
-      'data4': "dato n"
-    },
-    {
-      'data1': "dato n",
-      'data2': "dato n",
-      'data3': "dato n",
-      'data4': "dato n"
-    }
-  ]
+  constructor(private renderer: Renderer2, private el: ElementRef) { }
 
-  constructor(private renderer: Renderer2, private el: ElementRef) {
-
+  getObjectKeys(obj: any): string[] {
+    return Object.keys(obj);
   }
 
   ngOnChanges(changes: SimpleChanges) {

@@ -4,10 +4,13 @@
   </div>
   <div class="contain-rows">
     <div class="row-table" *ngFor="let row of rows">
-      <span>{{row.data1}}</span>
-      <span>{{row.data2}}</span>
-      <span>{{row.data3}}</span>
-      <span>{{row.data4}}</span>
+      <span *ngFor="let field of getObjectKeys(row)">
+        {{
+        row[field].length > 13
+        ? (row[field] | slice: 0:13) + "..."
+        : row[field]
+        }}
+      </span>
     </div>
   </div>
   <div class="footer-table">
