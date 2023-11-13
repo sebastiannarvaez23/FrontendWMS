@@ -46,6 +46,16 @@ export class PickingComponent {
         });
     }
 
+    onAddPicking(): void {
+        const currentDate = new Date();
+        this.pickingService.addPicking({
+            id: this.getNewId(),
+            shipped: currentDate,
+            responsible: "Sebastian Narvaez",
+            created: currentDate,
+        });
+    }
+
     onSelect(data: any): void {
         console.log('Item clicked', JSON.parse(JSON.stringify(data)));
     }
@@ -63,5 +73,15 @@ export class PickingComponent {
         const month = (date.getMonth() + 1).toString().padStart(2, '0');
         const year = date.getFullYear();
         return `${day}/${month}/${year}`;
+    }
+
+    private getNewId(): number {
+        if (this.pickingService.pickings.length === 0) return 0;
+
+        const lastId = this.pickingService.pickings.reduce((maxId, picking) => {
+            return Math.max(maxId, picking.id);
+        }, 0);
+
+        return lastId + 1;
     }
 }

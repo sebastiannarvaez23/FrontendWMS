@@ -91,7 +91,7 @@
     <app-card-primary [width]="'w-10'" [height]="'h-5'">
         <h3>{{ "modules.picking.title-list-pickings" | translate }}</h3>
         <app-table-primary [rows]="pickings" [headers]="( 'modules.picking.headers' | translate )"></app-table-primary>
-        <button class="add-picking btn-circular">+</button>
+        <button (click)="onAddPicking()" class="add-picking btn-circular">+</button>
     </app-card-primary>
     <app-card-primary [width]="'w-9'" [height]="'h-5'">
         <h3>{{ "modules.picking.title-indicators-picking" | translate }}</h3>

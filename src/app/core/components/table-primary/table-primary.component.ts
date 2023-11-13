@@ -8,8 +8,14 @@ import { Component, Renderer2, ElementRef, AfterViewInit, Input, OnChanges, Simp
 export class TablePrimaryComponent<T extends Record<string, any>> implements AfterViewInit, OnChanges {
   @Input() headers: string[] = [];
   @Input() rows: T[] = [];
+  numElementsInRow: number = 0;
+  sizeElementsInRow: number = 0;
 
   constructor(private renderer: Renderer2, private el: ElementRef) { }
+
+  getGridTemplateColumnsStyle(): string {
+    return `repeat(${this.numElementsInRow}, ${this.sizeElementsInRow}%)`;
+  }
 
   getObjectKeys(obj: any): string[] {
     return Object.keys(obj);
@@ -22,6 +28,8 @@ export class TablePrimaryComponent<T extends Record<string, any>> implements Aft
   }
 
   ngAfterViewInit() {
+    this.numElementsInRow = Object.keys(this.rows[0]).length;
+    this.sizeElementsInRow = 100 / this.numElementsInRow;
     this.applyStyles();
   }
 
@@ -37,16 +45,6 @@ export class TablePrimaryComponent<T extends Record<string, any>> implements Aft
       const numHeaders = this.headers.length;
       const gridTemplateColumnsHeader = `repeat(${numHeaders}, ${100 / numHeaders}%)`;
       this.renderer.setStyle(headersTable, 'grid-template-columns', gridTemplateColumnsHeader);
-    }
-
-    /* Body Table */
-    const rowTables = this.el.nativeElement.querySelectorAll('.row-table');
-    if (rowTables) {
-      const numElementsInRow = Object.keys(this.rows[0]).length;
-      rowTables.forEach((rowTable: Element, index: number) => {
-        const gridTemplateColumnsDataInRow = `repeat(${numElementsInRow}, ${100 / numElementsInRow}%)`;
-        this.renderer.setStyle(rowTable, 'grid-template-columns', gridTemplateColumnsDataInRow);
-      });
     }
   }
 }

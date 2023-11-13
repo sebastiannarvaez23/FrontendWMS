@@ -1,5 +1,5 @@
 export interface Picking {
-    id: string;
+    id: number;
     shipped: Date | string;
     responsible: string;
     created: Date | string;
