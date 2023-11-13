@@ -1,0 +1,50 @@
+.contain-rows {
+    position: relative;
+    height: 250px;
+    overflow: scroll;
+}
+
+.contain-rows::-webkit-scrollbar {
+    width: 7px;
+    display: none;
+}
+
+.contain-rows::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+
+.contain-table {
+    width: 98%;
+    margin: 0 auto;
+}
+
+.headers-table {
+    display: grid;
+    margin-bottom: 8px;
+    padding: 5px 10px;
+    font-size: bold;
+}
+
+.row-table {
+    display: grid;
+    background-color: var(--primary-color);
+    margin: 5px 0;
+    padding: 5px 10px;
+    color: var(--very-white);
+    border-radius: 8px;
+}
+
+.row-table:hover {
+    cursor: pointer;
+
+    -webkit-box-shadow: 1px 1px 10px -1px var(--primary-color);
+    -moz-box-shadow: 1px 1px 10px -1px var(--primary-color);
+    box-shadow: 1px 1px 10px -1px var(--primary-color);
+}
+
+.footer-table {
+    height: 20px;
+    text-align: center;
+    margin: 12px 0;
+}

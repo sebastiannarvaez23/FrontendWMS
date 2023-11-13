@@ -1,0 +1,152 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --primary-color: #313131;
+  --very-white: #ffffff;
+  --very-like: #f8f8f8;
+}
+
+body {
+  font-family: "poppins", sans-serif;
+  margin: 0;
+  background-color: var(--very-like);
+}
+
+input {
+  border: none;
+  border-radius: 4px;
+  min-height: 28px;
+
+  -webkit-box-shadow: 1px 1px 5px -1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 1px 5px -1px rgba(0, 0, 0, 0.75);
+  box-shadow: 1px 1px 5px -1px rgba(0, 0, 0, 0.75);
+}
+
+input:focus {
+  border: 2px solid var(--primary-color);
+
+  -webkit-box-shadow: 1px 1px 10px -1px var(--primary-color);
+  -moz-box-shadow: 1px 1px 10px -1px var(--primary-color);
+  box-shadow: 1px 1px 10px -1px var(--primary-color);
+}
+
+/* width */
+.w-1 {
+  width: 10%;
+}
+
+.w-2 {
+  width: 20%;
+}
+
+.w-3 {
+  width: 30%;
+}
+
+.w-4 {
+  width: 40%;
+}
+
+.w-5 {
+  width: 50%;
+}
+
+.w-6 {
+  width: 60%;
+}
+
+.w-7 {
+  width: 70%;
+}
+
+.w-8 {
+  width: 80%;
+}
+
+.w-9 {
+  width: 90%;
+}
+
+.w-10 {
+  width: 100%;
+}
+
+/* height */
+.h-1 {
+  height: 10vh;
+}
+
+.h-2 {
+  height: 20vh;
+}
+
+.h-3 {
+  height: 30vh;
+}
+
+.h-4 {
+  height: 40vh;
+}
+
+.h-5 {
+  height: 50vh;
+}
+
+.h-6 {
+  height: 60vh;
+}
+
+.h-7 {
+  height: 70vh;
+}
+
+.h-8 {
+  height: 80vh;
+}
+
+.h-9 {
+  height: 90vh;
+}
+
+.h-10 {
+  height: 100vh;
+}
+
+/* Buttons */
+
+.btn-normal {
+  border: none;
+  background-color: var(--primary-color);
+  color: var(--very-white);
+  margin: 0px 4px;
+  border-radius: 10px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-circular {
+  margin-top: 0;
+  margin-left: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+  display: inline;
+  height: 40px;
+  width: 40px;
+  vertical-align: middle;
+  line-height: 40px;
+  border: none;
+  background-color: var(--primary-color);
+  color: var(--very-white);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-circular:hover,
+.btn-normal:hover {
+  transition: all 0.3s;
+
+  -webkit-box-shadow: 1px 1px 15px -1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 1px 15px -1px rgba(0, 0, 0, 0.75);
+  box-shadow: 1px 1px 15px -1px rgba(0, 0, 0, 0.75);
+}

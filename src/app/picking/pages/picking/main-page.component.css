@@ -1,0 +1,95 @@
+.text {
+  font-size: 26px;
+  font-weight: 600;
+  padding-left: 70px;
+}
+
+.title-info-so {
+  display: flex;
+  margin: 0 !important;
+  justify-content: space-between;
+}
+
+.show-more-so {
+  margin: 10px 0;
+}
+
+.show-more-so:hover {
+  cursor: pointer;
+}
+
+/* Search sale order */
+
+.btns-search-so {
+  margin-top: 20px !important;
+}
+
+.info-saleorder .btns-search-so {
+  margin: 10px 0;
+}
+
+/* Info sale order */
+
+.info-saleorder {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  width: 95%;
+  position: absolute;
+  margin-top: 40px;
+}
+
+.info-picking {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  width: 95%;
+  position: absolute;
+  margin-top: 38vh;
+}
+
+.info-so {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin: 0;
+}
+
+.info-so .item-info-so {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin: 5px 10px;
+}
+
+.info-so .item-info-so label {
+  min-width: 190px;
+}
+
+.info-so .item-info-so input {
+  width: 80%;
+}
+
+/* Picking List */
+
+.add-picking {
+  background-color: var(--primary-color);
+  box-shadow: 0px 5px 25px #5856e956;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 50px;
+  position: absolute;
+  bottom: -16px;
+  right: -16px;
+  font-weight: bold;
+  color: var(--very-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 64px;
+  width: 64px;
+  transform: rotate(0);
+  transition: .3s ease;
+  z-index: 1;
+}
+
+.add-picking:hover {
+  transform: rotate(224deg);
+}

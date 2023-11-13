@@ -1,0 +1,19 @@
+<div class="contain-table">
+  <div class="headers-table">
+    <span *ngFor="let header of headers">{{header}}</span>
+  </div>
+  <div class="contain-rows">
+    <div class="row-table" [style.grid-template-columns]="getGridTemplateColumnsStyle()" *ngFor="let row of rows">
+      <span *ngFor="let field of getObjectKeys(row)">
+        {{
+        row[field].length > 13
+        ? (row[field] | slice: 0:13) + "..."
+        : row[field]
+        }}
+      </span>
+    </div>
+  </div>
+  <div class="footer-table">
+    <span>Se encontraron {{rows.length}} registros</span>
+  </div>
+</div>

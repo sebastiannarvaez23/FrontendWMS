@@ -1,0 +1,141 @@
+<div class="sidebar close">
+  <div class="logo-details">
+    <i class=""></i>
+    <span class="logo-name">{{ "sidebar.title" | translate }}</span>
+  </div>
+  <ul class="nav-links">
+    <li>
+      <a href="/">
+        <i class="bx bx-grid-alt"></i>
+        <span class="link-name">{{ "sidebar.index" | translate }}</span>
+      </a>
+      <ul class="sub-menu blank">
+        <li>
+          <a class="link-name" href="/">{{ "sidebar.index" | translate }}</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="/">
+        <i class="bx bx-door-open"></i>
+        <span class="link-name">{{ "sidebar.reception" | translate }}</span>
+      </a>
+      <ul class="sub-menu blank">
+        <li>
+          <a class="link-name" href="/">{{
+            "sidebar.reception" | translate
+            }}</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="/">
+        <i class="bx bx-coin-stack"></i>
+        <span class="link-name">{{ "sidebar.inventories" | translate }}</span>
+      </a>
+      <ul class="sub-menu blank">
+        <li>
+          <a class="link-name" href="/">{{
+            "sidebar.inventories" | translate
+            }}</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="/">
+        <i class="bx bx-home-alt"></i>
+        <span class="link-name">{{ "sidebar.storage" | translate }}</span>
+      </a>
+      <ul class="sub-menu blank">
+        <li>
+          <a class="link-name" href="/">{{ "sidebar.storage" | translate }}</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="/">
+        <i class="bx bxs-truck"></i>
+        <span class="link-name">{{ "sidebar.picking" | translate }}</span>
+      </a>
+      <ul class="sub-menu blank">
+        <li>
+          <a class="link-name" href="/">{{ "sidebar.picking" | translate }}</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="/">
+        <i class="bx bxs-plane-alt"></i>
+        <span class="link-name">{{ "sidebar.shipping" | translate }}</span>
+      </a>
+      <ul class="sub-menu blank">
+        <li>
+          <a class="link-name" href="/">{{ "sidebar.shipping" | translate }}</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="/">
+        <i class="bx bx-undo"></i>
+        <span class="link-name">{{ "sidebar.returns" | translate }}</span>
+      </a>
+      <ul class="sub-menu blank">
+        <li>
+          <a class="link-name" href="/">{{ "sidebar.returns" | translate }}</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="/">
+        <i class="bx bx-pie-chart-alt-2"></i>
+        <span class="link-name">{{ "sidebar.analytics" | translate }}</span>
+      </a>
+      <ul class="sub-menu blank">
+        <li>
+          <a class="link-name" href="/">{{
+            "sidebar.analytics" | translate
+            }}</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="/">
+        <i class="bx bx-cog"></i>
+        <span class="link-name">{{ "sidebar.settings" | translate }}</span>
+      </a>
+      <ul class="sub-menu blank">
+        <li>
+          <a class="link-name" href="/">{{ "sidebar.settings" | translate }}</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <div class="profile-details">
+        <div class="profile-content">
+          <img src="./../../../assets/profile-pictures/profile.jpg" alt="profile" />
+        </div>
+        <div class="name-job">
+          <div class="profile-name">
+            {{
+            "Nombre de usuario...".length > 10
+            ? ("Nombre de usuario..." | slice: 0:10) + "..."
+            : "Nombre de usuario..."
+            }}
+          </div>
+          <div class="job">Web Desginer</div>
+        </div>
+        <i class="bx bx-log-out"></i>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<section class="home-section">
+  <div class="home-content">
+    <i (click)="openSlidebar('hola mundo')" class="bx bx-menu"></i>
+
+    <ng-content></ng-content>
+
+    <p class="footer">Derechos reservados - Warehouse Anywhere® v 1.0</p>
+  </div>
+</section>

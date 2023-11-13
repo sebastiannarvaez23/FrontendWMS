@@ -1,0 +1,11 @@
+<app-card-primary [width]="'w-9'" [height]="'h-5'">
+    <h3>{{ "modules.picking.title-indicators-picking" | translate }}</h3>
+    <div class="contain-indicator">
+        <div><i class='bx bx-left-arrow-alt nav-indicator'></i></div>
+        <ngx-charts-advanced-pie-chart [view]="view" [scheme]="colorScheme" [results]="single" [gradient]="gradient"
+            (select)="onSelect($event)" (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
+        </ngx-charts-advanced-pie-chart>
+        <div><i class='bx bx-right-arrow-alt nav-indicator'></i></div>
+    </div>
+    <app-card-secondary [width]="'w-9'" [height]="'h-1'"> </app-card-secondary>
+</app-card-primary>

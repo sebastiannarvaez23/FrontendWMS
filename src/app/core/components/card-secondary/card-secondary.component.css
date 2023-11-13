@@ -1,0 +1,12 @@
+.card-secondary {
+  border: none;
+  background-color: var(--very-like);
+  border-radius: 15px;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  -webkit-box-shadow: 1px -1px 16px -5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px -1px 16px -5px rgba(0, 0, 0, 0.75);
+  box-shadow: 1px -1px 16px -5px rgba(0, 0, 0, 0.75);
+}
