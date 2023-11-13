@@ -1,0 +1,13 @@
+.contain-indicator {
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    width: 90%;
+    height: auto;
+    margin: 32px auto;
+}
+
+.nav-indicator {
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 10;
+}
