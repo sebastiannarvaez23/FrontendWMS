@@ -1,5 +1,5 @@
 # Warehouse Anywhere
-Aplicación que gestiona y controla los despachos de producto terminado de una empresa (WMS - Warehouse Management System), este proyecto se centra más en la interactividad en el lado Frontend.
+Application that manages and controls the warehouses of a company's goods (WMS - Warehouse Management System), this project focuses more on interactivity on the Frontend side.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.
 
