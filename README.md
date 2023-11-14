@@ -1,4 +1,5 @@
-# WarehouseAnywhereFt
+# Warehouse Anywhere
+Application that manages and controls the warehouses of a company's goods (WMS - Warehouse Management System), this project focuses more on interactivity on the Frontend side.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.
 
@@ -26,25 +27,16 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-# Warehouse Anywhere
-Aplicación que gestiona y controla los despachos de producto terminado de una empresa (WMS - Warehouse Management System), este proyecto se centra más en la interactividad en el lado Frontend.
-
-## Instalación
-#### Dependencias
-1. Ejecute el comando `$ npm install` en la raiz del proyecto wms/
-2. Ejecute el comando `$ ng serve` en la raiz del proyecto wms/
-#### Servidores
+## Servers
 - warehouse-anywhere-bk
 
-De esta forma tendras las dependencias correctamente instaladas en el entorno que creaste.
-
-## Configuración
-1. Se debe tener instalado:
+## Configuration
+1. You must installed:
     - node v16.16.0
 
-## Tecnologías utilizadas para la contrucción
+## Technologies used for construction
 <p align="left">
-<img src="https://github.com/sebastiannarvaez23/sebastiannarvaez23/assets/88569352/22258d5a-b422-4b61-8587-012452e1d209" width="auto" height="90">
-<img src="https://static-00.iconduck.com/assets.00/git-icon-1024x1024-pqp7u4hl.png" width="auto" height="90">
+  <img src="https://github.com/sebastiannarvaez23/sebastiannarvaez23/assets/88569352/22258d5a-b422-4b61-8587-012452e1d209" width="auto" height="90">
+  <img src="https://static-00.iconduck.com/assets.00/git-icon-1024x1024-pqp7u4hl.png" width="auto" height="90">
 </p>
 
