@@ -6,7 +6,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { PickingComponent } from './pages/picking/main-page.component';
-import { CoreModule } from '../core/core.module';
+import { SharedModule } from '../shared/shared.module';
 import { IndicatorComponent } from './components/indicator/indicator.component';
 import { SaleorderSearchComponent } from './components/saleorder-search/saleorder-search.component';
 import { SaleorderInfoComponent } from './components/saleorder-info/saleorder-info.component';
@@ -30,7 +30,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     imports: [
         CommonModule,
         NgxChartsModule,
-        CoreModule,
+        SharedModule,
         HttpClientModule,
         TranslateModule.forRoot({
             loader: {

@@ -7,7 +7,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
-import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 import { PickingModule } from './picking/picking.module';
 import { AppComponent } from './AppComponent';
 import { AppRoutingModule } from './app-routing.module';
@@ -27,7 +27,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     CommonModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    CoreModule,
+    SharedModule,
     PickingModule,
     TranslateModule.forRoot({
       loader: {

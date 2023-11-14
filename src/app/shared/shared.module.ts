@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SidebarComponent } from '../core/components/sidebar/sidebar.component';
-import { CardPrimaryComponent } from '../core/components/card-primary/card-primary.component';
-import { CardSecondaryComponent } from '../core/components/card-secondary/card-secondary.component';
-import { TablePrimaryComponent } from '../core/components/table-primary/table-primary.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { CardPrimaryComponent } from './components/card-primary/card-primary.component';
+import { CardSecondaryComponent } from './components/card-secondary/card-secondary.component';
+import { TablePrimaryComponent } from './components/table-primary/table-primary.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -41,4 +41,4 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
         })
     ]
 })
-export class CoreModule { }
+export class SharedModule { }
