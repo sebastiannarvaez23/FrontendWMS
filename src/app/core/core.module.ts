@@ -7,6 +7,8 @@ import { TablePrimaryComponent } from '../core/components/table-primary/table-pr
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { BlurLayerComponent } from './components/blur-layer/blur-layer.component';
+import { ModalPrimaryComponent } from './components/modal-primary/modal-primary.component';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -18,6 +20,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
         SidebarComponent,
         CardSecondaryComponent,
         TablePrimaryComponent,
+        BlurLayerComponent,
+        ModalPrimaryComponent,
     ],
     exports: [
         CardPrimaryComponent,

@@ -1,0 +1,13 @@
+.modal {
+    position: absolute;
+    background-color: var(--very-white);
+    border-radius: 12px;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    max-width: 1000px;
+
+    -webkit-box-shadow: 1px -1px 16px -5px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 1px -1px 16px -5px rgba(0, 0, 0, 0.75);
+    box-shadow: 1px -1px 16px -5px rgba(0, 0, 0, 0.75);
+}
