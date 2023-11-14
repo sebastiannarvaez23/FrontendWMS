@@ -1,0 +1,3 @@
+<h3>{{ "modules.picking.title-list-pickings" | translate }}</h3>
+<app-table-primary [rows]="pickings" [headers]="( 'modules.picking.headers' | translate )"></app-table-primary>
+<button (click)="onAddPicking()" class="add-picking btn-circular">+</button>

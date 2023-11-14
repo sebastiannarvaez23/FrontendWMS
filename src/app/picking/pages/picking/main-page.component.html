@@ -1,97 +1,22 @@
 <span class="text">{{ "modules.picking.title-page" | translate }}</span>
 
 <div class="info-saleorder">
+    <!-- Search Sale Order -->
     <app-card-primary [width]="'w-10'" [height]="'h-3'">
-        <h3>{{ "modules.picking.title-search-so" | translate }}</h3>
-        <div class="search-so">
-            <input class="w-9" type="text" />
-        </div>
-        <div class="btns-search-so">
-            <button class="btn-normal w-5">
-                {{ "modules.picking.btn.search-so" | translate }}
-            </button>
-            <button class="btn-normal ">
-                {{ "modules.picking.btn.clean-info-so-searched" | translate }}
-            </button>
-        </div>
-        <div class="btns-navigate-so">
-            <button class="btn-circular">
-                {{ "modules.picking.btn.before-so" | translate }}
-            </button>
-            <button class="btn-circular">
-                {{ "modules.picking.btn.next-so" | translate }}
-            </button>
-        </div>
+        <app-saleorder-search></app-saleorder-search>
     </app-card-primary>
-
+    <!-- Sale Order Information -->
     <app-card-primary [width]="'w-9'" [height]="'h-3'">
-        <div class="title-info-so">
-            <h3>{{ "modules.picking.title-info-so" | translate }} {{ noSaleOrder }}</h3><i
-                class='bx bx-show-alt show-more-so'></i>
-        </div>
-
-        <div class="info-so">
-            <div class="item-info-so">
-                <label for="date-document">{{
-                    "modules.picking.label.date-document" | translate
-                    }}</label>
-                <input id="date-document" type="text" [disabled]="true" />
-            </div>
-
-            <div class="item-info-so">
-                <label for="date-delivery">{{
-                    "modules.picking.label.date-delivery" | translate
-                    }}</label>
-                <input id="date-delivery" type="text" [disabled]="true" />
-            </div>
-
-            <div class="item-info-so">
-                <label for="date-billing">{{
-                    "modules.picking.label.date-billing" | translate
-                    }}</label>
-                <input id="date-billing" type="text" [disabled]="true" />
-            </div>
-
-            <div class="item-info-so">
-                <label for="delivery-address">{{
-                    "modules.picking.label.delivery-address" | translate
-                    }}</label>
-                <input id="delivery-address" type="text" [disabled]="true" />
-            </div>
-
-            <div class="item-info-so">
-                <label for="customer-name">{{
-                    "modules.picking.label.customer-name" | translate
-                    }}</label>
-                <input id="customer-name" type="text" [disabled]="true" />
-            </div>
-
-            <div class="item-info-so">
-                <label for="customer-phone">{{
-                    "modules.picking.label.customer-phone" | translate
-                    }}</label>
-                <input id="customer-phone" type="text" [disabled]="true" />
-            </div>
-
-            <div class="item-info-so">
-                <label for="customer-email">{{
-                    "modules.picking.label.customer-email" | translate
-                    }}</label>
-                <input id="customer-email" type="text" [disabled]="true" />
-            </div>
-
-            <div class="item-info-so">
-                <label for="obs">{{ "modules.picking.label.obs" | translate }}</label>
-                <input id="obs" type="text" [disabled]="true" />
-            </div>
-        </div>
+        <app-saleorder-info></app-saleorder-info>
     </app-card-primary>
 </div>
 <div class="info-picking">
+    <!-- Pickign List -->
     <app-card-primary [width]="'w-10'" [height]="'h-5'">
-        <h3>{{ "modules.picking.title-list-pickings" | translate }}</h3>
-        <app-table-primary [rows]="pickings" [headers]="( 'modules.picking.headers' | translate )"></app-table-primary>
-        <button (click)="onAddPicking()" class="add-picking btn-circular">+</button>
+        <app-picking-list></app-picking-list>
     </app-card-primary>
-    <app-indicator></app-indicator>
+    <!-- Picking Indicators -->
+    <app-card-primary [width]="'w-9'" [height]="'h-5'">
+        <app-indicator></app-indicator>
+    </app-card-primary>
 </div>

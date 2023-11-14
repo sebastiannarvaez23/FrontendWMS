@@ -1,0 +1,35 @@
+.title-info-so {
+    display: flex;
+    margin: 0 !important;
+    justify-content: space-between;
+}
+
+.show-more-so:hover {
+    cursor: pointer;
+}
+
+.show-more-so {
+    margin: 10px 0;
+}
+
+
+
+.info-so {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: 0;
+}
+
+.info-so .item-info-so {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: 5px 10px;
+}
+
+.info-so .item-info-so label {
+    min-width: 190px;
+}
+
+.info-so .item-info-so input {
+    width: 80%;
+}

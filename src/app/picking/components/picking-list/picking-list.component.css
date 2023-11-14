@@ -1,0 +1,25 @@
+.add-picking {
+    background-color: var(--primary-color);
+    box-shadow: 0px 5px 25px #5856e956;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 50px;
+    position: absolute;
+    bottom: -16px;
+    right: -16px;
+    font-weight: bold;
+    color: var(--very-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 64px;
+    width: 64px;
+    transform: rotate(0);
+    transition: .3s ease;
+    z-index: 1;
+}
+
+.add-picking:hover {
+    transform: rotate(224deg);
+}
