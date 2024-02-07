@@ -11,6 +11,7 @@ import { IndicatorComponent } from './components/indicator/indicator.component';
 import { SaleorderSearchComponent } from './components/saleorder-search/saleorder-search.component';
 import { SaleorderInfoComponent } from './components/saleorder-info/saleorder-info.component';
 import { PickingListComponent } from './components/picking-list/picking-list.component';
+import { BoxComponent } from './pages/box/box.component';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -23,6 +24,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
         SaleorderSearchComponent,
         SaleorderInfoComponent,
         PickingListComponent,
+        BoxComponent,
     ],
     exports: [
         PickingComponent,
